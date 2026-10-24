@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-013</title>
-  <!-- DEBOOGER2000 DB2K-013: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-014</title>
+  <!-- DEBOOGER2000 DB2K-014: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1149,7 +1149,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 @media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-013: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-014: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1174,7 +1174,7 @@ body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
 <style>
-/* DB2K-013: compact mobile overlays, unobstructed notices, neutral edit state. */
+/* DB2K-014: compact mobile overlays, unobstructed notices, neutral edit state. */
 #btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
 #mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
 #toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
@@ -1199,7 +1199,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-013">DB2K-013</span>
+          <span class="build-mark" aria-label="Build DB2K-014">DB2K-014</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -19500,7 +19500,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-013_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-014_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -22222,7 +22222,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-013 offline-first React source preview.
+    // DB2K-014 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22508,7 +22508,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-013|' + target + '|');
+      feed('DB2K-014|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22532,7 +22532,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-013', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-014', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22553,7 +22553,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-013', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-014', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22698,7 +22698,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-013 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-014 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22946,7 +22946,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-013 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-014 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -23507,16 +23507,40 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
     }
 
     function rewriteEnvAndMeta(code, env) {
-      env = env || {};
-      return String(code || '')
-        .replace(/process\.env\.NODE_ENV/g, '"development"')
-        .replace(/import\.meta\.env\.([A-Za-z0-9_]+)/g, (m, key) => {
-          if (Object.prototype.hasOwnProperty.call(env, key)) return JSON.stringify(env[key]);
-          return '(globalThis.__D2_ENV && globalThis.__D2_ENV[' + JSON.stringify(key) + '])';
-        })
-        .replace(/import\.meta\.env/g, 'globalThis.__D2_ENV')
-        .replace(/import\.meta\.hot/g, 'undefined')
-        .replace(/import\.meta\.glob\([^)]*\)/g, '({})');
+      const source = String(code || '');
+      const ast = globalThis.acorn.parse(source, { ecmaVersion:'latest', sourceType:'module' });
+      const changes = [];
+      function property(node) {
+        return node && (node.computed ? astLiteralString(node.property) : node.property?.name);
+      }
+      function meta(node) {
+        return node?.type === 'MetaProperty' && node.meta?.name === 'import' && node.property?.name === 'meta';
+      }
+      function visit(node) {
+        if (!node || typeof node !== 'object') return;
+        if (node.type === 'MemberExpression') {
+          const object = node.object;
+          let value;
+          if (property(node) === 'NODE_ENV' && object?.type === 'MemberExpression' && property(object) === 'env' && object.object?.name === 'process') value = JSON.stringify('development');
+          else if (object?.type === 'MemberExpression' && meta(object.object) && property(object) === 'env' && typeof property(node) === 'string') {
+            const key = property(node);
+            value = Object.prototype.hasOwnProperty.call(env || {}, key) ? JSON.stringify(env[key]) : 'globalThis.__D2_ENV[' + JSON.stringify(key) + ']';
+          } else if (meta(object) && property(node) === 'env') value = 'globalThis.__D2_ENV';
+          else if (meta(object) && property(node) === 'hot') value = 'undefined';
+          if (value !== undefined) { changes.push({start:node.start,end:node.end,value}); return; }
+        }
+        for (const [key, child] of Object.entries(node)) {
+          if (key === 'parent') continue;
+          if (Array.isArray(child)) child.forEach(item => { if (item?.type) visit(item); });
+          else if (child?.type) visit(child);
+        }
+      }
+      visit(ast);
+      let rewritten = source;
+      changes.sort((a,b) => b.start - a.start).forEach(change => {
+        rewritten = rewritten.slice(0,change.start) + change.value + rewritten.slice(change.end);
+      });
+      return rewritten;
     }
 
     function localPreviewModuleId(local, query, collectedCss) {
@@ -23602,6 +23626,17 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
               const request = node.arguments && node.arguments.length === 1 ? astLiteralString(node.arguments[0]) : null;
               if (typeof request === 'string') throw new Error('CommonJS require("' + request + '") in ' + fromPath + ' cannot run in the isolated browser source preview. Use the project build or convert this module to ESM.');
             }
+            // A sandbox srcdoc URL has pathname "srcdoc", not an application route.
+            // Use the package's real memory router for this isolated source preview.
+            // Only the compiled import binding changes; uploaded source stays intact.
+            if (node.type === 'ImportDeclaration' && /^(?:react-router|react-router-dom)$/.test(astLiteralString(node.source) || '')) {
+              (node.specifiers || []).forEach(binding => {
+                if (binding.type !== 'ImportSpecifier' || binding.imported?.name !== 'BrowserRouter') return;
+                const localName = binding.local.name;
+                replacements.push({ start:binding.start, end:binding.end, value:'MemoryRouter as ' + localName });
+                addConsoleLog('info', '[PREVIEW ROUTING] ' + fromPath + ': BrowserRouter uses the package’s MemoryRouter inside the isolated preview. Routes start at / and navigation stays inside the preview.', 'preview-memory-router|' + fromPath);
+              });
+            }
             let literal = null;
             if ((node.type === 'ImportDeclaration' || node.type === 'ExportAllDeclaration' || node.type === 'ExportNamedDeclaration') && node.source) literal = node.source;
             else if (node.type === 'ImportExpression' && node.source) literal = node.source;
@@ -23638,12 +23673,12 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
               const filePath = String(options.filePath || (jsx ? 'file.tsx' : 'file.ts'));
               const result = ts.transpileModule(String(source || ''), {
                 fileName: filePath,
-                reportDiagnostics: false,
+                reportDiagnostics: true,
                 compilerOptions: {
                   target: ts.ScriptTarget.ES2020,
                   module: ts.ModuleKind.ESNext,
-                  jsx: jsx ? ts.JsxEmit.ReactJSX : ts.JsxEmit.Preserve,
-                  jsxImportSource: 'react',
+                  jsx: jsx ? (options.jsxRuntime === 'classic' ? ts.JsxEmit.React : ts.JsxEmit.ReactJSX) : ts.JsxEmit.Preserve,
+                  jsxImportSource: jsx && options.jsxRuntime !== 'classic' ? 'react' : undefined,
                   allowJs: true,
                   checkJs: false,
                   esModuleInterop: true,
@@ -23655,6 +23690,11 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
                   useDefineForClassFields: false
                 }
               });
+              const diagnostic = (result.diagnostics || []).find(item => item.category === ts.DiagnosticCategory.Error);
+              if (diagnostic) {
+                const position = diagnostic.file && diagnostic.file.getLineAndCharacterOfPosition(diagnostic.start || 0);
+                throw new Error(filePath + (position ? ':' + (position.line + 1) + ':' + (position.character + 1) : '') + ': ' + ts.flattenDiagnosticMessageText(diagnostic.messageText, ' '));
+              }
               return { code: result.outputText || String(source || '') };
             }
           };
@@ -23889,7 +23929,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
           }
           enqueue(m[1]);
         });
-        modules['d2:' + norm] = source;
+        modules['d2:' + norm] = source + '\n//# sourceURL=d2:///' + norm.split('/').map(encodeURIComponent).join('/') + '\n';
       }
 
       collectedCss.forEach(p => {
@@ -23995,8 +24035,12 @@ ${shell}
 var bootId = ${bootIdJson};
 var wantTw = ${tailwind ? 'true' : 'false'};
 var d2ExternalPackages = ${externalPackagesJson};
+var d2StartupError = null;
+var d2Failed = false;
+window.addEventListener('error', function(event){ if(!d2StartupError && event.message) d2StartupError = event.error || new Error(event.message + (event.filename ? ' at ' + event.filename + ':' + event.lineno + ':' + event.colno : '')); });
+window.addEventListener('unhandledrejection', function(event){ if(!d2StartupError) d2StartupError = event.reason || new Error('Startup promise rejected'); });
 function d2Need(m){var text=String(m||'');var lower=text.toLowerCase();var need='A deployable compiled output folder, or the missing file/dependency named above.';var marker='Missing file:';var i=text.indexOf(marker);if(i>=0){var tail=text.slice(i+marker.length);need='Needed file: '+tail.split(String.fromCharCode(10))[0].trim();}else if(d2ExternalPackages.length&&(lower.indexOf('failed to fetch dynamically imported module')>=0||lower.indexOf('networkerror')>=0||lower.indexOf('err_failed')>=0||lower.indexOf('data:text/javascript')>=0)){need='Needed project package'+(d2ExternalPackages.length>1?'s':'')+': '+d2ExternalPackages.join(', ')+'. Internet fallback is blocked or unavailable.';}else if(lower.indexOf('failed to fetch dynamically imported module')>=0||lower.indexOf('networkerror')>=0||lower.indexOf('err_failed')>=0){need='Needed: internet access for an uncommon project package, or upload the project’s compiled output folder.';}else{var phrases=['failed to resolve module specifier','cannot find module','cannot find package'];var found='';for(var p=0;p<phrases.length&&!found;p++){var pos=lower.indexOf(phrases[p]);if(pos>=0){var rest2=text.slice(pos+phrases[p].length).trim();var q2=rest2.charAt(0);if(q2==='"'||q2==="'"){var qend=rest2.indexOf(q2,1);found=qend>1?rest2.slice(1,qend):rest2.slice(1);}else found=rest2.split(' ')[0];}}if(found)need='Needed package/module: '+found;else if(lower.indexOf('process is not defined')>=0||lower.indexOf('require is not defined')>=0||lower.indexOf('__dirname is not defined')>=0||lower.indexOf('node:')>=0||lower.indexOf(' fs ')>=0)need='Needed: a real compiled browser build because this source uses Node-only behavior.';else if(lower.indexOf('fetch')>=0||lower.indexOf('network')>=0||lower.indexOf('internet')>=0||lower.indexOf('cdn')>=0||lower.indexOf('esm.sh')>=0||lower.indexOf('jsdelivr')>=0)need='Needed: internet access for the uncommon package named above, or upload the project’s compiled output folder.';}return need;}
-function d2Fail(e){var raw=String(e&&e.message||e);var stack=String(e&&e.stack||'');var name=String(e&&e.name||'Error');var m=raw;if(/Unexpected identifier .https/i.test(raw))m='Module JavaScript syntax error: '+raw+'. Reachable external packages: '+(d2ExternalPackages.join(', ')||'(none detected)')+'. This list is not proof of which module caused the error; inspect the error stack/network URL or build with the project lockfile.';if(m.length>900)m='Preview module failed: '+raw.slice(0,860)+'…';var safe=m.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');var need=d2Need(raw).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');document.body.style.background='#fff';document.body.innerHTML='<div style="padding:28px;max-width:620px;font-family:Inter,sans-serif;color:#0f172a"><h2 style="margin:0 0 8px;font-size:18px">Preview stopped</h2><p style="margin:0;color:#475569;line-height:1.5">'+safe+'</p><h3 style="margin:18px 0 6px;font-size:14px">What this project needs</h3><p style="margin:0;color:#475569;line-height:1.5">'+need+'</p></div>';try{parent.postMessage({type:"RUNTIME_ERROR",kind:"exception",message:m,stack:stack,errorName:name,phase:'react-module-bootstrap',previewGeneration:window.__D2_PREVIEW_GENERATION,previewNonce:window.__D2_PREVIEW_NONCE},"*");}catch(_){} }
+function d2Fail(e){if(d2Failed)return;d2Failed=true;var raw=String(e&&e.message||e);var stack=String(e&&e.stack||'');var name=String(e&&e.name||'Error');var m=raw;if(/Unexpected identifier .https/i.test(raw))m='Module JavaScript syntax error: '+raw+'. Reachable external packages: '+(d2ExternalPackages.join(', ')||'(none detected)')+'. This list is not proof of which module caused the error; inspect the error stack/network URL or build with the project lockfile.';if(m.length>900)m='Preview module failed: '+raw.slice(0,860)+'…';var safe=m.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');var need=d2Need(raw).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');document.body.style.background='#fff';document.body.innerHTML='<div style="padding:28px;max-width:620px;font-family:Inter,sans-serif;color:#0f172a"><h2 style="margin:0 0 8px;font-size:18px">Preview stopped</h2><p style="margin:0;color:#475569;line-height:1.5">'+safe+'</p><h3 style="margin:18px 0 6px;font-size:14px">What this project needs</h3><p style="margin:0;color:#475569;line-height:1.5">'+need+'</p></div>';try{parent.postMessage({type:"RUNTIME_ERROR",kind:"exception",message:m,stack:stack,errorName:name,phase:'react-module-bootstrap',previewGeneration:window.__D2_PREVIEW_GENERATION,previewNonce:window.__D2_PREVIEW_NONCE},"*");}catch(_){} }
 function d2Tw(){if(!wantTw)return;var tw=document.createElement("script");tw.type="module";tw.src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4";document.body.appendChild(tw);}
 import(bootId).then(function(){
   var attempts=0;
@@ -24012,12 +24056,12 @@ import(bootId).then(function(){
       return;
     }
     attempts++;
-    if(attempts<50){setTimeout(confirmMount,100);return;}
-    d2Fail("The React module loaded but did not render visible page content. Check Debooger for the source or dependency requirement.");
+    if(attempts<150){setTimeout(confirmMount,100);return;}
+    d2Fail(d2StartupError || new Error("The entry module loaded but did not render page content within 15 seconds. Check the entry mount and route configuration."));
   }
   confirmMount();
 }).catch(d2Fail);
-setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"))return;var root=document.getElementById("root");if(root&&root.querySelector("[data-d2-loading]"))d2Fail("The React page did not mount. Check Debooger for a missing uncommon dependency or upload a compiled dist/build/out folder.");},20000);
+setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"))return;var root=document.getElementById("root");if(root&&root.querySelector("[data-d2-loading]"))d2Fail(d2StartupError || new Error("The React page did not mount within 45 seconds. A required network dependency may still be unavailable."));},45000);
 <\/script>
 </body>
 </html>`;
@@ -24044,7 +24088,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
           settle({ok:!!detail.ok,message:detail.message});
         };
         window.addEventListener('d2-preview-settled',listener);
-        mountTimer=setTimeout(() => settle({ok:false,message:'React source did not mount within 25 seconds. Check the Audit for missing files or dependencies.'}),25000);
+        mountTimer=setTimeout(() => settle({ok:false,message:'React source did not mount within 50 seconds. Check the Audit for missing files or dependencies.'}),50000);
       });
       // A previous upload's compiler is never allowed to replace this session.
       frame.srcdoc = attachPreviewInterceptor(loadingHtml || constructReactPreviewShell('Resolving React source.'),interceptor);
@@ -25746,7 +25790,9 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
             tsxEntries.forEach(([path, file]) => {
               try {
                 const code = getVirtualFileText(file);
-                const res = ts.transpileModule(code, {
+                const res = /\.d\.(?:ts|mts|cts)$/i.test(path)
+                  ? { diagnostics: ts.createSourceFile(path, code, ts.ScriptTarget.Latest, true).parseDiagnostics }
+                  : ts.transpileModule(code, {
                   fileName: path,
                   reportDiagnostics: true,
                   compilerOptions: {
@@ -28401,7 +28447,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-013') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-014') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28493,8 +28539,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-013';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-013' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-014';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-014' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -29242,7 +29288,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-013 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-014 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29261,7 +29307,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-013')) throw new Error('Could not prepare DEBOOGER DB2K-013 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-014')) throw new Error('Could not prepare DEBOOGER DB2K-014 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29436,7 +29482,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-013', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-014', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
@@ -29672,7 +29718,7 @@ load();
 </script>
 
 <script>
-/* DB2K-013: native dialog click-out behavior; never dismiss on interior interaction. */
+/* DB2K-014: native dialog click-out behavior; never dismiss on interior interaction. */
 document.addEventListener('click',function(event){
  const dialog=event.target;
  if(dialog instanceof HTMLDialogElement && dialog.open && event.target===dialog){
