@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-010</title>
-  <!-- DEBOOGER2000 DB2K-010: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-011</title>
+  <!-- DEBOOGER2000 DB2K-011: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1149,7 +1149,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 @media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-010: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-011: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1173,6 +1173,20 @@ body.panoramic-preview .preview-sizer{width:100%!important;height:100%!important
 body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
+<style>
+/* DB2K-011: compact mobile overlays, unobstructed notices, neutral edit state. */
+#btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
+#mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
+#toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
+@media(max-width:900px){
+ #toast-msg{top:calc(62px + env(safe-area-inset-top))!important;bottom:auto!important;line-height:1.35!important;box-shadow:0 7px 24px rgba(15,23,42,.18)!important}
+ #d2-ai-chat,#d2-ai-chat[open]{width:min(370px,calc(100vw - 36px))!important;max-width:calc(100vw - 36px)!important;height:min(510px,calc(100dvh - 110px))!important;max-height:calc(100dvh - 110px)!important;border-radius:9px!important}
+ .fullscreen-modal .modal-box,.fullscreen-modal .modal-content{width:min(410px,calc(100vw - 32px))!important;max-width:calc(100vw - 32px)!important;max-height:calc(100dvh - 96px)!important;overflow:auto!important;margin:auto!important}
+ .b005-modal,.db2k-dialog{max-width:calc(100vw - 32px)!important;max-height:calc(100dvh - 96px)!important}
+ .workspace-popover{max-width:calc(100vw - 30px)!important}
+}
+</style>
+<style id="db2k-demo-tools-style">.db2k-demo-tools{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:8px;border-bottom:1px solid #e2e8f0}.db2k-demo-tools .more-section-label{grid-column:1/-1;font-size:12px;color:#64748b;font-weight:600}.db2k-demo-tools button{min-width:0;white-space:normal;text-align:center;justify-content:center!important;border:1px solid #dbe4ec!important;border-radius:6px!important;background:#fff!important;font-size:12px!important}@media(max-width:700px){.db2k-demo-tools{padding:6px;gap:5px}.db2k-demo-tools button{min-height:34px!important;font-size:12px!important}}</style>
 </head>
 <body class="mobile-shell-v28 project-empty">
 
@@ -1185,7 +1199,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-010">DB2K-010</span>
+          <span class="build-mark" aria-label="Build DB2K-011">DB2K-011</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1238,6 +1252,11 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
               <button type="button" onclick="openFilesSheet();closeWorkspacePopovers()">Browse files</button>
             </div>
             
+            <div class="db2k-demo-tools" role="group" aria-label="Demos">
+              <div class="more-section-label">Demos</div>
+              <button type="button" id="dropzone-sample-react-btn" onclick="closeWorkspacePopovers();window.loadSampleReactProject()">Demo React CRM</button>
+              <button type="button" id="dropzone-sample-html-btn" onclick="closeWorkspacePopovers();window.loadSampleHtmlProject()">Demo HTML5 Site</button>
+            </div>
             <button type="button" onclick="triggerOpenMenu();closeWorkspacePopovers()">Add files</button>
             <button type="button" onclick="openSelectedFileEditor();closeWorkspacePopovers()">Edit source</button>
             <button type="button" onclick="promptRenameSelectedFile();closeWorkspacePopovers()">Rename file</button>
@@ -1283,8 +1302,6 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
           <div class="dropzone-actions" id="dropzone-actions">
             <button type="button" class="btn" id="b005-home-deploy" onclick="b005OpenPagesDeploy()">GitHub</button>
             <button type="button" class="btn" id="dropzone-paste-btn">Paste</button>
-            <button type="button" class="btn" id="dropzone-sample-react-btn" onclick="window.loadSampleReactProject()" style="background:#e0f2fe;border-color:#bae6fd;color:#0369a1;font-weight:600;">Demo: React CRM</button>
-            <button type="button" class="btn" id="dropzone-sample-html-btn" onclick="window.loadSampleHtmlProject()" style="background:#f1f5f9;border-color:#e2e8f0;color:#334155;font-weight:600;">Demo: HTML5 Site</button>
           </div>
         </div>
 
@@ -19483,7 +19500,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-010_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-011_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -22205,7 +22222,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-010 offline-first React source preview.
+    // DB2K-011 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22491,7 +22508,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-010|' + target + '|');
+      feed('DB2K-011|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22515,7 +22532,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-010', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-011', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22536,7 +22553,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-010', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-011', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22681,7 +22698,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-010 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-011 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22921,7 +22938,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-010 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-011 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -28371,7 +28388,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-010') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-011') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28463,12 +28480,12 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-010';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-010' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-011';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-011' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
- <div class="d2-chat-head"><strong>AI Chat</strong><button type="button" aria-label="Close AI Chat" onclick="document.getElementById('d2-ai-chat').close()">Close</button></div>
+ <div class="d2-chat-head"><strong>AI Chat</strong></div>
  <details class="d2-chat-settings"><summary>AI connection settings</summary><div class="d2-chat-settings-grid">
   <label>Provider <select id="d2-api-provider"><option value="gemini">Google AI Studio</option><option value="openai">Groq / OpenAI-compatible endpoint</option></select></label>
   <label>API URL <input id="d2-api-url" autocomplete="off" placeholder="HTTPS endpoint"></label>
@@ -29212,7 +29229,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-010 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-011 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29231,7 +29248,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-010')) throw new Error('Could not prepare DEBOOGER DB2K-010 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-011')) throw new Error('Could not prepare DEBOOGER DB2K-011 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29406,7 +29423,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-010', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-011', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
@@ -29639,6 +29656,17 @@ load();
  });
  document.addEventListener('keydown',event=>{if(event.key!=='Escape')return;document.querySelectorAll('.fullscreen-modal.active').forEach(m=>m.classList.remove('active'));document.querySelectorAll('dialog[open]').forEach(m=>m.close());const ed=document.getElementById('visual-inspector-panel');if(ed?.classList.contains('open'))toggleVisualInspectMode(false);});
 })();
+</script>
+
+<script>
+/* DB2K-011: native dialog click-out behavior; never dismiss on interior interaction. */
+document.addEventListener('click',function(event){
+ const dialog=event.target;
+ if(dialog instanceof HTMLDialogElement && dialog.open && event.target===dialog){
+   const rect=dialog.getBoundingClientRect();
+   if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom) dialog.close();
+ }
+},true);
 </script>
 </body>
 </html>
