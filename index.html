@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-005</title>
-  <!-- DEBOOGER2000 DB2K-005: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-008</title>
+  <!-- DEBOOGER2000 DB2K-008: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1105,6 +1105,49 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 .workspace-pane-right .audit-nav-count.audit-bad{background:#f2f4f7!important;color:#66768b!important}
 @media(max-width:950px){body.workspace-view-active:not(.panoramic-preview):not(.mobile-landscape-preview) .view-fullscreen-flex.active{top:52px!important}body.workspace-view-active:not(.panoramic-preview):not(.mobile-landscape-preview) .main-viewport{padding-top:52px!important}}
 </style>
+
+<style id="db2k-006-mobile-corrections">
+@media (max-width:900px) {
+  .mobile-primary-nav [data-mobile-view="view-workspace"] {opacity:1!important;pointer-events:auto!important;cursor:pointer!important;}
+  #workspace-more-menu.tools-modal {
+    position:fixed!important;left:12px!important;right:12px!important;top:auto!important;
+    bottom:calc(54px + env(safe-area-inset-bottom))!important;
+    width:auto!important;max-height:min(48dvh,390px)!important;
+    padding:10px!important;overflow-y:auto!important;overflow-x:hidden!important;
+    border-radius:10px!important;transform:none!important;
+  }
+  #workspace-more-menu .tools-modal-head {margin-bottom:6px!important;padding-bottom:7px!important;font-size:13px!important;}
+  #workspace-more-menu .more-quick-actions {margin-bottom:8px!important;gap:5px!important;}
+  #workspace-more-menu .more-quick-actions button {min-height:30px!important;font-size:11px!important;padding:4px 2px!important;}
+  #workspace-more-menu .more-preview-options {padding-bottom:8px!important;margin-bottom:7px!important;}
+  #workspace-more-menu .more-section-label {font-size:11px!important;margin-bottom:4px!important;}
+  #workspace-more-menu .more-device-row, #workspace-more-menu .more-action-row {gap:4px!important;margin-top:5px!important;flex-wrap:wrap!important;}
+  #workspace-more-menu .more-device-row button, #workspace-more-menu .more-action-row button {min-height:29px!important;font-size:11px!important;padding:4px 6px!important;}
+  #workspace-more-menu .more-tools-section>summary {padding:8px 9px!important;font-size:12px!important;}
+  #workspace-more-menu .more-tools-list {padding:5px!important;gap:3px!important;}
+  #workspace-more-menu .more-tools-list button {min-height:30px!important;font-size:11px!important;padding:5px 7px!important;}
+}
+</style>
+
+<style id="db2k-008-compact-audit">
+/* Compact, independently collapsible audit findings on desktop and mobile. */
+#findings-list{gap:0!important;padding:6px 12px 16px!important;}
+#findings-list .b006-findings-section{padding:10px 4px 6px!important;border:0!important;font-size:12px!important;}
+#findings-list .finding-card{position:relative!important;display:block!important;margin:0 0 7px!important;padding:0!important;border:1px solid #dce4ec!important;border-radius:7px!important;background:#fff!important;overflow:hidden!important;box-shadow:none!important;}
+#findings-list .finding-card:before{content:none!important;display:none!important;}
+#findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:8px!important;padding:9px 11px!important;min-height:38px!important;list-style:none!important;cursor:pointer!important;}
+#findings-list .finding-card .b006-finding-head::-webkit-details-marker{display:none!important;}
+#findings-list .finding-card .b006-finding-head::after{content:'+';font-size:17px;font-weight:400;color:#8290a1;line-height:1;margin-left:3px;flex:0 0 auto;}
+#findings-list .finding-card[open]>.b006-finding-head::after{content:'−';}
+#findings-list .finding-card .b006-finding-title{font-size:12px!important;font-weight:600!important;line-height:1.35!important;min-width:0;flex:1;}
+#findings-list .finding-card .b006-finding-severity,#findings-list .finding-card .b006-finding-repeat{font-size:10px!important;flex:0 0 auto;}
+#findings-list .finding-card .b006-finding-body{padding:1px 11px 10px!important;border-top:1px solid #edf1f5!important;font-size:12px!important;line-height:1.45!important;}
+#findings-list .finding-card .b006-finding-body p{margin:7px 0 0!important;}
+#findings-list .finding-card.audit-high{border-left:3px solid #d64e4e!important;}
+#findings-list .finding-card.audit-medium{border-left:3px solid #d69b39!important;}
+#findings-list .finding-card.audit-review{border-left:3px solid #a5b1be!important;}
+@media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
+</style>
 </head>
 <body class="mobile-shell-v28 project-empty">
 
@@ -1117,7 +1160,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-005">DB2K-005</span>
+          <span class="build-mark" aria-label="Build DB2K-008">DB2K-008</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1211,7 +1254,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
           <div class="dropzone-actions" id="dropzone-actions">
             <button type="button" class="btn" id="b005-home-deploy" onclick="b005OpenPagesDeploy()">GitHub</button>
             <button type="button" class="btn" id="dropzone-paste-btn">Paste</button>
-            <button type="button" class="btn" id="dropzone-sample-react-btn" onclick="window.loadSampleReactProject()" style="background:#e0f2fe;border-color:#bae6fd;color:#0369a1;font-weight:600;">Demo: React 19 CRM</button>
+            <button type="button" class="btn" id="dropzone-sample-react-btn" onclick="window.loadSampleReactProject()" style="background:#e0f2fe;border-color:#bae6fd;color:#0369a1;font-weight:600;">Demo: React CRM</button>
             <button type="button" class="btn" id="dropzone-sample-html-btn" onclick="window.loadSampleHtmlProject()" style="background:#f1f5f9;border-color:#e2e8f0;color:#334155;font-weight:600;">Demo: HTML5 Site</button>
           </div>
         </div>
@@ -1333,7 +1376,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
           </div>
           <div class="findings-container" id="findings-list"><p class="b006-audit-empty">No issues found yet.</p></div>
           <details class="b005-diagnostics" id="audit-console-details"><summary>Console &amp; runtime evidence <span id="audit-console-count"></span></summary><div class="b005-console-actions"><button type="button" onclick="b005CopyConsole()">Copy evidence</button><button type="button" onclick="b005ClearConsole()">Clear</button></div><div id="b005-console" aria-live="polite">No console evidence collected yet.</div></details>
-          <details class="score-method audit-fold"><summary>Score method &amp; file scores</summary><div class="audit-method-body">Score uses verified completed checks only. Passed ÷ completed checks × 100, less confirmed finding penalties (high 12, medium 5, low 2 per occurrence). Unverified and unavailable checks are not passes. File scores start at 100 with confirmed severity deductions (high 30, medium 15, low 7 per occurrence). A score is not a guarantee of quality.<div id="file-scores-list"></div></div></details>
+          <details class="score-method audit-fold"><summary>Score method &amp; file scores</summary><div class="audit-method-body">Score ranges from 0 to 100 and deducts points for confirmed failed checks and findings. Unverified checks are not scored; insufficient evidence displays —. File scores also range from 0 to 100. Scores are indicators, not guarantees.<div id="file-scores-list"></div></div></details>
           <details class="audit-fold" id="upload-notes-details"><summary>Upload &amp; preview notes</summary><div id="upload-debug-box" class="upload-debug-box" hidden></div></details>
           <details class="audit-fold"><summary>Selected element details</summary><div id="visual-inspector-details"></div><div id="visual-source-hint"></div></details>
           <div id="b005-baseline-status" class="b005-baseline-status" role="status"></div>
@@ -1404,7 +1447,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 
   <nav class="mobile-primary-nav" id="mobile-primary-nav" aria-label="Main pages">
     <button type="button" data-mobile-view="view-home" onclick="switchView('view-home')"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V21h-6v-7H9v7H3z"/></svg><span>Home</span></button>
-    <button type="button" data-requires-project data-mobile-view="view-workspace" onclick="switchView('view-workspace');setMobileWorkspaceScreen('preview')"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><span>Viewer</span></button>
+    <button type="button" data-mobile-view="view-workspace" onclick="switchView('view-workspace');setMobileWorkspaceScreen('preview')"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><span>Viewer</span></button>
     <button type="button" id="mobile-nav-edit" onclick="openEditFromNav()"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m4 20 4-.9L19 8a2 2 0 0 0-3-3L5 16l-1 4Z"/><path d="m14 7 3 3"/></svg><span>Edit</span></button>
     <button type="button" id="mobile-nav-audit" onclick="openAuditFromNav()"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10l4 4v14H3V3h4Zm9 0v5h5"/><path d="m7 15 3 3 6-7"/></svg><span>Audit <span class="audit-nav-count audit-good" id="audit-mobile-count">0</span></span></button>
     <button type="button" id="mobile-more-nav-btn" aria-expanded="false" onclick="toggleWorkspacePopover('workspace-more-menu')"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg><span>More</span></button>
@@ -19411,7 +19454,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-005_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-008_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -19673,9 +19716,10 @@ codePos,
         if ('disabled' in el) el.disabled = !valid;
         el.setAttribute('aria-disabled', String(!valid));
       });
+      // Navigation remains enabled even without a project; only project actions are gated.
       document.querySelectorAll('[data-requires-project]').forEach(el => {
-        if ('disabled' in el) el.disabled = !valid;
-        el.setAttribute('aria-disabled', String(!valid));
+        if ('disabled' in el) el.disabled = false;
+        el.removeAttribute('aria-disabled');
       });
     }
 
@@ -19709,11 +19753,7 @@ codePos,
 
     function setMobileWorkspaceScreen(screen, options = {}) {
       if (!['preview','results'].includes(screen)) screen = 'preview';
-      if (!projectIsValid() && STATE.projectStatus !== 'restored') {
-        STATE.mobileWorkspaceScreen = 'preview';
-        if (!options.skipSave) switchView('view-home');
-        return;
-      }
+      if (!projectIsValid() && STATE.projectStatus !== 'restored') screen = 'preview';
       STATE.mobileWorkspaceScreen = screen;
       if (window.matchMedia('(max-width: 900px)').matches) {
         document.querySelectorAll('.workspace-pane-left.drawer-open, .workspace-pane-right.drawer-open').forEach(pane => pane.classList.remove('drawer-open'));
@@ -20059,7 +20099,7 @@ codePos,
     })();
 
     function switchView(viewId) {
-      if (viewId === 'view-workspace' && !projectIsValid() && STATE.projectStatus !== 'restored' && !(STATE.projectStatus === 'loading' && STATE.entryFile && STATE.files?.[STATE.entryFile])) viewId = 'view-home';
+      // Viewer is an accessible empty workspace before an upload; do not redirect to Home.
       STATE.activeView = viewId;
       scheduleWorkspaceSave(500);
       document.querySelectorAll('[data-desktop-view]').forEach(btn=>btn.classList.toggle('active',btn.dataset.desktopView===viewId));
@@ -22055,7 +22095,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-005 offline-first React source preview.
+    // DB2K-008 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22290,12 +22330,12 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-005|' + target + '|');
+      feed('DB2K-008|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
       });
-      return 'db2k005:' + target + ':' + (hash >>> 0).toString(36);
+      return 'db2k007:' + target + ':' + (hash >>> 0).toString(36);
     }
 
     function d2CacheBuild(key, value) {
@@ -22314,7 +22354,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-005', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-008', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22335,7 +22375,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-005', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-008', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22480,7 +22520,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-005 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-008 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22713,7 +22753,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-005 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-008 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -23580,7 +23620,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       if (!useEmbeddedReact && !navigator.onLine) {
         throw new Error('React ' + reactVer + ' cannot run from source offline: this standalone viewer bundles React 18.2 only. Upload the app’s compiled dist/build/out or build it with its exact dependencies, then open the resulting files.');
       }
-      const npmImports = await d2CoreReactImportMapAsync(pkg);
+      const npmImports = d2CoreReactImportMap(pkg);
       // External imports are collected after following the reachable source graph.
 
       const enqueue = (id) => {
@@ -24666,10 +24706,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       const open=mobile?!document.body.classList.contains('mobile-workspace-results'):!panel?.classList.contains('drawer-open');
       if(mobile)setMobileWorkspaceScreen(open?'results':'preview',{skipSave:true});
       else toggleWorkspaceDrawer('diagnostics',open);
-      if (open) {
-        document.querySelectorAll('#findings-list .finding-card.audit-high, #findings-list .finding-card.audit-medium').forEach(card => { card.open = true; });
-        
-      }
+      // Audit finding cards stay collapsed until individually selected.
       const btn=document.getElementById('visual-editor-audit-toggle');if(btn)btn.setAttribute('aria-expanded',String(open));
       const mobileBtn=document.getElementById('visual-editor-mobile-audit');if(mobileBtn)mobileBtn.setAttribute('aria-expanded',String(open));
     }
@@ -25059,29 +25096,25 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
     }
 
     function computeAuditScore(verification, tests, groups) {
+      // Quality score (0–100), based on confirmed evidence rather than a pass/fail ratio.
+      // A single failed check must not automatically collapse the entire project to zero.
       const pool = Array.isArray(tests) ? tests.filter(t => !String(t.id || '').startsWith('visual-')) : [];
       const passed = pool.length ? pool.filter(t => t.status === 'pass').length : Number(verification?.passed || 0);
-      const errors = pool.length ? pool.filter(t => t.status === 'error').length : Number(verification?.errors || 0);
-      const ran = passed + errors;
-      if (!ran) return null;
-      
-      const totalApplicable = pool.length || 1;
-      const coverageRate = ran / totalApplicable;
-      if (coverageRate < 0.15 && ran < 3) return null;
-
-      const basePercentage = (passed / ran) * 100;
-
-      let highPen = 0;
-      let medPen = 0;
-      let lowPen = 0;
+      const failed = pool.length ? pool.filter(t => t.status === 'error').length : Number(verification?.errors || 0);
+      const completed = passed + failed;
+      if (completed === 0) return null;
+      const applicable = pool.filter(t => t.status !== 'not-applicable').length;
+      // Insufficient coverage is explicitly shown as partial in the UI.
+      if (applicable > 0 && completed / applicable < 0.15 && completed < 3) return null;
+      const failedRatio = failed / completed;
+      const testPenalty = Math.min(65, failedRatio * 40 + Math.max(0, failed - 1) * 4);
+      let severityPenalty = 0;
       (groups || []).forEach(group => {
-        const sev = String(group.severity || 'medium').toLowerCase();
-        if (sev === 'high') highPen += 8;
-        else if (sev === 'medium') medPen += 3;
-        else lowPen += 1;
+        const count = Math.max(1, Number(group.count || 1));
+        const severity = String(group.severity || 'medium').toLowerCase();
+        severityPenalty += (severity === 'high' ? 7 : severity === 'medium' ? 3 : 1) * count;
       });
-      const boundedPenalty = Math.min(45, highPen) + Math.min(25, medPen) + Math.min(10, lowPen);
-      return Math.max(0, Math.min(100, Math.round(basePercentage - (boundedPenalty * 0.3))));
+      return Math.max(0, Math.min(100, Math.round(100 - testPenalty - Math.min(45, severityPenalty))));
     }
 
     function verifiedFindingLocation(finding, files = STATE.files) {
@@ -25141,7 +25174,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         const row = document.createElement('div');
         row.style.cssText = 'display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-top:1px solid #eef2f6;';
         const name = document.createElement('span'); name.textContent = file; name.style.cssText='overflow-wrap:anywhere;';
-        const value = document.createElement('span'); value.textContent = score + '/100'; value.style.flex='0 0 auto';
+        const value = document.createElement('span'); value.textContent = String(score); value.style.flex='0 0 auto';
         row.append(name,value); box.appendChild(row);
       });
     }
@@ -25167,7 +25200,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const verdict = document.getElementById('health-verdict');
       const sub = document.getElementById('health-subtext');
       if (gauge) {
-        gauge.textContent = hasProject && score != null ? Math.max(0, Math.min(100, Math.round(score))) + '/100' + (v.notVerified ? ' partial' : '') : '—';
+        gauge.textContent = hasProject && score != null ? Math.max(0, Math.min(100, Math.round(score))) : '—';
         gauge.setAttribute('aria-label', hasProject && score != null ? 'Project score ' + Math.round(score) + ' out of 100' : 'Project score unavailable until a check completes');
         gauge.classList.remove('score-good','score-warn','score-bad');
         if(hasProject && score != null) gauge.classList.add(score < 60 ? 'score-bad' : score < 85 ? 'score-warn' : 'score-good');
@@ -25822,7 +25855,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const groupedVisual = normalizeFindingGroups(visual, files);
       const score = computeAuditScore(verification, tests, [...groupedFindings, ...groupedCleanup, ...groupedVisual]);
       computeFileScores([...groupedFindings, ...groupedCleanup, ...groupedVisual]);
-      STATE.auditReport = { score, findings: groupedFindings, cleanup: groupedCleanup, visual: groupedVisual, categories, tests, verification, scoreFormula:'completed checks passed / completed checks minus confirmed finding penalties', fileScores:STATE.fileScores };
+      STATE.auditReport = { score, findings: groupedFindings, cleanup: groupedCleanup, visual: groupedVisual, categories, tests, verification, scoreFormula:'100 minus bounded verified failure and finding penalties; unavailable when checks are insufficient', fileScores:STATE.fileScores };
       applyAuditReportUi();
       renderFileScores();
       renderFindingsList();
@@ -25856,9 +25889,9 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         <div class="b006-finding-body"><p><strong>Where:</strong> ${escapeHtml(locationText)}</p><p><strong>Next step:</strong> ${escapeHtml(f.fix || 'Review this finding and verify before applying a correction.')}</p>
         ${f.evidence ? '<details class="b006-evidence"><summary>Evidence</summary><pre>'+escapeHtml(String(f.evidence))+'</pre></details>' : ''}
         ${f.rootCause ? '<p><strong>Cause:</strong> '+escapeHtml(String(f.rootCause))+'</p>' : ''}</div>`;
-      card.open = true;
+      card.open = false;
       const evidence = card.querySelector('.b006-evidence');
-      if (evidence) evidence.open = true;
+      if (evidence) evidence.open = false;
       return card;
     }
     function renderFindingsList() {
@@ -26865,7 +26898,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         'Project: ' + (STATE.projectName || ''),
         'Detected Type: ' + String(STATE.projectType || 'unknown').toUpperCase(),
         'Entry File: ' + (STATE.entryFile || 'none'),
-        'Health Score: ' + report.score + '/100',
+        'Health Score: ' + (report.score == null ? 'Unverified' : report.score),
         'Findings: ' + report.findings.length,
         '',
         'CATEGORY COUNTS'
@@ -26947,7 +26980,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
 - Detected Architecture: ${STATE.projectType.toUpperCase()}
 - Primary Entry: ${STATE.entryFile}
 - Build status: ${STATE.buildStatus?.label || 'Unknown'} — ${STATE.buildStatus?.detail || ''}
-- Project score: ${STATE.auditReport.score == null ? 'Unavailable' : STATE.auditReport.score + '/100'}
+- Project score: ${STATE.auditReport.score == null ? 'Unavailable' : String(STATE.auditReport.score)}
 - Score formula: completed checks passed / completed checks. Blocked and unavailable checks are excluded and listed below.
 
 ## Execution constraints
@@ -28154,7 +28187,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-005') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-008') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28189,13 +28222,13 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
     };
 
     window.loadSampleReactProject = async function() {
-      showToast('Loading sample React 19 + Lucide CRM project…');
+      showToast('Loading offline React CRM demo…');
       const files = {
         'package.json': {
           content: JSON.stringify({
             name: 'customer-hub-crm',
             version: '1.0.0',
-            dependencies: { 'react': '^19.0.0', 'react-dom': '^19.0.0', 'lucide-react': '^0.400.0', 'clsx': '^2.1.0' },
+            dependencies: { 'react': '^18.2.0', 'react-dom': '^18.2.0' },
             devDependencies: { 'vite': '^5.4.0', '@vitejs/plugin-react': '^4.3.0' }
           }, null, 2)
         },
@@ -28206,13 +28239,13 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
           content: 'import React from "react";\nimport ReactDOM from "react-dom/client";\nimport { App } from "./App";\nimport "./index.css";\nReactDOM.createRoot(document.getElementById("root")).render(<App />);'
         },
         'src/index.css': {
-          content: '@import "tailwindcss";\nbody { margin:0; font-family: Inter, system-ui, sans-serif; background: #f8fafc; color: #0f172a; }'
+          content: 'body { margin:0; font-family: Inter, system-ui, sans-serif; background: #f8fafc; color: #0f172a; }'
         },
         'src/App.tsx': {
-          content: "import React, { useState } from \"react\";\\nimport { Search, Plus, CheckCircle, ChevronRight } from \"lucide-react\";\\nimport { clsx } from \"clsx\";\\n\\nexport function App() {\\n  const [tab, setTab] = useState(\"all\");\\n  const [search, setSearch] = useState(\"\");\\n  const [leads, setLeads] = useState([\\n    { id: 1, name: \"Acme Cloud Corp\", contact: \"sarah@acme.io\", deal: \"$48,000\", status: \"Active\", stage: \"Proposal Sent\" },\\n    { id: 2, name: \"Starlight Digital\", contact: \"alex@starlight.co\", deal: \"$19,500\", status: \"Won\", stage: \"Signed Contract\" },\\n    { id: 3, name: \"Nexus BioTech\", contact: \"dr.chen@nexusbio.org\", deal: \"$112,000\", status: \"Active\", stage: \"Discovery Call\" },\\n    { id: 4, name: \"Vanguard Logistics\", contact: \"ops@vanguardlog.com\", deal: \"$34,200\", status: \"Pending\", stage: \"Security Review\" }\\n  ]);\\n\\n  const filtered = leads.filter(l => l.name.toLowerCase().includes(search.toLowerCase()) && (tab === \"all\" || l.status.toLowerCase() === tab));\\n\\n  return (\\n    <div style={{ minHeight: \"100vh\", display: \"flex\", flexDirection: \"column\", fontFamily: \"Inter, sans-serif\" }}>\\n      <nav style={{ height: \"60px\", background: \"#ffffff\", borderBottom: \"1px solid #e2e8f0\", display: \"flex\", alignItems: \"center\", justifyContent: \"space-between\", padding: \"0 24px\" }}>\\n        <div style={{ display: \"flex\", alignItems: \"center\", gap: \"10px\" }}>\\n          <div style={{ width: \"32px\", height: \"32px\", borderRadius: \"8px\", background: \"#0284c7\", color: \"#fff\", display: \"grid\", placeItems: \"center\", fontWeight: \"700\", fontSize: \"14px\" }}>CH</div>\\n          <span style={{ fontWeight: \"700\", fontSize: \"16px\", color: \"#0f172a\" }}>CustomerHub CRM</span>\\n          <span style={{ fontSize: \"11px\", background: \"#e0f2fe\", color: \"#0369a1\", padding: \"2px 8px\", borderRadius: \"12px\", fontWeight: \"600\" }}>React 19 Verified</span>\\n        </div>\\n        <div style={{ display: \"flex\", alignItems: \"center\", gap: \"12px\" }}>\\n          <div style={{ position: \"relative\", width: \"260px\" }}>\\n            <Search size={15} style={{ position: \"absolute\", left: \"10px\", top: \"10px\", color: \"#94a3b8\" }} />\\n            <input type=\"text\" placeholder=\"Search accounts...\" value={search} onChange={e => setSearch(e.target.value)} style={{ width: \"100%\", padding: \"7px 12px 7px 32px\", border: \"1px solid #cbd5e1\", borderRadius: \"6px\", fontSize: \"13px\", outline: \"none\", boxSizing: \"border-box\" }} />\\n          </div>\\n          <button style={{ display: \"flex\", alignItems: \"center\", gap: \"6px\", background: \"#0284c7\", color: \"#fff\", border: \"none\", borderRadius: \"6px\", padding: \"7px 14px\", fontSize: \"13px\", fontWeight: \"600\", cursor: \"pointer\" }}><Plus size={15} /> Add Lead</button>\\n        </div>\\n      </nav>\\n      <main style={{ flex: 1, padding: \"28px\", maxWidth: \"1200px\", margin: \"0 auto\", width: \"100%\", boxSizing: \"border-box\" }}>\\n        <div style={{ display: \"grid\", gridTemplateColumns: \"repeat(auto-fit, minmax(220px, 1fr))\", gap: \"16px\", marginBottom: \"24px\" }}>\\n          <div style={{ background: \"#ffffff\", padding: \"18px\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\" }}>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", fontWeight: \"500\" }}>Total Pipeline Value</div>\\n            <div style={{ fontSize: \"24px\", fontWeight: \"700\", color: \"#0f172a\", marginTop: \"4px\" }}>$213,700</div>\\n            <div style={{ fontSize: \"12px\", color: \"#16a34a\", marginTop: \"4px\", display: \"flex\", alignItems: \"center\", gap: \"4px\" }}><CheckCircle size={13} /> +18.4% this quarter</div>\\n          </div>\\n          <div style={{ background: \"#ffffff\", padding: \"18px\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\" }}>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", fontWeight: \"500\" }}>Active Opportunities</div>\\n            <div style={{ fontSize: \"24px\", fontWeight: \"700\", color: \"#0f172a\", marginTop: \"4px\" }}>14 Accounts</div>\\n            <div style={{ fontSize: \"12px\", color: \"#0284c7\", marginTop: \"4px\" }}>4 awaiting decision</div>\\n          </div>\\n          <div style={{ background: \"#ffffff\", padding: \"18px\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\" }}>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", fontWeight: \"500\" }}>Avg Close Velocity</div>\\n            <div style={{ fontSize: \"24px\", fontWeight: \"700\", color: \"#0f172a\", marginTop: \"4px\" }}>22 Days</div>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", marginTop: \"4px\" }}>5 days faster than target</div>\\n          </div>\\n        </div>\\n        <div style={{ background: \"#ffffff\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\", overflow: \"hidden\" }}>\\n          <div style={{ padding: \"16px 20px\", borderBottom: \"1px solid #e2e8f0\", display: \"flex\", alignItems: \"center\", justifyContent: \"space-between\" }}>\\n            <div style={{ display: \"flex\", gap: \"8px\" }}>\\n              {[\"all\", \"active\", \"won\", \"pending\"].map(k => (\\n                <button key={k} onClick={() => setTab(k)} style={{ border: \"none\", background: tab === k ? \"#e0f2fe\" : \"transparent\", color: tab === k ? \"#0369a1\" : \"#64748b\", padding: \"6px 14px\", borderRadius: \"6px\", fontSize: \"13px\", fontWeight: tab === k ? \"600\" : \"500\", cursor: \"pointer\", textTransform: \"capitalize\" }}>{k} Leads</button>\\n              ))}\\n            </div>\\n            <span style={{ fontSize: \"12px\", color: \"#94a3b8\" }}>Showing {filtered.length} leads</span>\\n          </div>\\n          <div style={{ overflowX: \"auto\" }}>\\n            <table style={{ width: \"100%\", borderCollapse: \"collapse\", textAlign: \"left\", fontSize: \"13px\" }}>\\n              <thead>\\n                <tr style={{ background: \"#f8fafc\", borderBottom: \"1px solid #e2e8f0\", color: \"#475569\" }}>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Company</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Contact</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Deal Value</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Pipeline Stage</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Status</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Action</th>\\n                </tr>\\n              </thead>\\n              <tbody>\\n                {filtered.map(row => (\\n                  <tr key={row.id} style={{ borderBottom: \"1px solid #f1f5f9\" }}>\\n                    <td style={{ padding: \"14px 20px\", fontWeight: \"600\", color: \"#0f172a\" }}>{row.name}</td>\\n                    <td style={{ padding: \"14px 20px\", color: \"#64748b\" }}>{row.contact}</td>\\n                    <td style={{ padding: \"14px 20px\", fontWeight: \"600\" }}>{row.deal}</td>\\n                    <td style={{ padding: \"14px 20px\", color: \"#475569\" }}>{row.stage}</td>\\n                    <td style={{ padding: \"14px 20px\" }}><span style={{ display: \"inline-block\", padding: \"3px 9px\", borderRadius: \"12px\", fontSize: \"11px\", fontWeight: \"600\", background: row.status === \"Won\" ? \"#dcfce7\" : row.status === \"Active\" ? \"#e0f2fe\" : \"#fef3c7\", color: row.status === \"Won\" ? \"#15803d\" : row.status === \"Active\" ? \"#0369a1\" : \"#b45309\" }}>{row.status}</span></td>\\n                    <td style={{ padding: \"14px 20px\" }}><button style={{ border: \"1px solid #cbd5e1\", background: \"#fff\", padding: \"4px 8px\", borderRadius: \"5px\", cursor: \"pointer\", fontSize: \"12px\", display: \"inline-flex\", alignItems: \"center\", gap: \"4px\" }}>View <ChevronRight size={13} /></button></td>\\n                  </tr>\\n                ))}\\n              </tbody>\\n            </table>\\n          </div>\\n        </div>\\n      </main>\\n    </div>\\n  );\\n}\\n"
+          content: "import React, { useState } from \"react\";\\n\\nexport function App() {\\n  const [tab, setTab] = useState(\"all\");\\n  const [search, setSearch] = useState(\"\");\\n  const [leads, setLeads] = useState([\\n    { id: 1, name: \"Acme Cloud Corp\", contact: \"sarah@acme.io\", deal: \"$48,000\", status: \"Active\", stage: \"Proposal Sent\" },\\n    { id: 2, name: \"Starlight Digital\", contact: \"alex@starlight.co\", deal: \"$19,500\", status: \"Won\", stage: \"Signed Contract\" },\\n    { id: 3, name: \"Nexus BioTech\", contact: \"dr.chen@nexusbio.org\", deal: \"$112,000\", status: \"Active\", stage: \"Discovery Call\" },\\n    { id: 4, name: \"Vanguard Logistics\", contact: \"ops@vanguardlog.com\", deal: \"$34,200\", status: \"Pending\", stage: \"Security Review\" }\\n  ]);\\n\\n  const filtered = leads.filter(l => l.name.toLowerCase().includes(search.toLowerCase()) && (tab === \"all\" || l.status.toLowerCase() === tab));\\n\\n  return (\\n    <div style={{ minHeight: \"100vh\", display: \"flex\", flexDirection: \"column\", fontFamily: \"Inter, sans-serif\" }}>\\n      <nav style={{ height: \"60px\", background: \"#ffffff\", borderBottom: \"1px solid #e2e8f0\", display: \"flex\", alignItems: \"center\", justifyContent: \"space-between\", padding: \"0 24px\" }}>\\n        <div style={{ display: \"flex\", alignItems: \"center\", gap: \"10px\" }}>\\n          <div style={{ width: \"32px\", height: \"32px\", borderRadius: \"8px\", background: \"#0284c7\", color: \"#fff\", display: \"grid\", placeItems: \"center\", fontWeight: \"700\", fontSize: \"14px\" }}>CH</div>\\n          <span style={{ fontWeight: \"700\", fontSize: \"16px\", color: \"#0f172a\" }}>CustomerHub CRM</span>\\n          <span style={{ fontSize: \"11px\", background: \"#e0f2fe\", color: \"#0369a1\", padding: \"2px 8px\", borderRadius: \"12px\", fontWeight: \"600\" }}>React 18 Offline Demo</span>\\n        </div>\\n        <div style={{ display: \"flex\", alignItems: \"center\", gap: \"12px\" }}>\\n          <div style={{ position: \"relative\", width: \"260px\" }}>\\n            \\n            <input type=\"text\" placeholder=\"Search accounts...\" value={search} onChange={e => setSearch(e.target.value)} style={{ width: \"100%\", padding: \"7px 12px 7px 32px\", border: \"1px solid #cbd5e1\", borderRadius: \"6px\", fontSize: \"13px\", outline: \"none\", boxSizing: \"border-box\" }} />\\n          </div>\\n          <button style={{ display: \"flex\", alignItems: \"center\", gap: \"6px\", background: \"#0284c7\", color: \"#fff\", border: \"none\", borderRadius: \"6px\", padding: \"7px 14px\", fontSize: \"13px\", fontWeight: \"600\", cursor: \"pointer\" }}>+ Add Lead</button>\\n        </div>\\n      </nav>\\n      <main style={{ flex: 1, padding: \"28px\", maxWidth: \"1200px\", margin: \"0 auto\", width: \"100%\", boxSizing: \"border-box\" }}>\\n        <div style={{ display: \"grid\", gridTemplateColumns: \"repeat(auto-fit, minmax(220px, 1fr))\", gap: \"16px\", marginBottom: \"24px\" }}>\\n          <div style={{ background: \"#ffffff\", padding: \"18px\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\" }}>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", fontWeight: \"500\" }}>Total Pipeline Value</div>\\n            <div style={{ fontSize: \"24px\", fontWeight: \"700\", color: \"#0f172a\", marginTop: \"4px\" }}>$213,700</div>\\n            <div style={{ fontSize: \"12px\", color: \"#16a34a\", marginTop: \"4px\", display: \"flex\", alignItems: \"center\", gap: \"4px\" }}> +18.4% this quarter</div>\\n          </div>\\n          <div style={{ background: \"#ffffff\", padding: \"18px\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\" }}>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", fontWeight: \"500\" }}>Active Opportunities</div>\\n            <div style={{ fontSize: \"24px\", fontWeight: \"700\", color: \"#0f172a\", marginTop: \"4px\" }}>14 Accounts</div>\\n            <div style={{ fontSize: \"12px\", color: \"#0284c7\", marginTop: \"4px\" }}>4 awaiting decision</div>\\n          </div>\\n          <div style={{ background: \"#ffffff\", padding: \"18px\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\" }}>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", fontWeight: \"500\" }}>Avg Close Velocity</div>\\n            <div style={{ fontSize: \"24px\", fontWeight: \"700\", color: \"#0f172a\", marginTop: \"4px\" }}>22 Days</div>\\n            <div style={{ fontSize: \"12px\", color: \"#64748b\", marginTop: \"4px\" }}>5 days faster than target</div>\\n          </div>\\n        </div>\\n        <div style={{ background: \"#ffffff\", borderRadius: \"10px\", border: \"1px solid #e2e8f0\", overflow: \"hidden\" }}>\\n          <div style={{ padding: \"16px 20px\", borderBottom: \"1px solid #e2e8f0\", display: \"flex\", alignItems: \"center\", justifyContent: \"space-between\" }}>\\n            <div style={{ display: \"flex\", gap: \"8px\" }}>\\n              {[\"all\", \"active\", \"won\", \"pending\"].map(k => (\\n                <button key={k} onClick={() => setTab(k)} style={{ border: \"none\", background: tab === k ? \"#e0f2fe\" : \"transparent\", color: tab === k ? \"#0369a1\" : \"#64748b\", padding: \"6px 14px\", borderRadius: \"6px\", fontSize: \"13px\", fontWeight: tab === k ? \"600\" : \"500\", cursor: \"pointer\", textTransform: \"capitalize\" }}>{k} Leads</button>\\n              ))}\\n            </div>\\n            <span style={{ fontSize: \"12px\", color: \"#94a3b8\" }}>Showing {filtered.length} leads</span>\\n          </div>\\n          <div style={{ overflowX: \"auto\" }}>\\n            <table style={{ width: \"100%\", borderCollapse: \"collapse\", textAlign: \"left\", fontSize: \"13px\" }}>\\n              <thead>\\n                <tr style={{ background: \"#f8fafc\", borderBottom: \"1px solid #e2e8f0\", color: \"#475569\" }}>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Company</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Contact</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Deal Value</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Pipeline Stage</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Status</th>\\n                  <th style={{ padding: \"12px 20px\", fontWeight: \"600\" }}>Action</th>\\n                </tr>\\n              </thead>\\n              <tbody>\\n                {filtered.map(row => (\\n                  <tr key={row.id} style={{ borderBottom: \"1px solid #f1f5f9\" }}>\\n                    <td style={{ padding: \"14px 20px\", fontWeight: \"600\", color: \"#0f172a\" }}>{row.name}</td>\\n                    <td style={{ padding: \"14px 20px\", color: \"#64748b\" }}>{row.contact}</td>\\n                    <td style={{ padding: \"14px 20px\", fontWeight: \"600\" }}>{row.deal}</td>\\n                    <td style={{ padding: \"14px 20px\", color: \"#475569\" }}>{row.stage}</td>\\n                    <td style={{ padding: \"14px 20px\" }}><span style={{ display: \"inline-block\", padding: \"3px 9px\", borderRadius: \"12px\", fontSize: \"11px\", fontWeight: \"600\", background: row.status === \"Won\" ? \"#dcfce7\" : row.status === \"Active\" ? \"#e0f2fe\" : \"#fef3c7\", color: row.status === \"Won\" ? \"#15803d\" : row.status === \"Active\" ? \"#0369a1\" : \"#b45309\" }}>{row.status}</span></td>\\n                    <td style={{ padding: \"14px 20px\" }}><button style={{ border: \"1px solid #cbd5e1\", background: \"#fff\", padding: \"4px 8px\", borderRadius: \"5px\", cursor: \"pointer\", fontSize: \"12px\", display: \"inline-flex\", alignItems: \"center\", gap: \"4px\" }}>View </button></td>\\n                  </tr>\\n                ))}\\n              </tbody>\\n            </table>\\n          </div>\\n        </div>\\n      </main>\\n    </div>\\n  );\\n}\\n".replace(/\\n/g, "\n")
         }
       };
-      await window.loadSyntheticProject(files, 'CustomerHub CRM (React 19)');
+      await window.loadSyntheticProject(files, 'CustomerHub CRM (React 18 Offline)');
     };
 
     window.loadSampleHtmlProject = async function() {
@@ -28246,8 +28279,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-005';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-005' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-008';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-008' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -28995,7 +29028,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-005 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-008 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29014,7 +29047,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-005')) throw new Error('Could not prepare DEBOOGER DB2K-005 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-008')) throw new Error('Could not prepare DEBOOGER DB2K-008 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29189,7 +29222,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-005', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-008', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
