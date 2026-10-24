@@ -1,0 +1,91 @@
+DB2K-003 — COMPLETE DEBOOGER REACT ENGINE REPAIR PROMPT
+Copy this entire document into your AI coding assistant along with DB2K-002.html.
+
+ROLE AND OBJECTIVE
+You are upgrading DEBOOGER2000, a standalone, single-file HTML visual project viewer, code inspector, audit tool, and exporter. Its users upload HTML, ZIPs, folders, and JavaScript/TypeScript/React projects, then expect to see their real application in an isolated, interactive preview. The existing version is DB2K-002. Produce a repaired DB2K-003.html, retaining the entire functioning app and its visual appearance. Your principal task is to FIX REAL REACT BUILDING, missing compiled output, dependency handling, and credible test results, NOT to add more superficial project-type labels or demo previews.
+
+MANDATORY DELIVERY
+1. Deliver exactly ONE complete, self-contained, directly openable HTML file named DB2K-003.html, containing Debooger's UI, core logic, offline compiler/runtime resources that are feasible to embed, and its own local ZIP support. Do not split Debooger into source files, publish incomplete snippets, or require a repository or GitHub for React preview.
+2. The HTML file must open from local files where browser policy permits and on ordinary static HTTPS hosting. Explicitly handle/report differences between file://, iOS Files, Safari, Chromium, and static hosting. Do not promise capabilities prohibited by a browser sandbox.
+3. Keep the existing user interface and working features: HTML previews, ZIP imports, inspector and editor, audit and console, zoom/pan, fullscreen, mobile/desktop layout, saved work, version isolation, GitHub settings and publishing, notifications, history and export. Do not redesign unrelated areas or remove features to simplify development.
+4. No real user ZIP, CRM ZIP, GitHub login or token is required to begin or complete implementation/testing. Create small synthetic test fixtures within the test process. If a user-provided React ZIP is available later, test it as an additional acceptance case, not as a prerequisite.
+5. Make actual changes to the uploaded DB2K-002 source and deliver the downloadable DB2K-003.html artifact. Do not respond with plans alone or claim completion based only on code inspection.
+
+CRITICAL FAILURE TO FIX
+DB2K-002 can detect a React project and recognize existing dist/build/out output, but when compiled output is absent it frequently falls back directly to a partial JSX/TSX source preview. Its full WebContainer/Vite build remains a separate manual action and is unavailable in some environments. External imports, such as react-router-dom and @tanstack/react-query, may fail to load from esm.sh, leaving a blank preview. The embedded React 18.2 compatibility runtime does NOT establish genuine React 19 support. The UI repeatedly looks for index.html even when an existing React source index.html is present but has NOT been compiled. Repair this entire decision pipeline.
+
+SECTION A — ONE AUTHORITATIVE PROJECT INTAKE AND DETECTOR
+- Use a single intake process for .html/.htm, .zip (including nested archives as practical with safety limits), folders, .js/.jsx/.ts/.tsx, complete source directories, and existing compiled outputs.
+- Identify actual project roots in nested directories; ignore noise folders and misleading sample index.html files. Read package.json, scripts, dependencies/devDependencies, exports, package manager lockfiles, workspace declarations, tsconfig/jsconfig aliases, bundler configurations and relevant entry files.
+- Detect plain HTML, React 16/17/18/19, Vite, CRA, Next.js, Remix/React Router, Gatsby, Astro with React, Parcel, Webpack, Rspack/Rsbuild, Storybook, Expo Web, monorepos, and custom React setups where discernible.
+- Recognize actual configured output paths, not just names dist/build/out: examples include build/client, storybook-static, configured Vite outDir, Webpack output.path, Next static export out versus server output.
+- Mark each candidate as (1) immediately previewable static build, (2) buildable locally in this environment, (3) source-compatible limited preview, or (4) requires external server/build prerequisites. Report the evidence for each classification.
+- A source index.html containing module imports MUST NOT be treated as a compiled site. Don't endlessly search for index.html once the real project entry is known. Standalone React components may lack index.html entirely; provide a safe synthesized preview shell only if such a mode is actually supported, and label it appropriately.
+
+SECTION B — AUTOMATIC MISSING BUILD / DIST RECOVERY
+- On import, prefer a validated existing built application and its assets. Validate that its references resolve and that it can load.
+- If no usable compiled build exists, automatically select an appropriate build strategy and attempt it. The user should not need to discover a separate 'Build React / Vite' button first.
+- For supported sources, transform and bundle actual TS/TSX/JSX/JS, CSS, images/assets, local imports and dependency graphs into runnable output. Generate real compiled files in an isolated virtual project filesystem; a fake or empty dist directory never counts.
+- For framework-specific builds, use the real project build command when the requisite execution environment and package dependencies are available. Respect lockfile and package manager constraints where feasible. Next.js SSR/Node services cannot be represented by static export automatically; clearly identify this limitation and offer a truthful supported preview mode.
+- Automatically select and display the successful generated entry, preserving navigation/assets. Distinguish a genuine production-equivalent build from a lightweight browser-source preview and indicate both its limitations and provenance.
+- Provide build stages in the PREVIEW area: detected -> dependency resolution -> transpiling -> bundling -> output validation -> runtime mount verification. Include progress and concise actionable errors. Never show a blank canvas or 'looking for index.html' as the only result.
+- Cache successful compiled artifacts by a collision-resistant project fingerprint plus framework/version/config/dependency identity. Do not cross-load another uploaded project or Debooger build's artifacts. No silent destructive cache cleanup.
+
+SECTION C — COMPILERS, RUNTIMES AND PACKAGES
+- Assess actual embedded tools already present before adding new libraries. Consolidate, don't duplicate, React resolvers, Babel/TypeScript/esbuild-WASM/transpilation pathways and preview shells.
+- Support modern JSX/TSX/TypeScript, ESM/CJS where feasible, dynamic imports, CSS/CSS Modules, assets and common import alias patterns. Add correct module resolution, dependency graph traversal and cycle handling.
+- Match genuine React and ReactDOM versions to the project if available: 16, 17, 18, 19. Support the correct createRoot/legacy root API and React 19-only APIs only using a real compatible runtime. Never quietly use React 18 while reporting full React 19 verification.
+- For external packages, first use validated embedded/cached compatible packages. When online, optionally fetch from trusted resolvers with integrity/version awareness and allow the user to understand the network requirement. Support react-router-dom, React Router framework packages, @tanstack/react-query and other representative packages in tests; do not promise that all npm packages are pre-embedded.
+- Preserve package resolution failures exactly: package name, version, import site, attempted sources, browser/runtime requirement and recommended remedy. Avoid infinite retry/fetch loops. Do not mistake failed downloads for successful compilation.
+- A full Node/Vite build in the browser is conditional on platform capability. Check WebContainer prerequisites such as cross-origin isolation and supported browser APIs *before* claiming it can run. If unavailable on static hosting/iOS Safari, use an explicitly scoped client-side compiler where it can truly handle the project, or show a clear blocker. Do NOT claim a single static HTML can run arbitrary Node native addons, SSR, private packages or a real server with no host support.
+- Keep the single-file Debooger app offline-first. If a specific project requires missing packages or external services, explain those requirements rather than silently depending on a CDN.
+
+SECTION D — PREVIEW AND RUNTIME VERIFICATION
+- Rendering success requires actual user-app code to mount and display a meaningful DOM or framework-rendered root, not merely ZIP extracted, index.html found, iframe loaded or React dependency initialized.
+- Capture syntax, compiler, module-resolution, package fetch, render, hydration, cross-origin and runtime errors, including unhandled promise rejections. Surface concise errors directly in preview; automatically expose supporting details in Audit/Console when needed.
+- Preserve desktop preview; on mobile default to 1200 CSS-pixel canvas fit-to-view. Keep independent pan and zoom, one-finger in-page scrolling as a distinct mode, centered initial view, full-screen landscape fitted rather than cropped, and a working Exit control.
+- Support multi-page navigation where possible. If SPA routing or backend endpoints cannot work in a sandbox, identify precisely what is and isn't being exercised.
+- Never mark a project 'Passed' solely because a compatibility demo worked or the entry iframe emitted a load event.
+
+SECTION E — TEST SCORE AND AUDIT ACCURACY
+- Rebuild/repair the scoring lifecycle so it NEVER gives a misleading 0/100 from one failed check and many unverified checks, or a high score when React failed to mount.
+- Track each check explicitly as PASS, FAIL, NOT RUN/UNVERIFIED, UNSUPPORTED or SKIPPED with evidence and timestamp. Calculate coverage separately from pass rate; do not count unverified work as passed.
+- Display separately: file integrity, source/parse, dependency resolution, compilation/build, runtime/mount, and preview interaction. Use a composite grade ONLY if coverage/required gates justify it; otherwise display 'Unverified'/'Partial' instead of fabricated certainty.
+- Make the score gauge/Recheck button truly run the applicable checks and refresh the visible summary, findings and console. Make errors expanded by default when errors occur, including relevant stack traces and missing import information. Separate confirmed errors from heuristics and optional suggestions.
+- Recheck after file changes and reload without using stale checks for an unrelated version/project. Do not fill the Audit with synthetic errors or fake fixes. Include a brief 'why this score' breakdown.
+- Keep every control visually active; where an operation cannot run, explain the actual limitation on interaction rather than greying out/hiding it or faking success.
+
+SECTION F — STABILITY, DATA AND SECURITY
+- Enforce Smart Version Isolation: unique namespaces for Debooger version, uploaded app, project, build and session. Isolate iframe runtime, CSS/JS, module maps, compiled artifacts, local/session storage and caches. Never overwrite another project/version; keep approved shared user settings and preserve saved projects. Never auto-delete saved work.
+- Defend against ZIP traversal, decompression bombs, unsafe paths, file collisions, excessive archive nesting, huge dependencies, resource exhaustion, and arbitrary embedded project scripts escaping the preview sandbox.
+- Handle 100+ MB source archives or very large projects with explicit realistic browser memory/file limits, streaming or chunking when feasible, early diagnostics, and no UI freeze where possible.
+- Keep GitHub/Pages code independent from React building. Do not require GitHub for reading or compiling files. Do not change publishing behavior during this React-focused upgrade.
+- Remove genuinely dead/duplicate legacy paths and conflicting CSS only when it is safe to do so. Avoid new layers of last-minute overrides. Do not rewrite the whole application or weaken existing working features.
+
+SECTION G — AUTOMATED ACCEPTANCE TESTS (GENERATE YOUR OWN FIXTURES)
+Build small synthetic project fixtures programmatically; NO USER-SUPPLIED ZIP REQUIRED. Test at least:
+1. Plain standalone HTML; HTML importing local CSS/JS/assets.
+2. React 16/17/18/19 samples, with version-appropriate runtime paths; note environment restrictions.
+3. Vite React JSX and TSX projects with missing dist; confirm real output is generated and DOM mounts.
+4. React Router navigation; TanStack Query dependency; CSS Modules/assets; TypeScript aliases.
+5. React project with existing valid dist; malformed or incomplete dist; custom outDir.
+6. React source file without index.html; nested project root in a ZIP; project with multiple HTML pages.
+7. Missing package, incompatible version, invalid JSX/TSX syntax, failed fetch, SSR-only Next project, no Node/WebContainer environment.
+8. Same project reloaded; two different projects opened consecutively; separate Debooger versions side by side — no stale preview contamination.
+9. Audit scoring with zero completed checks, all-pass, one-fail-many-unverified, compiler failure, successful mounted React app. The visible score must be defensible.
+10. Mobile-size and desktop-size smoke tests for preview, pan/zoom, scroll mode, audit visibility, and file selection. If real iOS Safari testing was not performed, explicitly state that.
+
+For each fixture record: detected framework, expected strategy, actual strategy, dependencies resolved, output generated yes/no, DOM mounted yes/no, tests passed/failed/unverified, and concise error. Mocking an npm response is not proof of a real dependency installation; keep mocked and live results separate.
+
+SECTION H — RELEASE PROCEDURE
+1. First inspect the full DB2K-002 source for the existing functions and previously failed paths (especially buildSandboxLiveViewer, tryWebContainerBuild, project-root/entry identification, package import resolution, and computeAuditScore). Record the confirmed cause of the failures.
+2. Make the smallest coherent architectural consolidation capable of actually achieving the above requirements. Prioritize functional React load/build over visual polish.
+3. Perform syntax, quick browser launch and the synthetic fixture tests. Do not run an exhaustive GitHub repository test suite or get stuck in unbounded testing.
+4. Deliver DB2K-003.html as a download. Provide a concise changelog and table of VERIFIED supported cases, PARTIAL cases, and UNSUPPORTED cases with exact blockers. State whether a real dist/build was produced versus compatibility source preview.
+5. DO NOT claim universal React coverage, 100% successful builds, production-ready React 19 or successful mobile Safari verification without evidence. Be explicit about toolchain, package, server and browser limitations.
+6. Do not push to GitHub unless specifically instructed afterward.
+
+SUCCESS CRITERION
+Given a supported React/Vite project with NO dist, Debooger automatically identifies its real entry, resolves compatible dependencies, builds genuine runnable assets in its isolated virtual filesystem, opens them, verifies the React UI mounted, and accurately reports test coverage. For unsupported projects it must display exact actionable blockers IN THE PREVIEW immediately; never leave the user with a blank screen or a misleading search for index.html.
+
+IMPORTANT: Execute implementation now, not merely draft an implementation plan. Preserve the existing DEBOOGER user-facing experience, deliver a real single-file DB2K-003.html and report honestly what was and was not proven.
