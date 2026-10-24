@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-014</title>
-  <!-- DEBOOGER2000 DB2K-014: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-016</title>
+  <!-- DEBOOGER2000 DB2K-016: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1149,7 +1149,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 @media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-014: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-016: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1174,7 +1174,7 @@ body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
 <style>
-/* DB2K-014: compact mobile overlays, unobstructed notices, neutral edit state. */
+/* DB2K-016: compact mobile overlays, unobstructed notices, neutral edit state. */
 #btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
 #mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
 #toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
@@ -1187,6 +1187,58 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
 }
 </style>
 <style id="db2k-demo-tools-style">.db2k-demo-tools{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:8px;border-bottom:1px solid #e2e8f0}.db2k-demo-tools .more-section-label{grid-column:1/-1;font-size:12px;color:#64748b;font-weight:600}.db2k-demo-tools button{min-width:0;white-space:normal;text-align:center;justify-content:center!important;border:1px solid #dbe4ec!important;border-radius:6px!important;background:#fff!important;font-size:12px!important}@media(max-width:700px){.db2k-demo-tools{padding:6px;gap:5px}.db2k-demo-tools button{min-height:34px!important;font-size:12px!important}}</style>
+
+<style id="db2k-015-mobile-menu">
+/* One measured menu layout; keep actions within the panel. */
+#workspace-more-menu .more-action-row{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;min-width:0!important;flex-wrap:nowrap!important}
+#workspace-more-menu .more-action-row>button{width:100%!important;min-width:0!important;max-width:100%!important;white-space:normal!important;overflow-wrap:break-word!important;line-height:1.2!important;padding:6px 3px!important}
+#workspace-more-menu .more-device-row{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+#workspace-more-menu .more-device-row>button{width:100%!important;min-width:0!important}
+#workspace-more-menu .more-action-row #d2-touch-mode-btn{font-size:11px!important}
+@media(max-width:900px){
+ #workspace-more-menu.tools-modal{left:14px!important;right:14px!important;bottom:calc(54px + env(safe-area-inset-bottom))!important;width:auto!important;max-width:none!important;max-height:min(65dvh,500px)!important;padding:11px!important;box-sizing:border-box!important;overflow-x:hidden!important}
+ #workspace-more-menu .more-action-row{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:5px!important}
+ #workspace-more-menu .more-action-row>button{font-size:11px!important;min-height:35px!important}
+ #workspace-more-menu .more-action-row #d2-touch-mode-btn{font-size:10px!important}
+ #workspace-more-menu .more-quick-actions button{white-space:normal!important;line-height:1.25!important}
+ #b005-pages-modal,#b012-create-modal{width:min(380px,calc(100vw - 42px))!important;max-width:calc(100vw - 42px)!important;max-height:min(70dvh,600px)!important;border-radius:10px!important;overflow:hidden!important}
+ #b005-pages-modal .b005-modal-body,#b012-create-modal .b005-modal-body{max-height:calc(min(70dvh,600px) - 48px)!important;overflow-y:auto!important;padding:11px 13px!important;gap:10px!important}
+ #b005-pages-modal .b005-modal-head,#b012-create-modal .b005-modal-head{padding:11px 13px!important}
+ #b005-pages-modal .b012-inline{flex-wrap:wrap!important}
+ #b005-pages-modal .b012-inline>button{flex:1 1 125px!important;white-space:normal!important}
+ #overlay-settings .b012-settings-box{width:min(380px,calc(100vw - 42px))!important;max-width:calc(100vw - 42px)!important;max-height:min(72dvh,620px)!important}
+ #overlay-settings .b012-settings-body{max-height:calc(min(72dvh,620px) - 48px)!important;overflow-y:auto!important}
+}
+</style>
+<style id="db2k-016-interface">
+/* The More sheet and GitHub dialog share one compact, viewport-safe layout. */
+#workspace-more-menu .more-action-row{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:6px!important;min-width:0!important}
+#workspace-more-menu .more-action-row>button{min-width:0!important;width:100%!important;white-space:normal!important;overflow-wrap:anywhere!important;line-height:1.2!important}
+#workspace-more-menu .more-device-row{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+#workspace-more-menu .more-device-row>button{min-width:0!important;width:100%!important}
+.db2k-settings-advanced,.db2k-settings-fold{min-width:0}
+.db2k-settings-advanced>summary,.db2k-settings-fold>summary{cursor:pointer;list-style:none;color:#334155;font-size:13px;font-weight:600;padding:10px 2px}
+.db2k-settings-advanced>summary::-webkit-details-marker,.db2k-settings-fold>summary::-webkit-details-marker{display:none}
+.db2k-settings-advanced>summary::after,.db2k-settings-fold>summary::after{content:'+';float:right;color:#728297;font-size:17px;font-weight:400}
+.db2k-settings-advanced[open]>summary::after,.db2k-settings-fold[open]>summary::after{content:'−'}
+.db2k-settings-advanced-body,.db2k-settings-fold-body{display:grid;gap:9px;min-width:0;padding:8px 0}
+.db2k-settings-advanced{border-top:1px solid #e2e8ef;border-bottom:1px solid #e2e8ef}
+.db2k-settings-fold{display:block!important}
+#workspace-more-menu .more-tools-section:not([open]) .more-tools-list{display:none!important}
+@media(max-width:900px){
+ #workspace-more-menu.tools-modal{left:12px!important;right:12px!important;width:auto!important;max-width:none!important;bottom:calc(54px + env(safe-area-inset-bottom))!important;max-height:min(68dvh,520px)!important;padding:11px!important;overflow-x:hidden!important;overflow-y:auto!important}
+ #workspace-more-menu .more-action-row{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+ #workspace-more-menu .more-action-row>button{font-size:11px!important;min-height:34px!important;padding:5px 3px!important}
+ #workspace-more-menu #d2-touch-mode-btn{font-size:10px!important}
+ #overlay-settings .b012-settings-box{width:min(380px,calc(100vw - 42px))!important;max-width:calc(100vw - 42px)!important;max-height:min(73dvh,640px)!important;overflow:hidden!important}
+ #overlay-settings .b012-settings-body{min-height:0!important;max-height:calc(min(73dvh,640px) - 48px)!important;overflow-y:auto!important}
+ #b005-pages-modal,#b012-create-modal{width:min(380px,calc(100vw - 42px))!important;max-width:calc(100vw - 42px)!important;max-height:min(72dvh,610px)!important;overflow:hidden!important}
+ #b005-pages-modal .b005-modal-body,#b012-create-modal .b005-modal-body{max-height:calc(min(72dvh,610px) - 48px)!important;overflow-y:auto!important}
+ .fullscreen-modal.active{padding:8px!important}
+ .fullscreen-modal.active .modal-box{max-height:min(78dvh,660px)!important;overflow:hidden!important}
+ .fullscreen-modal.active .modal-body{overflow-y:auto!important;min-height:0!important}
+}
+</style>
 </head>
 <body class="mobile-shell-v28 project-empty">
 
@@ -1199,7 +1251,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-014">DB2K-014</span>
+          <span class="build-mark" aria-label="Build DB2K-016">DB2K-016</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1207,8 +1259,6 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <button type="button" class="workspace-icon-btn" data-desktop-view="view-workspace" onclick="switchView('view-workspace')">Viewer</button>
         <button type="button" class="workspace-icon-btn" id="btn-inspect-toolbar" data-edit-toggle onclick="openEditFromNav()" aria-label="Edit page" aria-pressed="false">Edit<span class="visual-issue-badge" id="visual-issue-badge">0</span></button>
         <button type="button" class="workspace-icon-btn" id="visual-editor-audit-toggle" onclick="openAuditFromNav()" aria-label="Audit and console" aria-expanded="false">Audit <span class="audit-nav-count audit-good" id="audit-nav-count">0</span></button>
-        <button type="button" class="workspace-icon-btn project-only-action" id="btn-workspace-reload" onclick="refreshSandboxViewer()" title="Reload preview" aria-label="Reload preview"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 5v5h-5"/><path d="M19.1 10A8 8 0 1 0 20 14"/></svg></button>
-        <button type="button" class="workspace-icon-btn project-only-action" id="btn-workspace-browser" onclick="openPreviewInBrowser()" title="Open current preview in the browser">Browser</button>
         <button type="button" class="workspace-icon-btn" id="btn-workspace-more" onclick="toggleWorkspacePopover('workspace-more-menu')" aria-expanded="false" aria-controls="workspace-more-menu">More <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
       </nav>
       <div class="workspace-tools-backdrop" id="workspace-tools-backdrop" aria-hidden="true" onclick="closeWorkspacePopovers()"></div>
@@ -1266,7 +1316,6 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
             <button type="button" onclick="db2kOpenRepairSuggestions();closeWorkspacePopovers()">Find safe repairs</button>
             <button type="button" onclick="openAiDock('repair');closeWorkspacePopovers()">AI Repair</button>
             <button type="button" class="more-mobile-only" onclick="openSettingsOverlay();closeWorkspacePopovers()">Settings</button>
-            <button type="button" class="more-mobile-only" onclick="clearLoadedProject();closeWorkspacePopovers()">Delete project</button>
             <button type="button" onclick="tryWebContainerBuild();closeWorkspacePopovers()">Build React / Vite <small id="vite-builder-status">Check</small></button>
             <button type="button" onclick="b005MarkBaseline();closeWorkspacePopovers()">Mark baseline</button>
             <button type="button" onclick="document.getElementById('b005-compare-input').click();closeWorkspacePopovers()">Compare versions</button>
@@ -1401,7 +1450,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="pane-header">
           <span>Audit &amp; console</span>
           <div style="display:flex;align-items:center;gap:7px;">
-            <button type="button" class="btn btn-subtle btn-sm" onclick="reRunAudit()">Recheck</button>
+            
             
           </div>
         </div>
@@ -1413,7 +1462,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
             <button type="button" class="gauge-wrapper db2k-score-refresh" id="health-gauge" onclick="reRunAudit()" title="Run project score checks" aria-label="Run project score checks">—</button>
             <div class="audit-score-copy"><h4 id="health-verdict">No project loaded</h4><p id="health-subtext">Open a project to run checks.</p></div>
           </div>
-          <div class="diag-simple-head audit-issues-title"><h3>Issues <span id="findings-count">0</span></h3><button type="button" class="audit-text-action" onclick="reRunAudit()">Recheck</button></div>
+          <div class="diag-simple-head audit-issues-title"><h3>Issues <span id="findings-count">0</span></h3></div>
           <div class="b006-audit-filters" role="group" aria-label="Filter audit findings">
             <button type="button" data-audit-filter="all" class="active" onclick="b006SetAuditFilter('all')">All</button>
             <button type="button" data-audit-filter="error" onclick="b006SetAuditFilter('error')">Errors</button>
@@ -1532,19 +1581,20 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
           <p class="b012-muted">Connect a personal access token. DEBOOGER finds the repositories this token can access.</p>
           <label for="b012-account-picker">Connected account</label>
           <div class="b012-inline"><select id="b012-account-picker" onchange="b012SwitchAccount()"><option value="">Add GitHub account</option></select><button type="button" class="b012-secondary" onclick="b012Disconnect()">Disconnect</button></div>
+          <details class="db2k-settings-advanced"><summary>Connection and token options</summary><div class="db2k-settings-advanced-body">
           <label for="b012-github-token">GitHub token (fine-grained or classic)</label>
           <div class="b012-inline"><input id="b012-github-token" type="password" autocomplete="new-password" spellcheck="false" placeholder="Paste GitHub token" aria-label="GitHub personal access token"><button type="button" class="b012-primary" id="b012-connect-btn" onclick="b012Connect()">Connect</button></div>
           <label for="b012-remember-token" style="display:flex;align-items:center;gap:9px;margin:8px 0 4px;font-size:12px;font-weight:400;"><input id="b012-remember-token" type="checkbox" checked onchange="b012RememberChanged(this.checked)" style="width:15px;height:15px;flex:none;">Remember GitHub connection after refresh on this device</label>
           <p class="b012-muted" id="b012-storage-status" role="status" aria-live="polite">A remembered token is stored in this browser, never inside uploaded projects or published HTML. Other pages sharing this site's origin may access browser storage; use a fine-grained token.</p>
           <p class="b012-muted">GitHub publishing requires internet access. Allow repository Contents write, Pages write, and Administration write where required; repository creation needs Repository creation permission.</p>
+          </div></details>
           <div id="b012-connection-status" class="b012-status" role="status" aria-live="polite">Not connected.</div>
           <label for="b012-settings-repo">Repository</label>
           <div class="b012-inline"><select id="b012-settings-repo" onchange="b012ChooseRepo(this.value)"><option value="">Connect first</option></select><button type="button" class="b012-secondary" onclick="b012RefreshRepos()">Refresh</button></div>
           <div class="b012-inline b012-action-line"><button type="button" class="b012-secondary" onclick="b012ImportRepo()">Open repository files</button><button type="button" class="b012-secondary" onclick="b012OpenCreateRepo()">Create repository</button><button type="button" class="b012-primary" onclick="b012OpenPublishFromSettings()">Publish project</button></div>
           <div id="b012-settings-result" class="b012-result" role="status" aria-live="polite"></div>
         </section>
-        <section class="b012-settings-section" id="b030-direct-upload-section" aria-label="Upload files directly to GitHub">
-          <div class="b012-section-title"><strong>Upload to GitHub</strong></div>
+        <details class="b012-settings-section db2k-settings-fold" id="b030-direct-upload-section" aria-label="Upload files directly to GitHub"><summary>Upload files or ZIP directly to GitHub</summary><div class="db2k-settings-fold-body">
           <p class="b012-muted">Choose files or a ZIP from this device. Upload straight to the selected repository — no preview or project import.</p>
           <label for="b030-direct-picker" class="b030-direct-picker-label">Choose device files</label>
           <input id="b030-direct-picker" type="file" multiple accept=".zip,.html,.htm,.css,.js,.jsx,.ts,.tsx,.json,.png,.jpg,.jpeg,.svg,.webp,.woff,.woff2,.pdf,.md,.txt" onchange="b030SettingsUploadChosen()" aria-label="Choose files to upload directly to GitHub">
@@ -1556,9 +1606,8 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
           <div id="b030-direct-pages-note" class="b012-muted">Optional. A root <code>index.html</code> is required. Debooger creates main when needed and switches Pages to main / (root) automatically.</div>
           <div class="b012-inline b030-direct-actions"><button type="button" class="b012-primary" id="b030-direct-push" onclick="b030PushDirectFromSettings()" disabled>Push files to repository</button><span class="b012-muted">All selected ZIPs extracted · one commit · main</span></div>
           <div id="b030-direct-status" class="b012-status" role="status" aria-live="polite">Select your repository above, then choose a file.</div>
-          <div id="b030-direct-result" class="b012-result"></div>
-        </section>
-                <section class="b012-settings-section" aria-label="Preview preferences"><div class="b012-section-title"><strong>Preview</strong></div><label for="settings-default-preview">Default device</label><select id="settings-default-preview" onchange="setDefaultPreview(this.value)"><option value="desktop">Desktop</option><option value="wide1200">1200</option><option value="mobile">Phone</option></select><button type="button" class="b012-secondary" onclick="openAiConnectionSettings()">AI connection</button><p class="b012-muted">Compiled output is preferred. Complex server-based React source still needs its own build.</p></section>
+          <div id="b030-direct-result" class="b012-result"></div></div></details>
+                <details class="b012-settings-section db2k-settings-fold" aria-label="Preview preferences"><summary>Preview and AI preferences</summary><div class="db2k-settings-fold-body"><label for="settings-default-preview">Default device</label><select id="settings-default-preview" onchange="setDefaultPreview(this.value)"><option value="desktop">Desktop</option><option value="wide1200">1200</option><option value="mobile">Phone</option></select><button type="button" class="b012-secondary" onclick="openAiConnectionSettings()">AI connection</button><p class="b012-muted">Compiled output is preferred. Complex server-based React source still needs its own build.</p></div></details>
       </div>
     </div>
   </div>
@@ -19500,7 +19549,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-014_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-016_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -20065,7 +20114,7 @@ codePos,
       let lastX = 0;
       let lastY = 0;
       let moved = false;
-      const onStage = () => previewUsesDesktopFrame() || (STATE.devicePreset === 'mobile' && window.matchMedia('(pointer: coarse)').matches);
+      const onStage = () => STATE.touchMode === 'pan' && (previewUsesDesktopFrame() || (STATE.devicePreset === 'mobile' && window.matchMedia('(pointer: coarse)').matches));
       const applyPinchPan = (clientX, clientY, nextUserScale) => {
         const oldScale = STATE.previewFit * STATE.previewUserScale;
         STATE.previewUserScale = Math.max(1, Math.min(4, nextUserScale));
@@ -20121,13 +20170,8 @@ codePos,
           const dx = e.touches[0].clientX - lastX;
           const dy = e.touches[0].clientY - lastY;
           if (Math.abs(dx) > 2 || Math.abs(dy) > 2) moved = true;
-          if (Math.abs(dy) > Math.abs(dx) * 1.2) {
-            const frame = document.getElementById('live-sandbox-frame');
-            frame?.contentWindow?.postMessage({ type:'DEBOOGER_FORWARD_SCROLL', deltaY:-dy / Math.max(0.25,STATE.zoom || 1) }, '*');
-          } else {
-            STATE.previewPanX = (STATE.previewPanX || 0) + dx;
-            STATE.previewPanY = (STATE.previewPanY || 0) + dy;
-          }
+          STATE.previewPanX = (STATE.previewPanX || 0) + dx;
+          STATE.previewPanY = (STATE.previewPanY || 0) + dy;
           lastX = e.touches[0].clientX;
           lastY = e.touches[0].clientY;
           applyPreviewLayout();
@@ -21118,8 +21162,8 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       // immediate console output are captured instead of being missed.
       const firstScript = src.search(/<script\b/i);
       if (firstScript >= 0) return src.slice(0, firstScript) + block + src.slice(firstScript);
-      if (/<\/body>/i.test(src)) return src.replace(/<\/body>/i, block + '</body>');
-      return src + block;
+      if (/<\/body>/i.test(src)) return src.replace(/<\/body>/i, () => block + '</body>');
+            return src + block;
     }
 
     function htmlHasVisibleApp(html) {
@@ -22222,7 +22266,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-014 offline-first React source preview.
+    // DB2K-016 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22508,7 +22552,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-014|' + target + '|');
+      feed('DB2K-016|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22532,7 +22576,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-014', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-016', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22553,7 +22597,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-014', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-016', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22698,7 +22742,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-014 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-016 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22946,7 +22990,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-014 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-016 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -28447,7 +28491,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-014') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-016') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28539,8 +28583,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-014';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-014' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-016';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-016' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -28742,12 +28786,7 @@ load();
 
 <script>
 (function(){
-  const dialog=document.getElementById('b005-pages-modal');
-  dialog?.addEventListener('click',event=>{
-    if(event.target!==dialog)return;
-    const rect=dialog.getBoundingClientRect();
-    if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();
-  });
+
 })();
 </script>
 <style id="b031-github-notice-css">
@@ -29288,7 +29327,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-014 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-016 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29307,7 +29346,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-014')) throw new Error('Could not prepare DEBOOGER DB2K-014 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-016')) throw new Error('Could not prepare DEBOOGER DB2K-016 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29482,7 +29521,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-014', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-016', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
@@ -29705,27 +29744,25 @@ load();
       }
     } catch (error) { console.warn('GitHub connection UI:', error); }
 </script>
-<script id="b024-overlay-controller">
-(()=>{'use strict';
- document.addEventListener('pointerdown',event=>{
-  document.querySelectorAll('.fullscreen-modal.active').forEach(modal=>{if(event.target===modal)modal.classList.remove('active');});
-  document.querySelectorAll('dialog[open]').forEach(dialog=>{const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();});
-  const editor=document.getElementById('visual-inspector-panel');
-  if(editor?.classList.contains('open')&&!editor.contains(event.target)&&!event.target.closest('#live-sandbox-frame,[data-edit-toggle],#mobile-nav-edit'))toggleVisualInspectMode(false);
- });
- document.addEventListener('keydown',event=>{if(event.key!=='Escape')return;document.querySelectorAll('.fullscreen-modal.active').forEach(m=>m.classList.remove('active'));document.querySelectorAll('dialog[open]').forEach(m=>m.close());const ed=document.getElementById('visual-inspector-panel');if(ed?.classList.contains('open'))toggleVisualInspectMode(false);});
-})();
-</script>
 
-<script>
-/* DB2K-014: native dialog click-out behavior; never dismiss on interior interaction. */
-document.addEventListener('click',function(event){
- const dialog=event.target;
- if(dialog instanceof HTMLDialogElement && dialog.open && event.target===dialog){
-   const rect=dialog.getBoundingClientRect();
-   if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom) dialog.close();
- }
-},true);
+
+
+<script id="db2k-016-menu-host">
+document.addEventListener('DOMContentLoaded', () => {
+ const menu=document.getElementById('workspace-more-menu');
+ const backdrop=document.getElementById('workspace-tools-backdrop');
+ if(!menu || !backdrop)return;
+ document.body.append(backdrop,menu);
+ backdrop.addEventListener('pointerdown',event=>{event.stopPropagation();closeWorkspacePopovers();});
+});
+</script>
+<script id="db2k-016-native-dialog-close">
+document.addEventListener('pointerdown', event => {
+  for (const dialog of document.querySelectorAll('dialog[open]')) {
+    const rect=dialog.getBoundingClientRect();
+    if (event.clientX<rect.left || event.clientX>rect.right || event.clientY<rect.top || event.clientY>rect.bottom) dialog.close();
+  }
+}, true);
 </script>
 </body>
 </html>
