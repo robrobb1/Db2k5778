@@ -22755,6 +22755,8 @@ code{font-family:"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSyste
     }
 
     let WEBCONTAINER_API_PROMISE = null;
+    let WEBCONTAINER_BUILD_PROMISE = null;
+    let WEBCONTAINER_BUILD_FILES = null;
     let WEBCONTAINER_INSTANCE = null;
 
     function getWebContainerSupport() {
@@ -22877,7 +22879,12 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
         const name = typeof entry === 'string' ? entry : entry.name;
         const full = String(dir).replace(/\/$/, '') + '/' + name;
         const rel = String(prefix).replace(/^\/+/, '').replace(/\/$/, '') + '/' + name;
-        const isDir = typeof entry === 'string' ? await webContainerPathExists(wc, full + '/.') : entry.isDirectory();
+        let isDir = false;
+        if (typeof entry === 'string') {
+          try { await wc.fs.readdir(full); isDir = true; } catch (_) { isDir = false; }
+        } else {
+          isDir = typeof entry.isDirectory === 'function' && entry.isDirectory();
+        }
         if (isDir) {
           await readWebContainerDirectory(wc, full, rel, out);
           continue;
@@ -22895,7 +22902,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       return out;
     }
 
-    async function buildReactWithWebContainer(files = STATE.files, options = {}) {
+    async function buildReactWithWebContainerUnlocked(files = STATE.files, options = {}) {
       const pkgInfo = readProjectPackageJson(files);
       if (!pkgInfo.path || !pkgInfo.pkg) throw new Error('A valid package.json is required for the full Vite builder.');
       if (!pkgInfo.pkg.scripts || !pkgInfo.pkg.scripts.build) throw new Error('package.json needs a build script, such as "vite build".');
@@ -22959,6 +22966,23 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
         scheduleWorkspaceSave();
       }
       return { outputDir, outputEntry, files: built, installLog, buildLog };
+    }
+
+    async function buildReactWithWebContainer(files = STATE.files, options = {}) {
+      if (WEBCONTAINER_BUILD_PROMISE && WEBCONTAINER_BUILD_FILES === files) return WEBCONTAINER_BUILD_PROMISE;
+      if (WEBCONTAINER_BUILD_PROMISE) {
+        try { await WEBCONTAINER_BUILD_PROMISE; } catch (_) {}
+      }
+      WEBCONTAINER_BUILD_FILES = files;
+      const pending = buildReactWithWebContainerUnlocked(files, options);
+      WEBCONTAINER_BUILD_PROMISE = pending;
+      try { return await pending; }
+      finally {
+        if (WEBCONTAINER_BUILD_PROMISE === pending) {
+          WEBCONTAINER_BUILD_PROMISE = null;
+          WEBCONTAINER_BUILD_FILES = null;
+        }
+      }
     }
 
     async function tryWebContainerBuild() {
