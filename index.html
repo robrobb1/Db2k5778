@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-008</title>
-  <!-- DEBOOGER2000 DB2K-008: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-010</title>
+  <!-- DEBOOGER2000 DB2K-010: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -433,7 +433,7 @@
       box-shadow: none !important;
       flex: 1 1 auto !important;
     }.stage-container:fullscreen .iframe-sandbox,
-    .stage-container.preview-fallback-fullscreen .iframe-sandbox { width: 100% !important; height: 100% !important; }@media (orientation: landscape) and (max-width: 950px) {body.mobile-landscape-preview { overflow: hidden !important; background: #000 !important; }body.mobile-landscape-preview header, body.mobile-landscape-preview .d2-file-navigation, body.mobile-landscape-preview .workspace-pane-left, body.mobile-landscape-preview .workspace-pane-right, body.mobile-landscape-preview .visual-inspector-panel{ display: none !important; }body.mobile-landscape-preview .main-viewport { padding:0 !important; margin: 0 !important; width: 100dvw !important; height: 100dvh !important; min-width: 0 !important; overflow: hidden !important; }body.mobile-landscape-preview #view-workspace { display: flex !important; position:fixed !important; inset:0 !important; top:0 !important; width: 100dvw !important; height: 100dvh !important; padding:0 !important; }body.mobile-landscape-preview .workspace-pane-center { position: fixed !important; inset: 0 !important; width: 100dvw !important; height: 100dvh !important; z-index: 4000; }body.mobile-landscape-preview .stage-container { position: fixed !important; inset: 0 !important; width:100dvw !important; height:100dvh !important; min-height:0 !important; padding: 0 !important; margin:0 !important; justify-content: stretch !important; align-items: stretch !important; overflow: hidden !important; background: #000 !important; touch-action: none; }body.mobile-landscape-preview .preview-sizer { width: 100% !important; height: 100% !important; }body.mobile-landscape-preview .device-viewport:not(.desktop-frame) { width: 100% !important; min-width: 0 !important; max-width: 100% !important; height: 100% !important; min-height: 100% !important; flex: 1 1 auto !important; transform-origin: 0 0; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }body.mobile-landscape-preview .device-viewport.desktop-frame { width: var(--d2-preview-w, 1200px) !important; min-width: var(--d2-preview-w, 1200px) !important; max-width: none !important; height: var(--d2-preview-h, 800px) !important; min-height: 0 !important; max-height: none !important; flex: 0 0 auto !important; transform-origin: 0 0; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }body.mobile-landscape-preview .iframe-sandbox { width: 100%; height: 100%; }}#paste-input-area,
+    .stage-container.preview-fallback-fullscreen .iframe-sandbox { width: 100% !important; height: 100% !important; }@media (orientation: landscape) and (max-width: 950px) {body.mobile-landscape-preview { overflow: hidden !important; background: #000 !important; }body.mobile-landscape-preview header, body.mobile-landscape-preview .d2-file-navigation, body.mobile-landscape-preview .workspace-pane-left, body.mobile-landscape-preview .workspace-pane-right, body.mobile-landscape-preview .visual-inspector-panel{ display: none !important; }body.mobile-landscape-preview .main-viewport { padding:0 !important; margin: 0 !important; width: 100dvw !important; height: 100dvh !important; min-width: 0 !important; overflow: hidden !important; }body.mobile-landscape-preview #view-workspace { display: flex !important; position:fixed !important; inset:0 !important; top:0 !important; width: 100dvw !important; height: 100dvh !important; padding:0 !important; }body.mobile-landscape-preview .workspace-pane-center { position: fixed !important; inset: 0 !important; width: 100dvw !important; height: 100dvh !important; z-index: 4000; }body.mobile-landscape-preview .stage-container { position: fixed !important; inset: 0 !important; width:100dvw !important; height:100dvh !important; min-height:0 !important; padding: 0 !important; margin:0 !important; justify-content: stretch !important; align-items: stretch !important; overflow: hidden !important; background: #000 !important; touch-action: none; }body.mobile-landscape-preview .preview-sizer { width: 100% !important; height: 100% !important; }body.mobile-landscape-preview .device-viewport:not(.desktop-frame) { width: 100% !important; min-width: 0 !important; max-width: 100% !important; height: 100% !important; min-height: 100% !important; flex: 1 1 auto !important; transform-origin: 0 0; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; }body.mobile-landscape-preview .device-viewport.desktop-frame { width:100%!important; min-width:0!important; max-width:none!important; height:100%!important; min-height:0!important; max-height:none!important; flex:1 1 auto!important; transform:none!important; transform-origin:0 0; border:0!important; border-radius:0!important; box-shadow:none!important; }body.mobile-landscape-preview .iframe-sandbox { width: 100%; height: 100%; }}#paste-input-area,
     #ai-prompt-modal-text {
       background: #ffffff !important;
       color: #0f172a !important;
@@ -566,7 +566,7 @@
     }
   }
 
-  body:not(.project-valid) [data-project-action] { display:none !important; }
+  body:not(.project-valid) [data-project-action] { display:flex !important; }
   @media (max-width:900px) {
     html,body { min-height:100dvh; overscroll-behavior:none;  }
     .top-nav { display:none; }
@@ -594,7 +594,7 @@
     #workspace-more-menu.tools-modal {     }
     .tools-modal-grid { grid-template-columns:1fr; gap:8px; }
     .design-learning-strip,.design-guide-grid { grid-template-columns:1fr; }
-    body:not(.project-valid) .mobile-primary-nav [data-requires-project] { opacity:.38; pointer-events:none; }
+    body:not(.project-valid) .mobile-primary-nav [data-requires-project] { opacity:1; pointer-events:auto; }
     body.mobile-shell-v28 .workspace-pane-left { display:none !important; }
     body.mobile-shell-v28.workspace-view-active.files-sheet-open .workspace-pane-left {
       display:flex !important; position:fixed !important; inset:max(8px, env(safe-area-inset-top)) 8px max(8px, env(safe-area-inset-bottom)) 8px !important;
@@ -1076,7 +1076,7 @@ body.project-valid .audit-nav-count{display:inline-flex}.audit-nav-count.audit-g
 .db2k-compare-list{background:#fff;padding:10px;white-space:pre-wrap;overflow-wrap:anywhere;font:12px/1.5 Inter,system-ui,sans-serif;max-height:230px;overflow:auto;border:1px solid #e2e8f0;border-radius:6px}
 @media(max-width:700px){.db2k-compare-panels{grid-template-columns:1fr}.db2k-compare-panels iframe{height:270px}}
 </style>
-<style id="db2k-002-interface">
+<style id="debooger-interface-polish">
 /* Viewer controls and audit presentation */
 .db2k-mobile-delete{margin-left:auto!important;color:#b83a46!important;border:0!important;background:transparent!important;min-width:38px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important}
 #d2-file-navigation{display:none!important}
@@ -1106,7 +1106,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 @media(max-width:950px){body.workspace-view-active:not(.panoramic-preview):not(.mobile-landscape-preview) .view-fullscreen-flex.active{top:52px!important}body.workspace-view-active:not(.panoramic-preview):not(.mobile-landscape-preview) .main-viewport{padding-top:52px!important}}
 </style>
 
-<style id="db2k-006-mobile-corrections">
+<style id="debooger-mobile-workspace">
 @media (max-width:900px) {
   .mobile-primary-nav [data-mobile-view="view-workspace"] {opacity:1!important;pointer-events:auto!important;cursor:pointer!important;}
   #workspace-more-menu.tools-modal {
@@ -1129,7 +1129,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 }
 </style>
 
-<style id="db2k-008-compact-audit">
+<style id="debooger-compact-audit">
 /* Compact, independently collapsible audit findings on desktop and mobile. */
 #findings-list{gap:0!important;padding:6px 12px 16px!important;}
 #findings-list .b006-findings-section{padding:10px 4px 6px!important;border:0!important;font-size:12px!important;}
@@ -1148,6 +1148,31 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 #findings-list .finding-card.audit-review{border-left:3px solid #a5b1be!important;}
 @media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
 </style>
+<style id="db2k-010-viewport-contract">
+/* DB2K-010: fullscreen and phone-landscape use the measured visual viewport. */
+body.mobile-landscape-preview .main-viewport,
+body.mobile-landscape-preview #view-workspace,
+body.mobile-landscape-preview .workspace-pane-center,
+body.mobile-landscape-preview .stage-container,
+body.panoramic-preview .main-viewport,
+body.panoramic-preview #view-workspace,
+body.panoramic-preview .workspace-pane-center,
+body.panoramic-preview .stage-container{
+  width:var(--d2-visual-width,100dvw)!important;
+  height:var(--d2-visual-height,100dvh)!important;
+  min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;
+}
+body.mobile-landscape-preview .device-viewport,
+body.panoramic-preview .device-viewport{
+  width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;
+  max-width:none!important;max-height:none!important;transform:none!important;border:0!important;
+  border-radius:0!important;box-shadow:none!important;
+}
+body.mobile-landscape-preview .preview-sizer,
+body.panoramic-preview .preview-sizer{width:100%!important;height:100%!important;overflow:hidden!important;}
+body.mobile-landscape-preview .iframe-sandbox,
+body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
+</style>
 </head>
 <body class="mobile-shell-v28 project-empty">
 
@@ -1160,7 +1185,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-008">DB2K-008</span>
+          <span class="build-mark" aria-label="Build DB2K-010">DB2K-010</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1204,6 +1229,10 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
           <summary>Tools <span>Project, build, compare and AI</span></summary>
           <div class="more-tools-list">
             <div class="db2k-file-tools" aria-label="Project file manager">
+              <div id="d2-tools-app-wrap" hidden>
+                <label for="d2-tools-app">Application</label>
+                <select id="d2-tools-app" aria-label="Choose application" onchange="d2SelectWorkspace(this.value)"></select>
+              </div>
               <label for="d2-tools-page">Preview page</label>
               <select id="d2-tools-page" aria-label="Choose page to preview"></select>
               <button type="button" onclick="openFilesSheet();closeWorkspacePopovers()">Browse files</button>
@@ -1245,7 +1274,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 <section class="view-container active" id="view-home">
       <div class="hero-card">
         <div class="dropzone-box" id="main-dropzone">
-          <input type="file" id="file-input-single" class="dropzone-native-picker" aria-label="Choose project file or ZIP" multiple accept=".html,.htm,.zip,.css,.js,.jsx,.ts,.tsx,.json" />
+          <input type="file" id="file-input-single" class="dropzone-native-picker" aria-label="Choose project file or ZIP" multiple accept=".html,.htm,.zip,.css,.scss,.sass,.less,.js,.mjs,.cjs,.jsx,.ts,.mts,.cts,.tsx,.json,.svg,.xml,.md,.txt,.yml,.yaml,.toml,.vue,.svelte,.astro,.webmanifest" />
           <div class="drop-icon-wrap">
             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
           </div>
@@ -1376,7 +1405,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
           </div>
           <div class="findings-container" id="findings-list"><p class="b006-audit-empty">No issues found yet.</p></div>
           <details class="b005-diagnostics" id="audit-console-details"><summary>Console &amp; runtime evidence <span id="audit-console-count"></span></summary><div class="b005-console-actions"><button type="button" onclick="b005CopyConsole()">Copy evidence</button><button type="button" onclick="b005ClearConsole()">Clear</button></div><div id="b005-console" aria-live="polite">No console evidence collected yet.</div></details>
-          <details class="score-method audit-fold"><summary>Score method &amp; file scores</summary><div class="audit-method-body">Score ranges from 0 to 100 and deducts points for confirmed failed checks and findings. Unverified checks are not scored; insufficient evidence displays —. File scores also range from 0 to 100. Scores are indicators, not guarantees.<div id="file-scores-list"></div></div></details>
+          <details class="score-method audit-fold"><summary>Score method &amp; file scores</summary><div class="audit-method-body">The single score averages completed evidence across Build &amp; Syntax, Dependencies, Runtime &amp; Sandbox, Rendering &amp; Layout, and Code Quality &amp; Semantics. Pending, unsupported, N/A, and unverified checks are excluded. Fewer than two verified dimensions displays —. File scores are separate indicators based on confirmed findings, not guarantees.<div id="file-scores-list"></div></div></details>
           <details class="audit-fold" id="upload-notes-details"><summary>Upload &amp; preview notes</summary><div id="upload-debug-box" class="upload-debug-box" hidden></div></details>
           <details class="audit-fold"><summary>Selected element details</summary><div id="visual-inspector-details"></div><div id="visual-source-hint"></div></details>
           <div id="b005-baseline-status" class="b005-baseline-status" role="status"></div>
@@ -19454,7 +19483,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-008_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-010_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -19507,10 +19536,13 @@ codePos,
         files: STATE.files,
         entryFile: STATE.entryFile,
         selectedFile: STATE.selectedFile,
+        activePackageJson: STATE.activePackageJson || null,
         activeView: STATE.activeView,
         devicePreset: STATE.devicePreset,
         defaultPreview: STATE.defaultPreview,
         previewUserScale: STATE.previewUserScale,
+        touchMode: STATE.touchMode,
+        phoneLandscape: Boolean(STATE.phoneLandscape),
         previewPanX: STATE.previewPanX,
         previewPanY: STATE.previewPanY,
         zoom: STATE.zoom,
@@ -19632,17 +19664,20 @@ codePos,
         STATE.files = snapshot.files;
         STATE.entryFile = snapshot.entryFile && snapshot.files[snapshot.entryFile] ? snapshot.entryFile : (Object.keys(snapshot.files).find(k => /\.html?$/i.test(k)) || Object.keys(snapshot.files)[0]);
         STATE.selectedFile = snapshot.selectedFile && snapshot.files[snapshot.selectedFile] ? snapshot.selectedFile : STATE.entryFile;
+        STATE.activePackageJson = snapshot.activePackageJson && snapshot.files[snapshot.activePackageJson] ? snapshot.activePackageJson : null;
         STATE.activeView = snapshot.activeView || 'view-workspace';
         STATE.devicePreset = ['desktop','wide1200','mobile'].includes(snapshot.devicePreset) ? snapshot.devicePreset : 'desktop';
         STATE.defaultPreview = ['desktop','wide1200','mobile'].includes(snapshot.defaultPreview) ? snapshot.defaultPreview : (STATE.defaultPreview || 'desktop');
         STATE.previewUserScale = Number(snapshot.previewUserScale) || 1;
+        STATE.touchMode = snapshot.touchMode === 'pan' ? 'pan' : 'interact';
+        STATE.phoneLandscape = Boolean(snapshot.phoneLandscape);
         STATE.previewPanX = Number(snapshot.previewPanX) || 0;
         STATE.previewPanY = Number(snapshot.previewPanY) || 0;
         STATE.zoom = Number(snapshot.zoom) || 1;
         STATE.mobileWorkspaceScreen = ['preview','results'].includes(snapshot.mobileWorkspaceScreen) ? snapshot.mobileWorkspaceScreen : 'preview';
         STATE.visualIssues = Array.isArray(snapshot.visualIssues) ? snapshot.visualIssues : [];
         // Never restore stale runtime errors or an old test score.
-        finishIntakeProcess({ restoring: true, targetView: STATE.activeView });
+        await finishIntakeProcess({ restoring: true, targetView: STATE.activeView, waitForMount:true });
         return true;
       } finally {
         WORKSPACE_RESTORING = false;
@@ -19659,6 +19694,7 @@ codePos,
       previousFiles: null, // for visual diffs
       entryFile: 'index.html',
       selectedFile: null,
+      activePackageJson: null,
       zoom: 1.0,
       baselineSnapshot: null,
       backups: [], // automated backup snapshots { id, label, time, files, score }
@@ -19685,6 +19721,7 @@ codePos,
       devicePreset: 'desktop',
       defaultPreview: 'desktop',
       previewUserScale: 1, touchMode: 'interact',
+      phoneLandscape: false,
       previewPanX: 0,
       previewPanY: 0,
       previewFit: 1,
@@ -19713,8 +19750,9 @@ codePos,
       document.body.classList.toggle('project-valid', projectIsValid());
       const valid = projectIsValid();
       document.querySelectorAll('[data-project-action]').forEach(el => {
-        if ('disabled' in el) el.disabled = !valid;
-        el.setAttribute('aria-disabled', String(!valid));
+        if ('disabled' in el) el.disabled = false;
+        el.removeAttribute('aria-disabled');
+        el.dataset.projectState = valid ? 'ready' : 'empty';
       });
       // Navigation remains enabled even without a project; only project actions are gated.
       document.querySelectorAll('[data-requires-project]').forEach(el => {
@@ -19740,6 +19778,16 @@ codePos,
       syncResponsiveWorkspace();
       window.addEventListener('resize', syncResponsiveWorkspace);
       window.addEventListener('orientationchange', () => setTimeout(syncResponsiveWorkspace, 120));
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', syncResponsiveWorkspace);
+        window.visualViewport.addEventListener('scroll', updateVisualViewportMetrics, { passive:true });
+      }
+      if (typeof ResizeObserver === 'function') {
+        window.__D2_PREVIEW_RESIZE_OBSERVER?.disconnect?.();
+        window.__D2_PREVIEW_RESIZE_OBSERVER = new ResizeObserver(() => requestAnimationFrame(applyPreviewLayout));
+        const previewStage = document.getElementById('stage-box');
+        if (previewStage) window.__D2_PREVIEW_RESIZE_OBSERVER.observe(previewStage);
+      }
       const renameInput = document.getElementById('rename-project-input');
       if (renameInput) renameInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') applyProjectRename(); });
       const renameFileInput = document.getElementById('rename-file-input');
@@ -19806,7 +19854,7 @@ codePos,
 
     function previewUsesDesktopFrame(preset) {
       preset = preset || STATE.devicePreset || 'desktop';
-      if (document.body.classList.contains('mobile-landscape-preview') || document.body.classList.contains('panoramic-preview')) return true;
+      if (document.body.classList.contains('mobile-landscape-preview') || document.body.classList.contains('panoramic-preview')) return false;
       if (preset === 'wide1200') return true;
       if (preset === 'mobile') return false;
       return previewHostIsNarrow();
@@ -19837,25 +19885,33 @@ codePos,
       const sizer = document.getElementById('preview-sizer');
       const layer = document.getElementById('preview-gesture-layer');
       if (!stage || !vp) return;
+      stage.style.setProperty('touch-action', STATE.touchMode === 'pan' ? 'none' : 'pan-x pan-y pinch-zoom', 'important');
+      const touchButton = document.getElementById('d2-touch-mode-btn');
+      if (touchButton) {
+        touchButton.textContent = STATE.touchMode === 'pan' ? 'Pan Mode' : 'Scroll Mode';
+        touchButton.classList.toggle('active', STATE.touchMode === 'pan');
+        touchButton.setAttribute('aria-pressed', String(STATE.touchMode === 'pan'));
+      }
+      if (layer) layer.style.pointerEvents = STATE.touchMode === 'pan' ? 'auto' : 'none';
       const preset = STATE.devicePreset || 'desktop';
       const full = document.body.classList.contains('mobile-landscape-preview') || document.body.classList.contains('panoramic-preview');
       const mobileMock = preset === 'mobile' && !full;
-      const useCanvas = mobileMock || previewUsesDesktopFrame(preset);
+      const stageW = Math.max(1, stage.clientWidth);
+      const stageH = Math.max(1, stage.clientHeight);
+      const useCanvas = mobileMock || previewUsesDesktopFrame(preset) || (full && STATE.touchMode === 'pan');
       vp.classList.remove('mobile-mock', 'desktop-frame');
       if (!useCanvas) {
         STATE.previewFit = 1; STATE.zoom = 1;
         vp.style.cssText = '';
         vp.style.width = '100%'; vp.style.height = '100%';
         vp.style.minWidth = '0'; vp.style.maxWidth = '100%'; vp.style.maxHeight = '100%';
-        vp.style.transform = 'none';
+        vp.style.setProperty('transform', 'none', 'important');
         if (sizer) { sizer.style.width = '100%'; sizer.style.height = '100%'; }
         if (layer) layer.hidden = true;
         return;
       }
-      const virtW = mobileMock ? (STATE.phoneLandscape ? 844 : 390) : 1200;
-      const virtH = mobileMock ? (STATE.phoneLandscape ? 390 : 844) : 800;
-      const stageW = Math.max(1, stage.clientWidth);
-      const stageH = Math.max(1, stage.clientHeight);
+      const virtW = full ? stageW : mobileMock ? (STATE.phoneLandscape ? 844 : 390) : 1200;
+      const virtH = full ? stageH : mobileMock ? (STATE.phoneLandscape ? 390 : 844) : 800;
       // Fit rather than crop, including landscape. Never upscale beyond native resolution.
       const fit = Math.min(1, stageW / virtW, stageH / virtH);
       STATE.previewVirtW = virtW;
@@ -19878,12 +19934,13 @@ codePos,
       vp.style.height = virtH + 'px';
       vp.style.maxHeight = 'none';
       vp.style.transformOrigin = '0 0';
-      vp.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')';
+      vp.style.setProperty('transform', 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')', 'important');
       if (sizer) { sizer.style.width = '100%'; sizer.style.height = '100%'; }
       if (layer) layer.hidden = !(window.matchMedia('(pointer: coarse)').matches || window.matchMedia('(max-width: 950px)').matches);
     }
 
     function syncMobileLandscapePreview() {
+      updateVisualViewportMetrics();
       const mobileHost = window.matchMedia('(max-width: 950px)').matches;
       const mobileLandscape = window.matchMedia('(max-width: 950px) and (orientation: landscape)').matches;
       if (!mobileLandscape) STATE.landscapePreviewDismissed = false;
@@ -19929,8 +19986,19 @@ codePos,
     }
 
     function syncResponsiveWorkspace() {
+      updateVisualViewportMetrics();
       syncMobileWorkspaceScreen();
       syncMobileLandscapePreview();
+    }
+
+    function updateVisualViewportMetrics() {
+      const viewport = window.visualViewport;
+      const width = Math.max(1, Math.round(viewport?.width || window.innerWidth || document.documentElement.clientWidth || 1));
+      const height = Math.max(1, Math.round(viewport?.height || window.innerHeight || document.documentElement.clientHeight || 1));
+      document.documentElement.style.setProperty('--d2-visual-width', width + 'px');
+      document.documentElement.style.setProperty('--d2-visual-height', height + 'px');
+      STATE.visualViewportWidth = width;
+      STATE.visualViewportHeight = height;
     }
 
     
@@ -19946,6 +20014,8 @@ codePos,
       if (layer) {
         layer.style.pointerEvents = STATE.touchMode === 'pan' ? 'auto' : 'none';
       }
+      applyPreviewLayout();
+      scheduleWorkspaceSave(250);
       showToast(STATE.touchMode === 'pan' ? 'Pan Mode: drag canvas to move' : 'Scroll Mode: scroll inside preview');
     }
 
@@ -20694,12 +20764,13 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       const lower = String(path || '').toLowerCase();
       if (lower.endsWith('.html') || lower.endsWith('.htm')) return 'html';
       if (lower.endsWith('.css')) return 'css';
+      if (lower.endsWith('.scss') || lower.endsWith('.sass') || lower.endsWith('.less')) return 'stylesheet-source';
       if (lower.endsWith('.js') || lower.endsWith('.mjs') || lower.endsWith('.cjs')) return 'javascript';
       if (lower.endsWith('.jsx')) return 'jsx';
       if (lower.endsWith('.ts') || lower.endsWith('.mts') || lower.endsWith('.cts')) return 'typescript';
       if (lower.endsWith('.tsx')) return 'tsx';
       if (lower.endsWith('.json')) return 'json';
-      if (lower.endsWith('.md') || lower.endsWith('.txt') || lower.endsWith('.xml') || lower.endsWith('.svg') || lower.endsWith('.py') || lower.endsWith('.sh') || lower.endsWith('.vbs') || lower.endsWith('.yml') || lower.endsWith('.yaml') || lower.endsWith('.env') || lower.endsWith('.gitignore')) return 'text';
+      if (lower.endsWith('.md') || lower.endsWith('.txt') || lower.endsWith('.xml') || lower.endsWith('.svg') || lower.endsWith('.py') || lower.endsWith('.sh') || lower.endsWith('.vbs') || lower.endsWith('.yml') || lower.endsWith('.yaml') || lower.endsWith('.toml') || lower.endsWith('.env') || lower.endsWith('.gitignore') || lower.endsWith('.vue') || lower.endsWith('.svelte') || lower.endsWith('.astro') || lower.endsWith('.webmanifest')) return 'text';
       return 'binary';
     }
 
@@ -20841,6 +20912,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       const targetView = options.targetView || 'view-workspace';
       progress?.('Detecting project type and entry chain', 45);
       detectProjectType();
+      d2RefreshWorkspaceSelector();
       detectBuildStatus();
       if (!STATE.selectedFile || !STATE.files[STATE.selectedFile]) STATE.selectedFile = STATE.entryFile;
       loadVisualIssuesFromProject();
@@ -20909,6 +20981,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
     // Detection Engine
     function b005SelectPackageJson(files) {
       const candidates = Object.keys(files || {}).filter(k => /(^|\/)package\.json$/i.test(k) && !/(^|\/)(?:node_modules|dist|build|\.next)\//i.test(k));
+      if (files === STATE.files && STATE.activePackageJson && candidates.includes(STATE.activePackageJson)) return STATE.activePackageJson;
       const score = key => {
         let pkg={}; try { pkg=JSON.parse(getVirtualFileText(files[key])); } catch(_) { return -999; }
         const deps={...pkg.dependencies,...pkg.devDependencies};
@@ -20958,6 +21031,13 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       else if (has('gatsby') || /(^|\/)gatsby-config\./m.test(names)) STATE.projectType = 'gatsby';
       else if (has('@remix-run/react')) STATE.projectType = 'remix';
       else if (has('react-router') && hasReact) STATE.projectType = 'react-router';
+      else if (has('nuxt') || /(^|\/)nuxt\.config\./m.test(names)) STATE.projectType = 'nuxt';
+      else if (has('@sveltejs/kit')) STATE.projectType = 'sveltekit';
+      else if (has('svelte')) STATE.projectType = 'svelte';
+      else if (has('@angular/core') || /(^|\/)angular\.json$/m.test(names)) STATE.projectType = 'angular';
+      else if (has('vue')) STATE.projectType = 'vue';
+      else if (has('preact')) STATE.projectType = 'preact';
+      else if (has('solid-js')) STATE.projectType = 'solid';
       else if (has('astro') || /(^|\/)astro\.config\./m.test(names)) STATE.projectType = 'astro-react';
       else if (has('parcel')) STATE.projectType = 'parcel';
       else if (has('webpack') || /(^|\/)webpack\.config\./m.test(names)) STATE.projectType = 'webpack';
@@ -20996,7 +21076,12 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
         const missingFiles = detectMissingImports();
         const missingDependencies = detectExternalSourcePackages();
         if (compiled || (entry && /\.html?$/i.test(STATE.entryFile) && !htmlBootsFrameworkSource(getVirtualFileText(entry)))) status = { code:'READY', label:'Ready', detail:compiled ? 'Compiled frontend selected: ' + compiled : 'Browser-ready HTML selected: ' + STATE.entryFile };
-        else if (server) status = { code:'REQUIRES_SERVER', label:'Requires Server', detail:'This project needs a running server or a static export of its frontend.' };
+        else if (server) {
+          const pkgInfo = readProjectPackageJson(files);
+          const analysis = d2ScanServerRequirements(files, pkgInfo.pkg || {});
+          const blocker = analysis.blockers[0] || 'This project needs its framework/server runtime or a finished static frontend export.';
+          status = { code:'REQUIRES_SERVER', label:'Requires Server', detail:blocker };
+        }
         else if (STATE.projectType === 'react-vite' || STATE.projectType === 'next' || keys.some(k => /\.(?:tsx|jsx|mts|cts|mjs|cjs)$/i.test(k))) status = { code:'NEEDS_BUILD', label:'Needs Build', detail:'React source detected but no compiled dist/build/out frontend exists. The source-only preview is best-effort, not a complete npm build.' };
         else if (missingFiles.length) status = { code:'MISSING_FILE', label:'Missing File', detail:String(missingFiles[0].evidence || missingFiles[0].title || 'Local imported file was not found.') };
         else if (missingDependencies.length) status = { code:'MISSING_DEPENDENCY', label:'Missing Dependency', detail:String(missingDependencies[0].evidence || missingDependencies[0].title || 'External dependency was not found.') };
@@ -21098,7 +21183,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
     async function d2PrepareAutomaticBuild() {
       const compiled = findCompiledWebEntry();
       const pkgInfo = readProjectPackageJson(STATE.files);
-      const eligible = !compiled && isReactProjectFiles(STATE.files) && !projectNeedsServer(STATE.files) && Boolean(pkgInfo.pkg?.scripts?.build);
+      const eligible = !compiled && Boolean(pkgInfo.pkg?.scripts?.build) && !['backend-service','electron'].includes(STATE.projectType);
       if (!eligible) return null;
       const support = getWebContainerSupport();
       if (!support.supported) {
@@ -21178,20 +21263,42 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       const needsServer = projectNeedsServer(STATE.files);
       const sourceIsStub = reactSourceIsStub(STATE.files);
       const deskPreview = realHtmlPreviewTarget(STATE.files);
-      const wantsReact = STATE.projectType === 'react-vite' || Object.keys(STATE.files).some(k => /\.(tsx|jsx)$/i.test(k));
-      // Repository imports may include the viewer's own published index.html.
-      // Never launch a second Debooger inside this preview: its responsive shell
-      // and touch controls appear to trap users in a nested, magnified viewer.
+      const wantsReact = isReactProjectFiles(STATE.files);
+      const needsClientBuild = !compiledReactEntry && ['vue','preact','solid','svelte','angular','gatsby','astro-react','parcel','webpack','rollup','esbuild','rspack','rsbuild','storybook','expo-web','nx','turborepo'].includes(STATE.projectType);
+      // Self-hosted Debooger pages are valid HTML preview targets. Run them in
+      // the normal sandboxed iframe (without allow-same-origin), not a blocked shell.
+      // Do not recursively load any projects; each nested instance starts empty.
       const currentEntry = STATE.files[STATE.entryFile];
       const entryText = currentEntry && !currentEntry.binary ? String(currentEntry.content || '') : '';
       const isDeboogerSelfPreview = /DEBOOGER2000/.test(entryText.slice(0, 20000))
         && entryText.includes('id="live-sandbox-frame"')
         && entryText.includes('id="stage-box"');
-      if (isDeboogerSelfPreview) {
+      const nestedDepth = Math.max(0, Number(window.__D2_NESTED_DEPTH || 0));
+      if (isDeboogerSelfPreview && nestedDepth >= 2) {
+        finalHtml = constructPreviewProblemShell('Nested preview limit reached', 'DEBOOGER allows two isolated nested viewer levels. Open this file directly to continue without multiplying browser runtimes.', true);
         STATE.previewAuditEligible = false;
-        finalHtml = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
-          + '<style>body{font:15px/1.65 system-ui,sans-serif;color:#334155;background:#f8fafc;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px;box-sizing:border-box}main{max-width:480px;background:white;border:1px solid #e2e8f0;border-radius:10px;padding:25px}h2{font-size:18px;margin:0 0 10px}p{margin:0}</style></head>'
-          + '<body><main><h2>Repository files ready</h2><p>This file is Debooger itself. To avoid opening Debooger inside Debooger, the nested live preview is disabled. Use <strong>Files</strong> to inspect, edit or download the imported source.</p></main></body></html>';
+        STATE.runtimeSandboxLimits.push('Nested DEBOOGER preview stopped at the verified depth limit of 2.');
+      } else if (isDeboogerSelfPreview) {
+        finalHtml = constructStaticHtmlBundle(STATE.entryFile);
+        // Opaque iframe origins prevent storage sharing across nested viewers.
+        // Provide per-instance ephemeral storage so the child application can boot
+        // without receiving the parent's tokens, history, caches, or uploaded files.
+        const nestedStoreShim = `<script>(function(){
+          window.__D2_NESTED_DEPTH=${nestedDepth + 1};
+          function memoryStorage(){const entries=new Map();return {
+            get length(){return entries.size},key(i){return Array.from(entries.keys())[i]??null},
+            getItem(k){k=String(k);return entries.has(k)?entries.get(k):null},
+            setItem(k,v){entries.set(String(k),String(v))},removeItem(k){entries.delete(String(k))},
+            clear(){entries.clear()}
+          }}
+          for(const key of ['localStorage','sessionStorage']){
+            try { void window[key]; } catch(error){
+              try { Object.defineProperty(window,key,{configurable:true,value:memoryStorage()}); }catch(_){}
+            }
+          }
+        })();<\/script>`;
+        finalHtml = finalHtml.replace(/<head\b([^>]*)>/i, (tag) => tag + nestedStoreShim);
+        STATE.runtimeSandboxLimits.push('Nested Debooger is running in an isolated sandbox with temporary browser storage. Its data is not shared with the parent viewer.');
       } else if (readyPreview) {
         STATE.entryFile = readyPreview;
         finalHtml = constructStaticHtmlBundle(readyPreview);
@@ -21206,6 +21313,9 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
           finalHtml = constructReactPreviewShell('Resolving React source, imports and the matching runtime. External packages require internet access or a compiled build.');
           pendingLiveReact = true;
         }
+      } else if (needsClientBuild) {
+        finalHtml = constructPreviewProblemShell('Project build required', 'No validated browser output was found. DEBOOGER attempted the declared build when this browser supported it; this framework cannot be executed truthfully as loose source files.', true);
+        STATE.previewAuditEligible = false;
       } else if (needsServer) {
         finalHtml = constructReactPreviewShell('This project needs its own server, and the ZIP has no finished page to show.', true);
         STATE.previewAuditEligible = false;
@@ -22095,7 +22205,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-008 offline-first React source preview.
+    // DB2K-010 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22291,12 +22401,63 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
       return workspaces;
     }
 
+    function d2RefreshWorkspaceSelector() {
+      const wrap = document.getElementById('d2-tools-app-wrap');
+      const select = document.getElementById('d2-tools-app');
+      if (!wrap || !select) return;
+      const candidates = d2ScanWorkspaces(STATE.files).filter(item => {
+        const deps = Object.assign({}, item.dependencies, item.devDependencies);
+        return deps.react || deps['react-dom'] || deps.vite || deps.next || deps['react-scripts'] || deps['@remix-run/react'] || deps.astro || deps.parcel || deps['@rspack/core'] || deps['@rsbuild/core'];
+      });
+      select.replaceChildren();
+      if (candidates.length < 2) {
+        wrap.hidden = true;
+        if (candidates.length === 1) STATE.activePackageJson = candidates[0].path;
+        return;
+      }
+      wrap.hidden = false;
+      candidates.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.path;
+        option.textContent = item.name + (item.rootDir ? ' — ' + item.rootDir.replace(/\/$/, '') : ' — root');
+        select.appendChild(option);
+      });
+      const selected = candidates.some(item => item.path === STATE.activePackageJson)
+        ? STATE.activePackageJson
+        : b005SelectPackageJson(STATE.files);
+      STATE.activePackageJson = candidates.some(item => item.path === selected) ? selected : candidates[0].path;
+      select.value = STATE.activePackageJson;
+    }
+
+    async function d2SelectWorkspace(packagePath) {
+      if (!STATE.files[packagePath] || !/(^|\/)package\.json$/i.test(packagePath)) {
+        showToast('That application manifest is no longer available.');
+        return;
+      }
+      STATE.activePackageJson = packagePath;
+      STATE.entryFile = '';
+      STATE.selectedFile = packagePath;
+      closeWorkspacePopovers();
+      await finishIntakeProcess({ targetView:'view-workspace', waitForMount:true });
+      scheduleWorkspaceSave(0);
+      showToast('Application selected: ' + packagePath.replace(/\/package\.json$/i, ''));
+    }
+
     function computeFiveDimensionScores(state, verification, tests, groups) {
       const checks = Array.isArray(tests) ? tests : [];
       const normalized = checks.map(check => ({
         ...check,
-        status: String(check.status || '').toUpperCase(),
-        dimension: String(check.dimension || check.group || check.category || '').toLowerCase()
+        status: String(check.status || '').toUpperCase().replace(/[-\s]+/g, '_'),
+        dimension: (() => {
+          const explicit = String(check.dimension || check.group || check.category || '').toLowerCase();
+          if (explicit) return explicit;
+          const id = String(check.id || '').toLowerCase();
+          if (/runtime|sandbox|worker|service-worker/.test(id)) return 'runtime';
+          if (/visual|layout|render|html-live|css-selector|css-declaration/.test(id)) return 'rendering';
+          if (/package|dependency|import|require|resource|asset|binary/.test(id)) return 'dependencies';
+          if (/syntax|brace|paren|bracket|json/.test(id)) return 'build';
+          return 'audit';
+        })()
       }));
       const aliases = {
         build: ['build','syntax','compile'], dependencies: ['dependency','dependencies','shim'],
@@ -22305,7 +22466,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
       };
       const scoreDimension = (key, label) => {
         const relevant = normalized.filter(check => aliases[key].some(name => check.dimension.includes(name) || String(check.id || '').toLowerCase().includes(name)));
-        const executed = relevant.filter(check => check.executed !== false && !['SKIPPED','NOT_APPLICABLE','UNVERIFIED','PENDING',''].includes(check.status));
+        const executed = relevant.filter(check => check.executed !== false && !['SKIPPED','NOT_APPLICABLE','NOT_VERIFIED','UNVERIFIED','UNSUPPORTED','PENDING',''].includes(check.status));
         if (!executed.length) return { score:null, label, verified:false, coverage:{executed:0, applicable:relevant.length} };
         const weights = { PASS:1, WARNING:.65, FAIL:0, ERROR:0 };
         const points = executed.reduce((sum, check) => sum + (weights[check.status] ?? 0), 0);
@@ -22313,10 +22474,10 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
       };
       const result = {
         build: scoreDimension('build', 'Build & Syntax'),
-        dependencies: scoreDimension('dependencies', 'Dependencies & Shims'),
+        dependencies: scoreDimension('dependencies', 'Dependencies'),
         runtime: scoreDimension('runtime', 'Runtime & Sandbox'),
-        rendering: scoreDimension('rendering', 'Visual Rendering & Layout'),
-        audit: scoreDimension('audit', 'Quality & Semantics')
+        rendering: scoreDimension('rendering', 'Rendering & Layout'),
+        audit: scoreDimension('audit', 'Code Quality & Semantics')
       };
       const scored = Object.values(result).filter(item => item.score !== null);
       result.overall = scored.length ? Math.round(scored.reduce((sum, item) => sum + item.score, 0) / scored.length) : null;
@@ -22330,12 +22491,12 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-008|' + target + '|');
+      feed('DB2K-010|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
       });
-      return 'db2k007:' + target + ':' + (hash >>> 0).toString(36);
+      return 'db2k010:' + target + ':' + (hash >>> 0).toString(36);
     }
 
     function d2CacheBuild(key, value) {
@@ -22354,7 +22515,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-008', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-010', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22375,7 +22536,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-008', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-010', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22520,7 +22681,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-008 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-010 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22577,9 +22738,9 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         : '';
       return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Preview status</title>
 <style>html,body{margin:0;min-height:100%;background:#f8fafc;color:${tone};font-family:"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;line-height:1.5}
-.box{max-width:760px;margin:30px auto;background:#fff;border:1px solid #d9dee7;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(15,23,42,.05)}h2{margin:0 0 8px;font-size:20px}h3{margin:18px 0 8px;font-size:14px}p{color:${sub};font-size:13px;white-space:pre-wrap}.needs{margin-top:16px;padding-top:2px;border-top:1px solid #e5e7eb}.needs ul{list-style:none;margin:0;padding:0}.needs li{padding:9px 0;border-bottom:1px solid #eef0f3}.needs li:last-child{border-bottom:0}.needs strong{display:block;font-size:12px;color:${tone};overflow-wrap:anywhere}.needs span{display:block;margin-top:2px;font-size:11px;color:${sub};overflow-wrap:anywhere}
+.box{max-width:760px;margin:30px auto;background:#fff;border:1px solid #d9dee7;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(15,23,42,.05)}h2{margin:0 0 8px;font-size:20px}h3{margin:18px 0 8px;font-size:14px}p{color:${sub};font-size:13px;white-space:pre-wrap}.needs{margin-top:16px;padding-top:2px;border-top:1px solid #e5e7eb}.needs ul{list-style:none;margin:0;padding:0}.needs li{padding:9px 0;border-bottom:1px solid #eef0f3}.needs li:last-child{border-bottom:0}.needs strong{display:block;font-size:12px;color:${tone};overflow-wrap:anywhere}.needs span{display:block;margin-top:2px;font-size:12px;color:${sub};overflow-wrap:anywhere}.retry{margin-top:16px;min-height:38px;padding:8px 13px;border:1px solid #b8c3cf;border-radius:6px;background:#fff;color:#243447;font:600 13px Inter,system-ui;cursor:pointer}
 code{font-family:"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif}</style></head>
-<body><div class="box"><h2>${escapeHtml(String(title || 'Preview status'))}</h2><p>${escapeHtml(String(message || ''))}</p>${reqHtml}</div></body></html>`;
+<body><div class="box"><h2>${escapeHtml(String(title || 'Preview status'))}</h2><p>${escapeHtml(String(message || ''))}</p>${reqHtml}<button class="retry" type="button" onclick="parent.postMessage({type:'DEBOOGER_RETRY_REQUEST',previewGeneration:window.__D2_PREVIEW_GENERATION,previewNonce:window.__D2_PREVIEW_NONCE},'*')">Retry preview</button></div></body></html>`;
     }
 
     function constructReactPreviewShell(message, isError) {
@@ -22753,7 +22914,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-008 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-010 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -23901,7 +24062,8 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       const { pkg } = readProjectPackageJson(files);
       const deps = Object.assign({}, pkg && pkg.dependencies, pkg && pkg.devDependencies);
       const keys = Object.keys(files || {});
-      if (deps.next || deps.gatsby || deps.nuxt || deps['@angular/core'] || deps['react-native'] || deps['@sveltejs/kit'] || deps['@remix-run/react']) return true;
+      if (findCompiledWebEntry(files)) return false;
+      if (deps.next || deps.nuxt || deps['react-native'] || deps['@sveltejs/kit'] || deps['@remix-run/react']) return true;
       if (keys.some(k => /(^|\/)next\.config\./i.test(k))) return true;
       if (keys.some(k => /(^|\/)app\/layout\.(tsx|jsx)$/i.test(k)) && keys.some(k => /(^|\/)app\/page\.(tsx|jsx)$/i.test(k))) return true;
       return false;
@@ -24079,6 +24241,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       const frame = document.getElementById('live-sandbox-frame');
       if (!frame || e.source !== frame.contentWindow || !e.data || typeof e.data !== 'object') return;
       if(e.data.previewGeneration!==LIVE_REACT_PREVIEW_GEN || e.data.previewNonce!==D2_PREVIEW_NONCE)return;
+      if (e.data.type === 'DEBOOGER_RETRY_REQUEST') { refreshSandboxViewer(); return; }
       if (e.data.type === 'DEBOOGER_PAGE_CAPTURE') { receivePageCapture(e.data); return; }
       if (e.data.type === 'DEBOOGER_INSPECT_RESULT') {
         STATE.activeVisualSelection = e.data.selection && typeof e.data.selection === 'object' ? e.data.selection : null;
@@ -24202,6 +24365,18 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       const box = document.getElementById('upload-debug-box');
       if (!box) return;
       const lines = [];
+      const pkgInfo = readProjectPackageJson(STATE.files);
+      const compiledEntry = findCompiledWebEntry(STATE.files);
+      if (compiledEntry) lines.push('REAL COMPILED: validated browser entry ' + compiledEntry + '.');
+      else if (isReactProjectFiles(STATE.files)) {
+        const reactVersion = npmVersion(pkgInfo.pkg || {}, 'react', D2_EMBEDDED_REACT_VERSION);
+        lines.push(d2EmbeddedReactSupported(pkgInfo.pkg || {})
+          ? 'OFFLINE BUNDLED: genuine React ' + reactVersion + ' runtime and JSX/TypeScript compiler.'
+          : 'REAL ONLINE: React ' + reactVersion + ' must be resolved from the package CDN, or supplied in compiled output.');
+      }
+      detectExternalSourcePackages(STATE.files).slice(0, 6).forEach(item => {
+        lines.push((item.declared ? 'REAL ONLINE: ' : 'MISSING: ') + item.spec + ' — ' + item.file);
+      });
       if (STATE.projectType === 'react-vite' && typeof findCompiledWebEntry === 'function' && !findCompiledWebEntry()) {
         lines.push('This is React source. DEBOOGER is converting TSX/JSX in the browser so the viewer can show the page. This is not a Vite server.');
       }
@@ -25096,25 +25271,12 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
     }
 
     function computeAuditScore(verification, tests, groups) {
-      // Quality score (0–100), based on confirmed evidence rather than a pass/fail ratio.
-      // A single failed check must not automatically collapse the entire project to zero.
-      const pool = Array.isArray(tests) ? tests.filter(t => !String(t.id || '').startsWith('visual-')) : [];
-      const passed = pool.length ? pool.filter(t => t.status === 'pass').length : Number(verification?.passed || 0);
-      const failed = pool.length ? pool.filter(t => t.status === 'error').length : Number(verification?.errors || 0);
-      const completed = passed + failed;
-      if (completed === 0) return null;
-      const applicable = pool.filter(t => t.status !== 'not-applicable').length;
-      // Insufficient coverage is explicitly shown as partial in the UI.
-      if (applicable > 0 && completed / applicable < 0.15 && completed < 3) return null;
-      const failedRatio = failed / completed;
-      const testPenalty = Math.min(65, failedRatio * 40 + Math.max(0, failed - 1) * 4);
-      let severityPenalty = 0;
-      (groups || []).forEach(group => {
-        const count = Math.max(1, Number(group.count || 1));
-        const severity = String(group.severity || 'medium').toLowerCase();
-        severityPenalty += (severity === 'high' ? 7 : severity === 'medium' ? 3 : 1) * count;
-      });
-      return Math.max(0, Math.min(100, Math.round(100 - testPenalty - Math.min(45, severityPenalty))));
+      const pool = Array.isArray(tests) ? tests : [];
+      const completed = pool.filter(test => ['pass','warning','error','fail'].includes(String(test.status || '').toLowerCase()));
+      if (completed.length < 2) return null;
+      const dimensions = computeFiveDimensionScores(STATE, verification, pool, groups);
+      if (dimensions.coverage.verifiedDimensions < 2) return null;
+      return dimensions.overall;
     }
 
     function verifiedFindingLocation(finding, files = STATE.files) {
@@ -25573,10 +25735,10 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
               mark('js-syntax', 'pass', tsxEntries.length + ' JSX/TypeScript module(s) verified by embedded TS compiler.');
             }
           } else {
-            mark('js-syntax', 'pass', tsxEntries.length + ' JSX/TypeScript module(s) present.');
+            notVerified('js-syntax', tsxEntries.length + ' JSX/TypeScript module(s) found, but the embedded TypeScript compiler was not initialized for this audit.');
           }
-        } catch (_) {
-          mark('js-syntax', 'pass', tsxEntries.length + ' JSX/TypeScript module(s) present.');
+        } catch (error) {
+          notVerified('js-syntax', 'JSX/TypeScript syntax was not verified: ' + String(error?.message || error));
         }
       }
 
@@ -25734,9 +25896,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
               addFinding('css-declaration-parse','css',{ id:`css-decl-${findings.length}`, category:'CSS', severity:'high', title:'CSS declaration is rejected by the browser', file:label, desc:'The current browser CSS parser threw while applying this property/value pair.', evidence:`Line ${rule.line}: ${prop}: ${value} — ${err.message || err}`, fix:'Correct the CSS declaration.' });
               return;
             }
-            if (!probe.getPropertyValue(prop)) {
-              addFinding('css-declaration-parse','css',{ id:`css-decl-${findings.length}`, category:'CSS', severity:'high', title:'CSS declaration is rejected by the browser', file:label, desc:'The current browser parser discarded this explicit property/value pair instead of storing it.', evidence:`Line ${rule.line}: ${prop}: ${value}`, fix:'Correct or remove the declaration so the target browser accepts it.' });
-            }
+            if (!probe.getPropertyValue(prop)) notVerified('css-declaration-parse', `${label}, line ${rule.line}: this browser did not retain ${prop}; unsupported syntax is not treated as a confirmed source error.`);
           });
         });
       });
@@ -25855,7 +26015,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const groupedVisual = normalizeFindingGroups(visual, files);
       const score = computeAuditScore(verification, tests, [...groupedFindings, ...groupedCleanup, ...groupedVisual]);
       computeFileScores([...groupedFindings, ...groupedCleanup, ...groupedVisual]);
-      STATE.auditReport = { score, findings: groupedFindings, cleanup: groupedCleanup, visual: groupedVisual, categories, tests, verification, scoreFormula:'100 minus bounded verified failure and finding penalties; unavailable when checks are insufficient', fileScores:STATE.fileScores };
+      STATE.auditReport = { score, findings: groupedFindings, cleanup: groupedCleanup, visual: groupedVisual, categories, tests, verification, scoreFormula:'Equal average of verified results in five dimensions; pending, unsupported, N/A and unverified checks are excluded; unavailable with fewer than two verified dimensions', dimensions:computeFiveDimensionScores(STATE, verification, tests, [...groupedFindings, ...groupedCleanup, ...groupedVisual]), fileScores:STATE.fileScores };
       applyAuditReportUi();
       renderFileScores();
       renderFindingsList();
@@ -28187,7 +28347,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-008') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-010') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28279,8 +28439,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-008';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-008' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-010';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-010' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -29028,7 +29188,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-008 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-010 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29047,7 +29207,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-008')) throw new Error('Could not prepare DEBOOGER DB2K-008 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-010')) throw new Error('Could not prepare DEBOOGER DB2K-010 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29222,7 +29382,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-008', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-010', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
