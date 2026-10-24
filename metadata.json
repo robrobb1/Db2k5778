@@ -1,0 +1,6 @@
+{
+  "name": "DEBOOGER2000 — Universal Project Viewer, Compiler & Auditor",
+  "description": "Standalone universal project viewer, advanced React build/preview engine, automatic dist recovery, sandbox inspector, and trustworthy file-type-aware auditor.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

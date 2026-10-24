@@ -1,0 +1,120 @@
+DEBOOGER2000 — DB2K-002
+COMPLETE ENGINEERING HANDOFF: UNIVERSAL PROJECT INTAKE, ADVANCED REACT BUILD/PREVIEW, AUTOMATIC OUTPUT RECOVERY, AND TRUSTWORTHY AUDIT
+
+YOUR MISSION
+Upgrade the existing Debooger2000 standalone application into the most capable practical universal project viewer, compiler, builder, inspector, and auditor that can run inside ONE self-contained HTML file. Focus first on making React projects open and visibly render rather than merely being accepted or detected. Fix audit scores, tests, failure diagnostics, and preview errors across every supported upload type. Preserve all existing working features and user data. Do not redesign the UI unless required to expose real capabilities or diagnostics.
+
+WHAT DEBOOGER IS
+Debooger is a browser-based viewer and diagnostic workspace. The user opens one HTML file, then uploads HTML, individual source files, complete folders, project ZIPs, or prebuilt applications. Debooger inspects the uploaded file tree, identifies the project type, resolves a usable entry point, previews the application in an isolated viewer, lets the user inspect/edit content, reports runtime/compile/audit problems, and can export files. It must work when opened from local device storage as far as the browser permits, as well as on a normal static website. GitHub integration exists for optional publishing, but React compilation and preview MUST NOT depend on GitHub, a repository, or GitHub Pages.
+
+DELIVERABLE AND NONNEGOTIABLE CONSTRAINTS
+- Output the updated complete working file named DB2K-002.html, as ONE standalone HTML containing all Debooger application CSS, JavaScript, bundled runtime/tooling assets needed for its offline baseline, and user interface. Do not change its delivery format to a Node app, multi-file site, or hosted backend.
+- Keep all current features that work: HTML/ZIP intake, project explorer, preview, pan and zoom, mobile/desktop support, editing, audit, console, settings, token preferences, optional GitHub workflows, exports, and stored work.
+- Integrate upgrades into the existing architecture; eliminate superseded duplicate implementations, conflicting CSS, stale versions, dead code, redundant overrides, and misleading controls instead of layering patches indefinitely.
+- Follow version isolation: namespace compatible browser state by application identity, project, version, session, and appropriate account scope. Avoid cross-version runtime/cache/storage contamination. Never auto-delete projects, tokens, history, or other saved user data. Migrate compatible state safely. Never publish credentials inside an exported project or preview.
+- Keep controls visibly usable; where a feature requires capabilities that are absent, clicking must give a truthful concise explanation and an actionable alternative, never fake success.
+- Preserve desktop behavior; mobile must support a 1200px default desktop preview, independent controlled pan and zoom, real scrolling inside a previewed page, centered initial fit, landscape/full-screen fit, and reliable Exit. Do not block ordinary scrolling in uploaded applications just to enable panning.
+- Apply Inter typography, legible 12px minimum, low-clutter layout, clean borders, no unnecessary boxes, chevrons, pill decorations, or modal close X buttons. Clicking outside dismisses dialogs where safe. Avoid automatic large edit panels before an element is chosen.
+- Do not upload to GitHub or deploy unless explicitly requested. Supply the final HTML download and a short, honest change/verification report.
+
+IMPORTANT REALITY CHECK
+It is technically impossible for one static offline HTML page to guarantee builds for every possible React project, version, npm dependency, native addon, Node process, framework server, private registry, secret, or third-party service. Do NOT claim universal support or create empty placeholder dist folders. Build the broadest robust capability possible, using deterministic capability detection, offline embedded tools and caches, optional user-approved online dependency acquisition, and supported full-build environments. When a project cannot be built, name the EXACT blocker, affected path/package/API, remedy, and whether a prebuilt dist or another runtime would solve it. Offline-first means no surprise calls to CDNs or registries; network fallback should be explicit and visible. Do not invent test results.
+
+PHASE 1 — COMPLETE FILE AND PROJECT INTAKE
+1. Accept HTML/HTM, JS/JSX/MJS/CJS, TS/TSX/MTS/CTS, CSS, JSON, assets/fonts/images, project directories, project ZIPs, and compiled output bundles. Recognize common nested source roots and monorepos/workspaces.
+2. Parse archive trees safely: defend against traversal paths (../), absolute paths, duplicate normalized paths, overlapping archive entries, malformed archives, decompression bombs, excessively nested ZIPs, memory exhaustion, and case collisions. Show precise, configurable safety limits instead of silently dropping files.
+3. Support nested ZIP extraction when safe and explicitly permitted, with bounded recursion and cumulative byte/entry budgets. Keep archive provenance and progress reporting. Do not silently flatten paths or overwrite duplicates.
+4. Distinguish a raw source file, a source project, a static HTML site, a prebuilt SPA, a framework's server output, and a component/library package.
+5. Inspect package.json, scripts, workspaces, packageManager, exports, engines, dependencies/peerDependencies, npm/yarn/pnpm/bun lockfiles, tsconfig/jsconfig, path aliases, build configurations, and real file tree.
+6. Detect framework and bundler using evidence, not filenames alone: React with Vite, CRA, Webpack, Rspack/Rsbuild, Parcel, React Router framework, Remix, Next.js, Astro/React, Gatsby, Storybook, Expo web, custom esbuild/Rollup, plain React without bundler, static HTML, and other common variants. Report confidence and any ambiguity.
+7. Support project-root selection if multiple apps are present; auto-pick only when evidence is convincing. Never repeatedly display 'looking for index.html' for a React source application whose entry point is known.
+8. Distinguish Vite SOURCE index.html (which imports TSX/JSX) from a READY compiled index.html. A source HTML file alone must never be accepted as proof of a successful build.
+
+PHASE 2 — AUTO-DETECT EXISTING BUILDS
+1. Search common output paths: dist/, build/, out/, public build variants, build/client/, .next/static and configured outputs, storybook-static/, configurable Webpack/Parcel/Rsbuild/Rspack/Expo output, and custom paths from real config.
+2. Validate outputs: HTML document(s), referenced JS/CSS/assets, relative/base paths, module loading, entrypoint and runtime mounting. Detect incomplete folders.
+3. Prefer valid prebuilt browser-renderable output. Do not try to display server-only artifacts as static pages.
+4. Handle SPA route fallback, nested routes, dynamic imports, asset URLs, source maps, and environment base paths within an isolated virtual project URL/runtime where technically feasible.
+5. If prebuilt output is absent or invalid, transition automatically into the build pipeline rather than ending with 'index.html not found'.
+
+PHASE 3 — COMPILE MISSING BUILD OUTPUT AUTOMATICALLY
+1. Create a real compilation/build decision engine. On import, automatically select a safe, supported path: prebuilt output -> browser compiler -> full project build capability -> diagnostic fallback. No mandatory manual Build button.
+2. Bundle an offline-capable parser/transpiler appropriate for JavaScript, JSX, TypeScript, TSX, source maps, JSX runtime modes, ESM/CJS adaptation, JSON imports, import aliases, CSS/asset handling, and common import.meta features. Consider esbuild-WASM plus additional transformations where needed. Verify license notices and bundle sizes. Bundle tools locally in the standalone HTML rather than relying on runtime CDN downloads.
+3. Build a real module graph: resolve relative/absolute imports, workspace references, aliased imports, index/barrel exports, named/default exports, package exports/conditions, dynamic imports, circular references, code splitting where supported, public assets, CSS imports, SVG components, and browser shims only when semantics are correct.
+4. Honor the project's React and ReactDOM versions. Support React 16, 17, 18, 19 and newer compatible variants when available; DO NOT silently call a React-18-rendered React-19 app a genuine React-19 build. Include clear compatibility status for fallbacks. Support createRoot, legacy root APIs, JSX runtime, and React 19-only APIs only with matching runtimes.
+5. Package resolution must use local/included dependencies and isolated per-project caches first, then optional explicitly authorized online download, then explain missing dependencies precisely. Never pretend to bundle every npm package. Provide a dependency manifest of resolved/missing/incompatible packages.
+6. Respect the actual build scripts and plugins when available. A source transpile that skips required Babel/SWC/Vite plugins is NOT equivalent to a production build and must be labeled 'compatibility preview'.
+7. Support official full project builds only in a genuinely capable environment (e.g. supported browser container with required isolation, Node-compatible runtime, optional locally available build companion). Detect secure context, cross-origin isolation, mobile Safari limitations, storage/CPU/memory, network availability, and framework/runtime requirements BEFORE attempting a full build.
+8. Plain local file:// and ordinary static hosting do not automatically provide a Node/Vite server. If a full build is unavailable, use the best honest browser-only fallback without blocking the entire viewer.
+9. Detect SSR/server dependencies (Next.js server routes, server actions, Node builtins, databases, authentication servers, native addons, secrets, edge functions, WebSockets, private packages) and explicitly distinguish static browser preview from a fully functioning backend.
+10. Generate ACTUAL compiled files and assets when successful, stored in an isolated virtual output tree. Expose them as a downloadable dist/build ZIP if possible. Do not create or advertise an empty dist placeholder as success.
+11. Display structured progress: Detecting root -> Resolving packages -> Compiling -> Bundling -> Preparing preview -> Mount verified. On failure, show the exact failed stage plus logs and missing requirements directly in the preview without requiring an Audit click.
+12. Cancel safely; support bounded time/memory, incremental cache reuse, retry without corrupting existing projects, and independent concurrent projects/versions.
+
+PHASE 4 — ACTUAL PREVIEW AND MOUNT VERIFICATION
+1. A successful upload is not a successful build; a successful build is not a successful rendered app. Verify a meaningful browser mount (React root and visible UI or explicit app-ready signal) and monitor runtime exceptions, rejected promises, failed module resolution, missing assets, and blank page.
+2. Show blank preview diagnostics within the preview surface. Tell the user whether no entry was found, compilation failed, a package failed, a security restriction applied, or the app mounted but rendered no visible UI.
+3. Use isolated iframe/runtime contexts and properly bound virtual files/resources. Avoid stale service workers, cross-version caches, shared globals, and cross-project localStorage interference. Preserve safe existing user work.
+4. Handle CSP, CORS, blob/data URL limits, browser worker restrictions, strict MIME, dynamic import URLs, and file:// restrictions; explain boundaries rather than suppressing errors.
+5. On mobile preserve nested DOM scroll inside the displayed app. Separate a user-controlled Pan mode from normal page interaction so one-finger scrolling in Leads/tables/messages works; use two-finger pinch for zoom where feasible. Pan and zoom must not accidentally scroll/zoom Debooger itself.
+6. Allow a full-screen/browser-open option only when the browser supports it; make Exit reachable and restore position/scale correctly.
+
+PHASE 5 — AUDIT, TESTS AND SCORING: ALL SUPPORTED UPLOAD TYPES
+1. Repair the existing misleading Audit score. A file with one small HTML/accessibility issue must not automatically receive 0/100 just because unrelated checks are 'unverified'. A valid file with no executed checks must not be displayed as 100/100 either.
+2. Maintain separate metrics: (a) confirmed failures by severity, (b) completed checks (passes/fails), (c) not run/unverified checks, (d) coverage %, (e) runtime/build status, (f) optional quality score only when its evidence and method are defensible.
+3. Do not count unverified checks as passes or failures. Display 'Not scored — insufficient verified checks' where necessary. Provide a transparent formula, weights, coverage threshold and per-check evidence. Never fabricate scores or hardcode success.
+4. Make check suites FILE-TYPE-AWARE: HTML semantics/accessibility/resources, CSS parser and broken references, JS/TS syntax/transpilation/import graph, React dependency/build/mount, ZIP integrity/path safety, package manifests, assets, compiled outputs, and multi-file project link integrity. Do not assign HTML-specific failures to TSX or ZIP as if they were HTML pages.
+5. Separate confirmed errors, warnings, improvements, and unverified hypotheses. Deduplicate repeated root causes while preserving occurrence counts and provenance.
+6. Errors must have file path, line/column when available, phase, message, evidence and suggested remedy. Include compiler errors, browser runtime stack, network/load errors, package resolution, and build environment blockers.
+7. Audit opens with confirmed errors expanded. Console opens automatically when errors occur. Display important failures directly in preview; no user should need to click Audit merely to find why the upload failed.
+8. Ensure 'Test'/'Quick check' really runs test logic and updates score/state. If a browser/security condition prevents a check, show the reason and mark unverified. Internal smoke-test counts are not proof that arbitrary uploaded apps work.
+9. Avoid audit loops, stale counts from previous uploads, fake findings, duplicate phantom messages, and score contamination between projects. Refresh findings when build/runtime status changes.
+10. Provide compact user-facing explanations, detailed expandable evidence, and an exportable audit report.
+
+PHASE 6 — ERROR RECOVERY AND USER EXPERIENCE
+1. Automatic but bounded recovery for missing entry, missing output folder, missing or mismatched package versions, broken relative URLs, known safe import aliases, unsupported module format, and stale compiled assets.
+2. Never rewrite source silently. Make nontrivial repairs opt-in, reversible, backed up, and attributable to a specific file/version.
+3. Distinguish safe automatic normalization from semantic changes. Do not fake APIs, modules, named exports, data, services, or page content just to remove errors.
+4. Show each step of a retry and stop retrying strategies proven incompatible. No endless index.html scan or refresh loops.
+5. Keep modals compact on mobile, not covering target content before selection; default mobile preview width 1200 CSS pixels with initial fit and center. Maintain crisp desktop sizing.
+
+PHASE 7 — SECURITY, PERFORMANCE, OFFLINE-FIRST
+1. Keep uploaded code sandboxed; do not grant untrusted projects access to Debooger's GitHub tokens or settings. Define explicit trust boundaries and use least-privilege messaging.
+2. Honor Content Security Policy constraints and avoid unsafe global evaluation or injection into parent DOM where possible. Sanitize filenames, paths, message payloads, ZIP extractions and generated URLs.
+3. Chunk large operations, offload compilation/archive processing to workers where possible, bound memory use, show progress/cancellation and explain device limits. Do not load every asset as one enormous base64 string if avoidable.
+4. Include clear offline/online status and control; no surprise external package fetch. Package cache must be project/version isolated with explicit safe reuse and size management.
+5. Do not automatically delete storage or saved work; implement conservative storage migration and user-initiated cleanup only.
+6. Keep generated standalone HTML maintainable and not bloated by duplicate dependency versions. Evaluate size/performance tradeoffs and document any genuinely impossible offline capability.
+
+PHASE 8 — VERIFICATION WITHOUT ANY USER-PROVIDED TEST ZIP
+DO NOT REQUIRE THE USER TO UPLOAD A CRM ZIP OR ANY SPECIFIC TEST FIXTURE TO PROCEED. You can create tiny disposable synthetic fixtures locally/in memory as needed, but no mandatory external ZIP, special sample project, or user action is required.
+- Do fast syntax validation of every inline script and a browser-startup smoke check.
+- Test project-type detection and appropriate entries using synthetic tiny file trees, including nested roots, missing index.html but legitimate source entries, prebuilt dist, and source-only Vite React.
+- Check browser compiler behavior with representative JSX/TSX, aliases/imports, CSS/assets and an intentionally missing dependency; distinguish compile success from mount success.
+- Validate React version labeling and graceful fallback; do not claim testing of React 19-specific features without using real React 19.
+- Exercise one successful offline supported React mount and one honest unsupported-package error path if facilities allow.
+- Check Audit: simple valid HTML, HTML with one low-severity issue, JS syntax error, TSX build failure, invalid ZIP and unverified check. Verify scores never disguise unknown coverage.
+- Check mobile portrait/landscape centering, preview pan/zoom vs inside-page scroll, Exit; use browser emulation where real iOS hardware is unavailable and say so.
+- Check that GitHub settings, tokens, saved projects, and existing UI remain intact. Mock destructive GitHub operations; do not create or publish real repositories.
+- Do not spend excessive time running broad regression suites or downloading arbitrary projects. Use concise, meaningful smoke/syntax checks. Report PASS / FAIL / NOT TESTED honestly.
+
+IMPLEMENTATION PROCESS
+A. Inspect the supplied latest Debooger HTML thoroughly first. Identify the actual current functions, source/project resolver, output detector, compiler, React runtimes, preview mount logic, audit scorer, and duplicates/conflicting CSS.
+B. Write a concise internal change map of what already works, what is deficient, and what you will replace. Preserve functioning code.
+C. Implement in coherent phases, with real code and predictable cleanup rather than layers of post-hoc CSS/JS patches.
+D. Fix React opening and truthful diagnostics before visual polish; implement automatic dist recovery, correct source-vs-built HTML handling and rigorous runtime verification.
+E. Fix file-type-aware testing and audit scores. Verify that startup errors and mount errors surface without opening Audit manually.
+F. Perform the focused smoke checks above. Be explicit about real versus simulated checks and supported versus unsupported environments.
+G. Produce ONE complete download file DB2K-002.html and a brief list of improvements, known limitations, and verification results. Do not claim 'all React supported' or 'tested' without evidence. Do not push to GitHub unless asked.
+
+SUCCESS CRITERIA
+- A valid prebuilt web project opens quickly.
+- A supported React source project lacking dist is detected and automatically compiled into real browser-runnable output, or it receives a precise limitation report if the required full build cannot be performed.
+- The app renders visibly and its React mount status is verified, not merely assumed from file import.
+- The viewer does NOT endlessly look for index.html when a known React project entry/build process exists.
+- Unsupported npm/server dependencies are reported exactly, not silently fetched, stubbed or ignored.
+- Audit scores and test coverage represent real evidence and handle non-HTML uploads correctly.
+- Mobile scrolling and viewer gestures are distinct and usable.
+- Debooger stays a single self-contained HTML app, with old working features and saved user data preserved.
+
+START WITH THE LATEST PROVIDED DEBOOGER HTML AND EXECUTE THE UPGRADES. DO NOT ASK FOR A SAMPLE ZIP OR REQUIRE THE USER TO PERFORM TESTING BEFORE YOU BEGIN.
