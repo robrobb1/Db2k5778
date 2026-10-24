@@ -14,7 +14,33 @@ export default defineConfig(() => {
         configureServer(server) {
           server.middlewares.use((req, res, next) => {
             const cleanUrl = req.url ? req.url.split('?')[0] : '';
-            if (cleanUrl === '/download/DB2K-003.zip' || cleanUrl === '/download.zip' || cleanUrl === '/DB2K-003.zip') {
+            if (cleanUrl === '/download/DB2K-004.zip' || cleanUrl === '/download.zip' || cleanUrl === '/DB2K-004.zip') {
+              const filePath = path.resolve(import.meta.dirname, 'public/DB2K-004.zip');
+              if (fs.existsSync(filePath)) {
+                const stat = fs.statSync(filePath);
+                res.writeHead(200, {
+                  'Content-Type': 'application/zip',
+                  'Content-Disposition': 'attachment; filename="DB2K-004.zip"',
+                  'Content-Length': stat.size,
+                });
+                fs.createReadStream(filePath).pipe(res);
+                return;
+              }
+            }
+            if (cleanUrl === '/download' || cleanUrl === '/download/DB2K-004.html' || cleanUrl === '/DB2K-004.html') {
+              const filePath = path.resolve(import.meta.dirname, 'public/DB2K-004.html');
+              if (fs.existsSync(filePath)) {
+                const stat = fs.statSync(filePath);
+                res.writeHead(200, {
+                  'Content-Type': 'text/html; charset=utf-8',
+                  'Content-Disposition': 'attachment; filename="DB2K-004.html"',
+                  'Content-Length': stat.size,
+                });
+                fs.createReadStream(filePath).pipe(res);
+                return;
+              }
+            }
+            if (cleanUrl === '/download/DB2K-003.zip' || cleanUrl === '/DB2K-003.zip') {
               const filePath = path.resolve(import.meta.dirname, 'public/DB2K-003.zip');
               if (fs.existsSync(filePath)) {
                 const stat = fs.statSync(filePath);

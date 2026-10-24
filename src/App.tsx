@@ -13,7 +13,10 @@ import {
   ChevronDown, 
   FileCode,
   Sparkles,
-  CheckCircle2
+  CheckCircle2,
+  FolderTree,
+  Activity,
+  Layers
 } from 'lucide-react';
 
 export default function App() {
@@ -22,8 +25,8 @@ export default function App() {
 
   const handleDownloadZip = () => {
     const link = document.createElement('a');
-    link.href = '/download/DB2K-003.zip';
-    link.download = 'DB2K-003.zip';
+    link.href = '/download/DB2K-004.zip';
+    link.download = 'DB2K-004.zip';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -31,8 +34,8 @@ export default function App() {
 
   const handleDownloadHtml = () => {
     const link = document.createElement('a');
-    link.href = '/download/DB2K-003.html';
-    link.download = 'DB2K-003.html';
+    link.href = '/download/DB2K-004.html';
+    link.download = 'DB2K-004.html';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -73,13 +76,13 @@ export default function App() {
             <div className="flex items-center gap-1.5 font-semibold text-zinc-100">
               <span className="w-5 h-5 rounded bg-emerald-600 text-white font-bold flex items-center justify-center text-[10px]">D2</span>
               <span>DEBOOGER<span className="text-emerald-500 font-bold">2000</span></span>
-              <span className="px-1.5 py-0.5 rounded bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-800/80 font-mono font-medium">DB2K-003</span>
+              <span className="px-1.5 py-0.5 rounded bg-emerald-950/80 text-[10px] text-emerald-300 border border-emerald-800/80 font-mono font-medium">DB2K-004</span>
             </div>
             <div className="hidden lg:flex items-center gap-1.5 text-zinc-400 border-l border-zinc-700/60 pl-3">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="text-zinc-300 font-medium">React Offline Engine & Auditor</span>
+              <span className="text-zinc-300 font-medium">Advanced React Build & Repair Engine</span>
               <span className="text-zinc-500">·</span>
-              <span className="text-zinc-400">Router + TanStack Query + Mobile Pan/Scroll + 6-Stage Indicator</span>
+              <span className="text-zinc-400">Real Production dist/ Generation · Universal Shims · 5-Dimension Metrics</span>
             </div>
           </div>
 
@@ -90,10 +93,10 @@ export default function App() {
                 type="button"
                 onClick={handleLoadSampleReact}
                 className="flex items-center gap-1.5 px-2.5 py-1 rounded text-zinc-200 hover:text-white hover:bg-zinc-700/60 transition font-medium text-[11px] cursor-pointer"
-                title="Load sample React 19 + React Router + TanStack Query + Lucide app to verify offline transpilation and mount"
+                title="Load sample React 19 + React Router + TanStack Query app to verify full build and mounting"
               >
                 <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Test React 19 + Router</span>
+                <span>Test React 19</span>
               </button>
               <button
                 type="button"
@@ -111,10 +114,10 @@ export default function App() {
               type="button"
               onClick={handleDownloadZip}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-medium transition shadow-sm cursor-pointer"
-              title="Download DB2K-003.zip containing the complete, standalone DB2K-003.html (2.02 MB archive)"
+              title="Download DB2K-004.zip containing the complete, standalone DB2K-004.html (2.03 MB archive)"
             >
               <Archive className="w-3.5 h-3.5" />
-              <span className="font-semibold">Download DB2K-003.zip</span>
+              <span className="font-semibold">Download DB2K-004.zip</span>
             </button>
 
             {/* Direct HTML Deliverable Download Button */}
@@ -122,7 +125,7 @@ export default function App() {
               type="button"
               onClick={handleDownloadHtml}
               className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-medium transition border border-zinc-700 cursor-pointer"
-              title="Download standalone DB2K-003.html directly"
+              title="Download standalone DB2K-004.html directly (3.70 MB)"
             >
               <Download className="w-3.5 h-3.5" />
               <span>.HTML</span>
@@ -130,11 +133,11 @@ export default function App() {
 
             {/* Open in full standalone page */}
             <a
-              href="/DB2K-003.html"
+              href="/DB2K-004.html"
               target="_blank"
               rel="noopener noreferrer"
               className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800 transition"
-              title="Open DB2K-003.html directly in dedicated tab"
+              title="Open DB2K-004.html directly in dedicated tab"
             >
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
@@ -164,12 +167,12 @@ export default function App() {
         </button>
       )}
 
-      {/* Full-bleed Host Frame for the standalone DB2K-003 engine */}
+      {/* Full-bleed Host Frame for the standalone DB2K-004 engine */}
       <main className="flex-1 w-full h-full relative overflow-hidden bg-zinc-950">
         <iframe
           ref={iframeRef}
-          src="/DB2K-003.html"
-          title="DEBOOGER2000 Standalone Workspace"
+          src="/DB2K-004.html"
+          title="DEBOOGER2000 DB2K-004 Standalone Workspace"
           className="w-full h-full border-0 bg-white"
           allow="clipboard-read; clipboard-write; fullscreen"
         />
