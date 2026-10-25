@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-016</title>
-  <!-- DEBOOGER2000 DB2K-016: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-019</title>
+  <!-- DEBOOGER2000 DB2K-019: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1135,10 +1135,9 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 #findings-list .b006-findings-section{padding:10px 4px 6px!important;border:0!important;font-size:12px!important;}
 #findings-list .finding-card{position:relative!important;display:block!important;margin:0 0 7px!important;padding:0!important;border:1px solid #dce4ec!important;border-radius:7px!important;background:#fff!important;overflow:hidden!important;box-shadow:none!important;}
 #findings-list .finding-card:before{content:none!important;display:none!important;}
-#findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:8px!important;padding:9px 11px!important;min-height:38px!important;list-style:none!important;cursor:pointer!important;}
+#findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:8px!important;padding:9px 11px!important;min-height:38px!important;list-style:none!important;cursor:default!important;}
 #findings-list .finding-card .b006-finding-head::-webkit-details-marker{display:none!important;}
-#findings-list .finding-card .b006-finding-head::after{content:'+';font-size:17px;font-weight:400;color:#8290a1;line-height:1;margin-left:3px;flex:0 0 auto;}
-#findings-list .finding-card[open]>.b006-finding-head::after{content:'−';}
+#findings-list .finding-card .b006-finding-head::after{content:'Checked';font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#64748b;line-height:1;margin-left:3px;flex:0 0 auto;}
 #findings-list .finding-card .b006-finding-title{font-size:12px!important;font-weight:600!important;line-height:1.35!important;min-width:0;flex:1;}
 #findings-list .finding-card .b006-finding-severity,#findings-list .finding-card .b006-finding-repeat{font-size:10px!important;flex:0 0 auto;}
 #findings-list .finding-card .b006-finding-body{padding:1px 11px 10px!important;border-top:1px solid #edf1f5!important;font-size:12px!important;line-height:1.45!important;}
@@ -1149,7 +1148,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 @media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-016: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-019: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1174,7 +1173,7 @@ body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
 <style>
-/* DB2K-016: compact mobile overlays, unobstructed notices, neutral edit state. */
+/* DB2K-019: compact mobile overlays, unobstructed notices, neutral edit state. */
 #btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
 #mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
 #toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
@@ -1239,6 +1238,18 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
  .fullscreen-modal.active .modal-body{overflow-y:auto!important;min-height:0!important}
 }
 </style>
+<style id="db2k-019-edit-clarity">
+/* Plain-language edit workspace: desktop uses empty side space; small screens use a bottom sheet. */
+.visual-inspector-panel{right:16px!important;left:auto!important;top:92px!important;width:min(390px,calc(100vw - 32px))!important;max-height:calc(100dvh - 128px)!important;box-shadow:0 18px 42px rgba(15,23,42,.16)!important}
+.visual-inspector-panel[data-moved="true"]{right:auto!important}
+.visual-inspector-head{cursor:grab!important;background:#fff!important}.visual-inspector-head:active{cursor:grabbing!important}
+.d2-edit-kinds{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}.d2-edit-kinds button{min-height:29px;border:1px solid #dbe4ed;background:#fff;border-radius:5px;padding:4px 8px;color:#46566a;font:500 12px Inter,ui-sans-serif,system-ui;cursor:pointer}.d2-edit-kinds button:hover{background:#f4f8fb;color:#172033}
+.d2-edit-status{margin:10px 0 0;padding:9px 10px;border-left:3px solid #2563eb;background:#f5f8ff;color:#40516a;font:12px/1.45 Inter,ui-sans-serif,system-ui}
+.d2-edit-actions{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;margin-top:10px}.d2-edit-actions .visual-save-btn{background:#0f766e!important;border-color:#0f766e!important;color:#fff!important}.d2-edit-queue{margin-top:10px;border-top:1px solid #e8edf2;padding-top:8px;color:#5b6b80;font:12px/1.45 Inter,ui-sans-serif,system-ui}.d2-edit-queue:empty{display:none}
+.d2-edit-queue strong{color:#253548}.d2-edit-queue button{margin:5px 0 0;border:0;background:transparent;color:#0f766e;font:600 12px Inter,ui-sans-serif,system-ui;padding:0;cursor:pointer}
+@media (min-width:1100px){.workspace-pane-center{padding-right:0}.visual-inspector-panel{right:18px!important}.workspace-pane-right.drawer-open~* .visual-inspector-panel{right:18px!important}}
+@media (max-width:950px){.visual-inspector-panel{left:8px!important;right:8px!important;top:auto!important;bottom:calc(8px + env(safe-area-inset-bottom))!important;width:auto!important;max-height:56dvh!important}.d2-edit-actions{grid-template-columns:1fr}.d2-edit-actions button{min-height:42px!important;font-size:14px!important}.d2-edit-kinds button{min-height:34px;font-size:13px}.d2-edit-status,.d2-edit-queue{font-size:13px}.visual-correction-note{min-height:104px!important;font-size:16px!important}}
+</style>
 </head>
 <body class="mobile-shell-v28 project-empty">
 
@@ -1251,7 +1262,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-016">DB2K-016</span>
+          <span class="build-mark" aria-label="Build DB2K-019">DB2K-019</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1423,24 +1434,28 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
 
         <!-- Visual selection inspector and correction marker editor -->
         <div class="visual-inspector-panel" id="visual-inspector-panel" role="region" aria-label="Edit mode inspector">
-          <div class="visual-inspector-head" id="visual-editor-editor-drag-handle" title="Drag to move the editor">
+          <div class="visual-inspector-head" id="visual-editor-editor-drag-handle" title="Drag to move this panel away from the page">
             <div style="min-width:0;">
-              <div id="visual-inspector-title" class="visual-inspector-title">Nothing selected</div>
-              <div class="visual-inspector-sub" id="visual-editor-editor-state">Select an element to edit</div>
+              <div id="visual-inspector-title" class="visual-inspector-title">Step 1: click something in the page</div>
+              <div class="visual-inspector-sub" id="visual-editor-editor-state">This panel stays beside the page so it does not cover your work.</div>
             </div>
 
           </div>
           <div class="visual-inspector-tools">
-
-
             <div class="visual-edit-pane text-replace-box" id="text-replace-box">
-              <label for="visual-correction-note">Your edit</label>
+              <label for="visual-correction-note">Step 2: say what you want changed</label>
               <div class="text-current" id="visual-current-text" hidden></div>
-              <textarea class="visual-correction-note" id="visual-correction-note" aria-label="Change" placeholder="Replace selected text with… or describe the change…"></textarea>
+              <div class="d2-edit-kinds" role="group" aria-label="Kind of change">
+                <button type="button" onclick="d2SetEditKind('Text')">Text</button><button type="button" onclick="d2SetEditKind('Spacing')">Spacing</button><button type="button" onclick="d2SetEditKind('Color')">Color</button><button type="button" onclick="d2SetEditKind('Size')">Size</button><button type="button" onclick="d2SetEditKind('Layout')">Layout</button><button type="button" onclick="d2SetEditKind('Behavior')">Behavior</button>
+              </div>
+              <textarea class="visual-correction-note" id="visual-correction-note" aria-label="Change request" placeholder="Example: Make this heading smaller and leave everything else the same."></textarea>
             </div>
-            <div style="display:flex;gap:7px;margin-top:11px;flex-wrap:wrap;">
-              <button type="button" class="btn btn-sm visual-save-btn" onclick="saveVisualCorrectionMarker()">Save</button><button type="button" class="btn btn-outline btn-sm" onclick="sendVisualEditsToAi()">AI Repair</button>
+            <div class="d2-edit-status" id="d2-edit-status">Step 3: save your request, then copy one clear brief for AI.</div>
+            <div class="d2-edit-actions">
+              <button type="button" class="btn btn-sm visual-save-btn" onclick="saveAndCopyCompleteEditBrief()">Save &amp; Copy AI Brief</button>
+              <button type="button" class="btn btn-outline btn-sm" onclick="copyCompleteEditBrief()">Copy Saved Brief</button>
             </div>
+            <div class="d2-edit-queue" id="d2-edit-queue" aria-live="polite"></div>
           </div>
         </div>
       </div>
@@ -1448,14 +1463,14 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
       <!-- Right: Debooger diagnostics workspace -->
       <div class="workspace-pane-right" aria-label="Debooger">
         <div class="pane-header">
-          <span>Audit &amp; console</span>
+          <span>Check results</span>
           <div style="display:flex;align-items:center;gap:7px;">
             
             
           </div>
         </div>
         <div class="debooger-tabs" role="tablist" aria-label="Debooger sections">
-          <button type="button" class="debooger-tab active" id="debooger-tab-problems" role="tab" aria-selected="true" aria-controls="debooger-problems-pane">Problems</button>
+          <button type="button" class="debooger-tab active" id="debooger-tab-problems" role="tab" aria-selected="true" aria-controls="debooger-problems-pane">What needs attention</button>
         </div>
         <div class="debooger-pane" id="debooger-problems-pane" role="tabpanel" aria-labelledby="debooger-tab-problems">
           <div class="audit-score-card audit-premium-score">
@@ -1470,12 +1485,12 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
             <button type="button" data-audit-filter="cleanup" onclick="b006SetAuditFilter('cleanup')">Cleanup</button>
           </div>
           <div class="findings-container" id="findings-list"><p class="b006-audit-empty">No issues found yet.</p></div>
-          <details class="b005-diagnostics" id="audit-console-details"><summary>Console &amp; runtime evidence <span id="audit-console-count"></span></summary><div class="b005-console-actions"><button type="button" onclick="b005CopyConsole()">Copy evidence</button><button type="button" onclick="b005ClearConsole()">Clear</button></div><div id="b005-console" aria-live="polite">No console evidence collected yet.</div></details>
-          <details class="score-method audit-fold"><summary>Score method &amp; file scores</summary><div class="audit-method-body">The single score averages completed evidence across Build &amp; Syntax, Dependencies, Runtime &amp; Sandbox, Rendering &amp; Layout, and Code Quality &amp; Semantics. Pending, unsupported, N/A, and unverified checks are excluded. Fewer than two verified dimensions displays —. File scores are separate indicators based on confirmed findings, not guarantees.<div id="file-scores-list"></div></div></details>
-          <details class="audit-fold" id="upload-notes-details"><summary>Upload &amp; preview notes</summary><div id="upload-debug-box" class="upload-debug-box" hidden></div></details>
-          <details class="audit-fold"><summary>Selected element details</summary><div id="visual-inspector-details"></div><div id="visual-source-hint"></div></details>
+          <details class="b005-diagnostics" id="audit-console-details" open><summary>Console &amp; runtime evidence <span id="audit-console-count"></span></summary><div class="b005-console-actions"><button type="button" onclick="b005CopyConsole()">Copy evidence</button><button type="button" onclick="b005ClearConsole()">Clear</button></div><div id="b005-console" aria-live="polite">No console evidence collected yet.</div></details>
+          <details class="score-method audit-fold"><summary>Understand scores and files</summary><div class="audit-method-body">The score uses every check that finished. Passed checks add to the score; failed checks lower it. Checks that could not run, do not apply, or still need a live preview are shown separately and do not change the score. File scores are helpful signals, not guarantees.<div id="file-scores-list"></div></div></details>
+          <details class="audit-fold" id="upload-notes-details"><summary>Why the preview opened this way</summary><div id="upload-debug-box" class="upload-debug-box" hidden></div></details>
+          <details class="audit-fold"><summary>Advanced details about the selected item</summary><div id="visual-inspector-details"></div><div id="visual-source-hint"></div></details>
           <div id="b005-baseline-status" class="b005-baseline-status" role="status"></div>
-          <div class="audit-quick-actions" aria-label="AI repair handoff"><button type="button" onclick="copyAiHandoffPrompt()">Copy repair</button><button type="button" onclick="exportAuditReport()">Download audit</button><button type="button" onclick="openAiDock('repair')">Open Repair</button></div>
+          <div class="audit-quick-actions" aria-label="Share with AI"><button type="button" onclick="copyAiHandoffPrompt()">Copy repair brief</button><button type="button" onclick="exportAuditReport()">Download check report</button><button type="button" onclick="openAiDock('repair')">View repair brief</button></div>
         </div>
       </div>
     </section>
@@ -1561,13 +1576,13 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
   </div>
   <div class="fullscreen-modal" id="modal-ai-prompt" role="dialog" aria-modal="true" aria-labelledby="ai-modal-title">
     <div class="modal-box" style="max-width:720px;">
-        <div class="modal-header"><span id="ai-modal-title">AI Repair</span></div>
+        <div class="modal-header"><span id="ai-modal-title">Copy this for AI</span></div>
       <div class="modal-body" style="padding:18px;display:flex;flex-direction:column;gap:12px;">
         <textarea id="ai-prompt-modal-text" readonly class="editor-textarea" style="height:min(70vh,560px);background:#ffffff;color:#0f172a;"></textarea>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-primary" type="button" onclick="copyAiHandoffPrompt()">Copy AI Repair Prompt</button>
-          <button class="btn btn-outline" type="button" onclick="copyAuditReport()">Copy audit</button>
-          <button class="btn btn-dark" type="button" onclick="exportAuditReport()">Download audit</button>
+          <button class="btn btn-primary" type="button" onclick="copyAiHandoffPrompt()">Copy repair brief</button>
+          <button class="btn btn-outline" type="button" onclick="copyAuditReport()">Copy check report</button>
+          <button class="btn btn-dark" type="button" onclick="exportAuditReport()">Download check report</button>
         </div>
       </div>
     </div>
@@ -19549,7 +19564,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-016_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-019_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -21436,7 +21451,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
                 const args=Array.from(arguments); orig.apply(console,args);
                 let caller='';
                 try { const lines=String(new Error().stack||'').split('\\n').map(function(x){return x.trim()}).filter(Boolean); caller=lines.length>2?lines[2]:(lines[1]||''); } catch(_) {}
-                post({type:'CONSOLE_LOG',level:lvl==='error'?'err':lvl,text:args.map(function(x){try{return typeof x==='string'?x:JSON.stringify(x)}catch(_){return String(x)}}).join(' '),file:sourceFile,caller:caller});
+                post({type:'CONSOLE_LOG',level:lvl==='error'?'err':lvl,text:args.map(function(x){try{if(x instanceof Error)return x.name+': '+x.message+(x.stack?'\\n'+x.stack:'');if(typeof x==='string')return x;var json=JSON.stringify(x);return json==='{}'&&x&&x.message?String(x.message):json;}catch(_){return String(x)}}).join(' '),file:sourceFile,caller:caller});
               };
             });
             function d2Net(method,url,status,ok){ post({type:'NETWORK_LOG',method:String(method||'GET'),url:String(url||''),status:status==null?'':String(status),ok:!!ok}); }
@@ -21834,6 +21849,7 @@ let a=String(nums[3]).endsWith('%')?parseFloat(nums[3])/100:parseFloat(nums[3]);
             window.addEventListener('message',function(e){
               if(!e.data||typeof e.data!=='object')return;
               if(e.data.type==='DEBOOGER_CAPTURE_PAGE')d2CaptureVisualPage(String(e.data.requestId||''));
+              if(e.data.type==='DEBOOGER_RUN_DOM_AUDIT')runDomAudit();
               if(e.data.type==='DEBOOGER_INSPECT_MODE'){inspectEnabled=Boolean(e.data.enabled);d2Locked=null;d2LockedEl=null;d2Paint(null,0,0);document.documentElement.style.cursor=inspectEnabled?'crosshair':'';}
               if(e.data.type==='DEBOOGER_INSPECT_CLEAR'){d2Locked=null;d2LockedEl=null;d2Paint(null,0,0);}
               if(e.data.type==='DEBOOGER_INSPECT_LOCK_SELECTOR'&&e.data.selector){try{const el=document.querySelector(e.data.selector);if(el){const sel=d2ElementSelection(el,e.data.kind||'container');sel.page=sourceFile;sel.viewport={width:innerWidth,height:innerHeight};sel.candidates=d2CandidatesAt(el);d2Locked=sel;d2LockedEl=el;const r=el.getBoundingClientRect();d2Paint(sel,r.right,r.bottom);}}catch(_){ }}
@@ -21855,7 +21871,7 @@ let a=String(nums[3]).endsWith('%')?parseFloat(nums[3])/100:parseFloat(nums[3]);
               ['aria-labelledby','aria-describedby','aria-controls','aria-owns'].forEach(function(attr){
                 document.querySelectorAll('['+attr+']').forEach(function(el){(el.getAttribute(attr)||'').trim().split(/\\s+/).filter(Boolean).forEach(function(id){if(!document.getElementById(id))push('html-live-'+attr.replace('aria-',''),'ARIA reference points to a missing element',attr+'="'+id+'"');});});
               });
-              document.querySelectorAll('a[href^="#"],use[href^="#"],use[xlink\\\\:href^="#"]').forEach(function(el){const raw=el.getAttribute('href')||el.getAttribute('xlink:href')||'';const id=raw.slice(1);if(id&&!hasTarget(id))push('html-live-fragment','Fragment link points to a missing target',raw);});
+              document.querySelectorAll('a[href^="#"],use[href^="#"],use[xlink\\\\:href^="#"]').forEach(function(el){const raw=el.getAttribute('href')||el.getAttribute('xlink:href')||'';const id=raw.slice(1);if(id&&!id.startsWith('/')&&!hasTarget(id))push('html-live-fragment','Fragment link points to a missing target',raw);});
               document.querySelectorAll('[list]').forEach(function(el){
                 const id=el.getAttribute('list'); const target=id&&document.getElementById(id);
                 if(id&&!target)push('html-live-input-list','Control list= points to a missing datalist','list="'+id+'"');
@@ -22041,6 +22057,32 @@ let a=String(nums[3]).endsWith('%')?parseFloat(nums[3])/100:parseFloat(nums[3]);
       return rewritten;
     }
 
+    function rewriteIsolatedStaticRouting(code) {
+      const original = String(code || '');
+      // A sandboxed srcdoc has an opaque about:srcdoc location. Repoint only the
+      // browser globals used by compiled client routers to the isolated routing
+      // facade injected below. This keeps hash routing working without granting
+      // uploaded code access to the Debooger page's origin.
+      if (!/window\.location|\bhistory\s*\./.test(original) || !globalThis.acorn || typeof globalThis.acorn.parse !== 'function') return original;
+      let ast;
+      try { ast = globalThis.acorn.parse(original, { ecmaVersion:'latest', sourceType:'module', allowHashBang:true }); }
+      catch (_) { return original; }
+      const replacements = [];
+      walkAcornAst(ast, node => {
+        if (node.type === 'MemberExpression' && !node.computed && node.object?.type === 'Identifier' && node.object.name === 'window' && node.property?.type === 'Identifier' && node.property.name === 'location') {
+          replacements.push({ start:node.start, end:node.end, value:'globalThis.__D2_PREVIEW_LOCATION' });
+        }
+        if (node.type === 'MemberExpression' && node.object?.type === 'Identifier' && node.object.name === 'history') {
+          replacements.push({ start:node.object.start, end:node.object.end, value:'globalThis.__D2_PREVIEW_HISTORY' });
+        }
+      });
+      let rewritten = original;
+      replacements.sort((a,b) => b.start - a.start).forEach(change => {
+        rewritten = rewritten.slice(0, change.start) + change.value + rewritten.slice(change.end);
+      });
+      return rewritten;
+    }
+
     function buildVirtualModuleImportMap() {
       const imports = {};
       Object.entries(STATE.files).forEach(([path, file]) => {
@@ -22055,7 +22097,7 @@ let a=String(nums[3]).endsWith('%')?parseFloat(nums[3])/100:parseFloat(nums[3]);
           return;
         }
         if (!/\.(?:js|mjs|cjs)$/i.test(path)) return;
-        const rewritten = rewriteLocalModuleReferences(getVirtualFileText(file), path);
+        const rewritten = rewriteIsolatedStaticRouting(rewriteLocalModuleReferences(getVirtualFileText(file), path));
         const bytes = new TextEncoder().encode(rewritten);
         imports[virtualModuleKey(path)] = `data:text/javascript;base64,${encodeArrayBufferToBase64(bytes.buffer)}`;
       });
@@ -22099,6 +22141,59 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
 <body><h1 class="file">${name}</h1>${body}</body></html>`;
     }
 
+    function constructIsolatedBrowserUrlShim(entryPath) {
+      const cleanPath = normalizeVirtualPath(String(entryPath || 'index.html')).replace(/^\/+/, '') || 'index.html';
+      const virtualHref = 'https://preview.debooger.invalid/' + cleanPath.replace(/[^A-Za-z0-9._~!$&'()*+,;=:@/%-]/g, encodeURIComponent);
+      // srcdoc iframes have an about:srcdoc address. Browser routers and compiled
+      // Vite apps often pass that address to new URL(), but relative URLs cannot use
+      // it as a base. Adapt only URL construction inside this isolated document;
+      // uploaded code and the host page URL are never changed.
+      return `<script data-d2-preview-url>(function(){
+        var NativeURL=window.URL;
+        var previewHref=${JSON.stringify(virtualHref)};
+        function safeBase(value){value=String(value||'');return !value||/^about:|^data:|^blob:|^null$/i.test(value)?previewHref:value;}
+        function PreviewURL(value,base){
+          var input=String(value==null?'':value);
+          if(/^about:(?:srcdoc|blank)/i.test(input))input=previewHref+(input.indexOf('#')>=0?input.slice(input.indexOf('#')):'');
+          if(!input)input=previewHref;
+          return arguments.length>1?new NativeURL(input,safeBase(base)):new NativeURL(input,safeBase(window.location&&window.location.href));
+        }
+        PreviewURL.prototype=NativeURL.prototype;
+        try{Object.setPrototypeOf(PreviewURL,NativeURL);window.URL=PreviewURL;}catch(_){}
+        var virtualHash='#/';
+        function resolveVirtualHash(value){
+          try{
+            var parsed=new NativeURL(String(value==null?'':value),previewHref+virtualHash);
+            if(parsed.hash)return parsed.hash;
+            return '#'+parsed.pathname+(parsed.search||'');
+          }catch(_){return typeof value==='string'&&value.charAt(0)==='#'?value:virtualHash;}
+        }
+        function dispatchRouteChange(oldHref){
+          try{window.dispatchEvent(new HashChangeEvent('hashchange',{oldURL:oldHref,newURL:virtualLocation.href}));}catch(_){window.dispatchEvent(new Event('hashchange'));}
+          try{window.dispatchEvent(new PopStateEvent('popstate',{state:virtualHistory.state}));}catch(_){window.dispatchEvent(new Event('popstate'));}
+        }
+        function setVirtualRoute(value){
+          var next=resolveVirtualHash(value); if(next===virtualHash)return;
+          var oldHref=virtualLocation.href; virtualHash=next; dispatchRouteChange(oldHref);
+        }
+        var virtualLocation={assign:setVirtualRoute,replace:setVirtualRoute,reload:function(){}};
+        Object.defineProperties(virtualLocation,{href:{get:function(){return previewHref+virtualHash;}},origin:{get:function(){return 'https://preview.debooger.invalid';}},protocol:{get:function(){return 'https:';}},host:{get:function(){return 'preview.debooger.invalid';}},hostname:{get:function(){return 'preview.debooger.invalid';}},pathname:{get:function(){return '/'+${JSON.stringify(cleanPath)};}},search:{get:function(){return '';}},hash:{get:function(){return virtualHash;},set:setVirtualRoute}});
+        var virtualHistory={state:null,pushState:function(state,title,url){this.state=state;if(url!=null)setVirtualRoute(url);},replaceState:function(state,title,url){this.state=state;if(url!=null)setVirtualRoute(url);},go:function(){},back:function(){},forward:function(){}};
+        window.__D2_PREVIEW_LOCATION=virtualLocation;
+        window.__D2_PREVIEW_HISTORY=virtualHistory;
+        // Keep non-rewritten browser code from asking the opaque native History
+        // object to accept an absolute URL. Client routers use the facade above.
+        ['replaceState','pushState'].forEach(function(method){
+          try{
+            window.history[method]=function(state,title,url){
+              virtualHistory[method](state,title,url);
+            };
+          }catch(_){}
+        });
+        window.__D2_PREVIEW_URL=previewHref;
+      })();</scr` + 'ipt>';
+    }
+
     function constructStaticHtmlBundle(entryPath = STATE.entryFile) {
       if (!STATE.files[entryPath] || STATE.files[entryPath].binary) {
         return constructPreviewProblemShell('Preview cannot start', 'No usable browser HTML entry file was found at ' + String(entryPath || 'index.html') + '.', true);
@@ -22107,6 +22202,10 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
       const virtualImports = buildVirtualModuleImportMap();
       const deferredLocalScripts = [];
       const missingLocalScripts = [];
+      const urlShim = constructIsolatedBrowserUrlShim(entryPath);
+      if (/<head\\b[^>]*>/i.test(html)) html = html.replace(/<head\\b[^>]*>/i, tag => tag + urlShim);
+      else if (/<html\\b[^>]*>/i.test(html)) html = html.replace(/<html\\b[^>]*>/i, tag => tag + '<head>' + urlShim + '</head>');
+      else html = urlShim + html;
 
       html = html.replace(/<link[^>]+rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi, (match, href) => {
         const found = findVirtualFile(href, entryPath);
@@ -22266,7 +22365,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-016 offline-first React source preview.
+    // DB2K-019 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22552,7 +22651,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-016|' + target + '|');
+      feed('DB2K-019|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22576,7 +22675,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-016', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-019', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22597,7 +22696,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-016', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-019', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22742,7 +22841,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-016 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-019 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22790,18 +22889,49 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
       return items;
     }
 
+    function classifyPreviewProblem(message) {
+      const text = String(message || '');
+      if (/next\.js|nextjs|remix|sveltekit|nuxt|server-rendered|server only|server-only/i.test(text)) return {
+        label:'This project needs its framework server',
+        plain:'This upload contains a server-rendered app. Its browser page depends on code that runs outside a normal web page.',
+        next:'Upload a static export such as dist, build, or out. If there is no static export, run the project with its own server instead.'
+      };
+      if (/bun|pnpm workspace|turbo|monorepo|workspace/i.test(text)) return {
+        label:'This project needs its workspace build',
+        plain:'This app is part of a larger project or uses a package manager that needs its own build environment.',
+        next:'Keep the workspace files and lockfile together, then use the full build option or upload the finished browser output.'
+      };
+      if (/Failed to construct ['"]URL['"]|Invalid URL/i.test(text)) return {
+        label:'Preview address could not be read',
+        plain:'This app uses its browser address to start. The preview gave it a temporary address that the app could not use.',
+        next:'DEBOOGER will retry this app with a safe preview address. If it still stops, open the Audit panel and use the first error shown there.'
+      };
+      if (/missing project files|missing local file|cannot find module|failed to resolve module|cannot find package/i.test(text)) return {
+        label:'A project file or package is missing', plain:'The preview found an import that points to something not included in the upload.', next:'Upload the full project folder or ZIP, including its build output and every asset folder.'
+      };
+      if (/network|fetch|internet|cdn|failed to fetch dynamically imported module/i.test(text)) return {
+        label:'A required online package did not load', plain:'This project uses a package that is not included in the uploaded files and could not be loaded from the internet.', next:'Reconnect and retry, or upload the compiled dist, build, or out folder.'
+      };
+      if (/process is not defined|require is not defined|__dirname is not defined|node:|\bfs\b/i.test(text)) return {
+        label:'This code needs a server or a real build', plain:'Part of this project uses Node or server-only code. A browser preview cannot run that part by itself.', next:'Upload the finished browser build, or run the project with its own server.'
+      };
+      if (/syntax|unexpected token|unexpected identifier|tsx|jsx|typescript/i.test(text)) return {
+        label:'The preview found code it could not read', plain:'A JavaScript, TypeScript, or JSX file could not be prepared safely.', next:'Open Audit to see the exact file and location, then correct the source or upload the finished build.'
+      };
+      return { label:'The preview stopped before the app appeared', plain:'The app started but did not show a working page in the isolated preview.', next:'Open Audit to see the first confirmed error. The source files are kept unchanged.' };
+    }
+
     function constructPreviewProblemShell(title, message, isError) {
-      const tone = isError ? '#991b1b' : '#0f172a';
-      const sub = isError ? '#7f1d1d' : '#475569';
+      const tone = isError ? '#9f1239' : '#0f172a';
+      const sub = isError ? '#475569' : '#475569';
+      const problem = classifyPreviewProblem(message);
       const requirements = getPreviewRequirements(STATE.files, message);
       const reqHtml = requirements.length
         ? '<div class="needs"><h3>What this project needs</h3><ul>' + requirements.map(item => '<li><strong>' + escapeHtml(item.need) + '</strong><span>' + escapeHtml(item.why) + '</span></li>').join('') + '</ul></div>'
         : '';
       return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Preview status</title>
-<style>html,body{margin:0;min-height:100%;background:#f8fafc;color:${tone};font-family:"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;line-height:1.5}
-.box{max-width:760px;margin:30px auto;background:#fff;border:1px solid #d9dee7;border-radius:10px;padding:22px;box-shadow:0 1px 3px rgba(15,23,42,.05)}h2{margin:0 0 8px;font-size:20px}h3{margin:18px 0 8px;font-size:14px}p{color:${sub};font-size:13px;white-space:pre-wrap}.needs{margin-top:16px;padding-top:2px;border-top:1px solid #e5e7eb}.needs ul{list-style:none;margin:0;padding:0}.needs li{padding:9px 0;border-bottom:1px solid #eef0f3}.needs li:last-child{border-bottom:0}.needs strong{display:block;font-size:12px;color:${tone};overflow-wrap:anywhere}.needs span{display:block;margin-top:2px;font-size:12px;color:${sub};overflow-wrap:anywhere}.retry{margin-top:16px;min-height:38px;padding:8px 13px;border:1px solid #b8c3cf;border-radius:6px;background:#fff;color:#243447;font:600 13px Inter,system-ui;cursor:pointer}
-code{font-family:"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif}</style></head>
-<body><div class="box"><h2>${escapeHtml(String(title || 'Preview status'))}</h2><p>${escapeHtml(String(message || ''))}</p>${reqHtml}<button class="retry" type="button" onclick="parent.postMessage({type:'DEBOOGER_RETRY_REQUEST',previewGeneration:window.__D2_PREVIEW_GENERATION,previewNonce:window.__D2_PREVIEW_NONCE},'*')">Retry preview</button></div></body></html>`;
+<style>html,body{margin:0;min-height:100%;background:#f5f7fb;color:#172033;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}.box{max-width:780px;margin:30px auto;background:#fff;border:1px solid #dce3ee;border-radius:14px;padding:28px;box-shadow:0 10px 30px rgba(15,23,42,.07)}.eyebrow{display:flex;align-items:center;gap:9px;margin:0 0 13px;font-size:13px;font-weight:600;color:${tone}}.signal{width:9px;height:9px;border-radius:50%;background:${tone};box-shadow:0 0 0 4px #fff1f2}h2{margin:0;font-size:21px;letter-spacing:-.2px;color:#172033}h3{margin:22px 0 7px;font-size:14px;color:#25324a}.plain{margin:8px 0 0;color:#526178;font-size:14px}.next{margin:16px 0 0;padding:13px 15px;border-left:3px solid #2563eb;background:#f5f8ff;color:#334155;font-size:13px}.raw{margin:18px 0 0;padding:11px 13px;border:1px solid #e5eaf1;border-radius:8px;background:#f8fafc;color:#526178;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}.needs{margin-top:21px;padding-top:1px;border-top:1px solid #e8edf3}.needs ul{list-style:none;margin:0;padding:0}.needs li{padding:10px 0;border-bottom:1px solid #eef2f6}.needs li:last-child{border-bottom:0}.needs strong{display:block;font-size:13px;color:#25324a;overflow-wrap:anywhere}.needs span{display:block;margin-top:2px;font-size:13px;color:#64748b;overflow-wrap:anywhere}.retry{margin-top:22px;min-height:40px;padding:9px 14px;border:1px solid #b7c7dc;border-radius:8px;background:#fff;color:#172033;font:600 13px Inter,ui-sans-serif,system-ui;cursor:pointer}.retry:hover{background:#f8fafc}code{font-family:Inter,ui-sans-serif,system-ui}</style></head>
+<body><div class="box"><div class="eyebrow"><span class="signal"></span>Preview needs attention</div><h2>${escapeHtml(problem.label || String(title || 'Preview status'))}</h2><p class="plain">${escapeHtml(problem.plain || String(message || ''))}</p><div class="next">${escapeHtml(problem.next || '')}</div><div class="raw"><strong>Technical detail</strong><br>${escapeHtml(String(message || 'No further detail was returned.'))}</div>${reqHtml}<button class="retry" type="button" onclick="parent.postMessage({type:'DEBOOGER_RETRY_REQUEST',previewGeneration:window.__D2_PREVIEW_GENERATION,previewNonce:window.__D2_PREVIEW_NONCE},'*')">Retry preview</button></div></body></html>`;
     }
 
     function constructReactPreviewShell(message, isError) {
@@ -22990,7 +23120,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-016 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-019 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -24211,6 +24341,39 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       return false;
     }
 
+    function analyzeReactViteReadiness(files = STATE.files) {
+      const pkgInfo = readProjectPackageJson(files);
+      const pkg = pkgInfo.pkg || {};
+      const deps = Object.assign({}, pkg.dependencies, pkg.devDependencies, pkg.peerDependencies, pkg.optionalDependencies);
+      const keys = Object.keys(files || {});
+      const compiled = findCompiledWebEntry(files);
+      const entry = findReactSourceEntry(files);
+      const manager = d2ProjectPackageManager(files, pkgInfo);
+      const viteConfig = keys.find(path => /(^|\/)vite\.config\.(?:[cm]?[jt]s|tsx)$/i.test(path));
+      const indicators = [];
+      const blockers = [];
+      if (compiled) indicators.push('Compiled browser output found');
+      if (entry?.entry) indicators.push('React entry found: ' + entry.entry);
+      if (viteConfig) indicators.push('Vite configuration found');
+      if (pkgInfo.path) indicators.push('Package manifest found');
+      if (keys.some(path => /(^|\/)tsconfig(?:\.[^/]+)?\.json$/i.test(path))) indicators.push('TypeScript paths checked');
+      if (keys.some(path => /(^|\/)(?:pnpm-workspace\.yaml|turbo\.json|nx\.json)$/i.test(path))) indicators.push('Workspace layout detected');
+      if (deps['@vitejs/plugin-react'] || deps['@vitejs/plugin-react-swc']) indicators.push('React Vite plugin declared');
+      if (deps['react-router'] || deps['react-router-dom']) indicators.push('React Router detected');
+      if (deps['@tanstack/react-router']) indicators.push('TanStack Router detected');
+      if (!compiled && !entry?.entry && isReactProjectFiles(files)) blockers.push('No React browser entry was found. Include src/main, src/index, or the compiled output folder.');
+      if (!compiled && !pkgInfo.pkg && isReactProjectFiles(files)) blockers.push('No package.json was found, so source dependencies cannot be verified.');
+      if (!compiled && projectNeedsServer(files)) blockers.push('This is a server-rendered framework project. Upload its static export or build it in a supported environment.');
+      if (!compiled && manager.name === 'bun') blockers.push('Bun source builds need a Bun-capable build environment. Upload its browser output for direct preview.');
+      const sourceMode = !compiled && Boolean(entry?.entry) && !projectNeedsServer(files);
+      const builder = getWebContainerSupport();
+      return {
+        compiled: Boolean(compiled), sourceMode, entry: entry?.entry || '', manager: manager.name,
+        builderReady: Boolean(builder.supported), builderReason: builder.reason || '', indicators, blockers,
+        pathAliases: Object.keys(projectPathAliases(files, pkgInfo.path || '')).filter(key => !['@','~'].includes(key))
+      };
+    }
+
     function choosePreviewHtml(files) {
       const compiled = findCompiledWebEntry(files);
       if (compiled && !htmlIsStubPage(getVirtualFileText(files[compiled]))) return compiled;
@@ -24441,6 +24604,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
         STATE.runtimeReady = Boolean(e.data.eligible);
         if (STATE.runtimeReady) updateRuntimeConsoleBadge();
         if (STATE.runtimeReady && !wasReady) showToast('Preview ready: '+(STATE.entryFile||STATE.projectName)+'.');
+        if (STATE.runtimeReady) setTimeout(() => frame.contentWindow?.postMessage({ type: 'DEBOOGER_RUN_DOM_AUDIT' }, '*'), 350);
         if (STATE.inspectMode) frame.contentWindow?.postMessage({ type: 'DEBOOGER_INSPECT_MODE', enabled: true }, '*');
         scheduleVerifiedAuditRefresh();
         return;
@@ -24509,6 +24673,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       const lines = [];
       const pkgInfo = readProjectPackageJson(STATE.files);
       const compiledEntry = findCompiledWebEntry(STATE.files);
+      const readiness = analyzeReactViteReadiness(STATE.files);
       if (compiledEntry) lines.push('REAL COMPILED: validated browser entry ' + compiledEntry + '.');
       else if (isReactProjectFiles(STATE.files)) {
         const reactVersion = npmVersion(pkgInfo.pkg || {}, 'react', D2_EMBEDDED_REACT_VERSION);
@@ -24516,6 +24681,13 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
           ? 'OFFLINE BUNDLED: genuine React ' + reactVersion + ' runtime and JSX/TypeScript compiler.'
           : 'REAL ONLINE: React ' + reactVersion + ' must be resolved from the package CDN, or supplied in compiled output.');
       }
+      if (readiness.sourceMode) {
+        lines.push('SOURCE READY: ' + (readiness.entry || 'React entry') + ' · ' + readiness.manager + ' dependencies · aliases ' + (readiness.pathAliases.length ? 'checked' : 'not needed') + '.');
+        lines.push(readiness.builderReady
+          ? 'FULL BUILD READY: D2 can install dependencies and run the declared build when needed.'
+          : 'SOURCE FALLBACK: D2 can preview reachable TSX/JSX source. A full npm build needs this page opened with the required browser isolation.');
+      }
+      readiness.blockers.forEach(message => lines.push('BUILD LIMIT: ' + message));
       detectExternalSourcePackages(STATE.files).slice(0, 6).forEach(item => {
         lines.push((item.declared ? 'REAL ONLINE: ' : 'MISSING: ') + item.spec + ' — ' + item.file);
       });
@@ -24724,14 +24896,19 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       const replaceBox = document.getElementById('text-replace-box');
       const currentText = document.getElementById('visual-current-text');
       if (!panel || !details || !source) return;
-      if (!selection) { panel.classList.remove('open'); if (title) title.textContent='Select any part of the page'; return; }
+      if (!selection) { panel.classList.remove('open'); if (title) title.textContent='Step 1: click something in the page'; return; }
       panel.classList.add('open');
       document.getElementById('visual-edit-help')?.classList.remove('open');
       if (note) note.value = '';
+      renderD2EditQueue();
 
       const c = selection.computed || {};
       const hints = findVisualSourceHints(selection);
       selection.sourceHints = hints;
+      const state = document.getElementById('visual-editor-editor-state');
+      if (state) state.textContent = hints[0] && hints[0].confidence !== 'low'
+        ? 'Selected. Likely code location found — AI will be told to confirm it first.'
+        : 'Selected. No safe code match yet, so this will be a visual request only.';
       const textValue = String(selection.text || '').trim();
       const showText = Boolean(textValue) && selection.kind !== 'spacing' && selection.kind !== 'padding' && selection.kind !== 'margin';
       if (currentText) currentText.textContent = showText ? `"${textValue}"` : '';
@@ -25096,6 +25273,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       VISUAL_EDIT_HISTORY.undo.push({issue});VISUAL_EDIT_HISTORY.redo.length=0;updateVisualHistoryButtons();
       persistVisualIssuesToProject();
       renderWorkspaceCorrectionsList();
+      renderD2EditQueue();
       queuePageCapture(issue);
       if (document.getElementById('visual-correction-note')) document.getElementById('visual-correction-note').value='';
       if (sourceEdit.applied) {
@@ -25110,6 +25288,83 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
         showToast(`Saved ${issue.id} as a change request. AI is optional.`);
       }
       return issue;
+    }
+
+    function d2SetEditKind(kind) {
+      const note = document.getElementById('visual-correction-note');
+      if (!note) return;
+      const starters = {
+        Text:'Change the words to: ', Spacing:'Add more space between this and: ', Color:'Change this color to: ',
+        Size:'Change the size to: ', Layout:'Move this so it: ', Behavior:'When someone clicks this, it should: '
+      };
+      if (!note.value.trim()) note.value = starters[kind] || '';
+      note.focus();
+    }
+
+    function d2PlainSourceStatus(issue) {
+      if (issue?.sourceEdit?.applied) return 'Changed safely in ' + issue.sourceEdit.file + ':' + issue.sourceEdit.line + '.';
+      const hint = issue?.selection?.sourceHints?.[0];
+      if (!hint || hint.confidence === 'low') return 'Visual request only. The AI must find the matching code carefully.';
+      return 'Likely code location: ' + hint.file + ':' + hint.line + '. The AI should confirm it before editing.';
+    }
+
+    function renderD2EditQueue() {
+      const box = document.getElementById('d2-edit-queue');
+      if (!box) return;
+      const issues = (STATE.visualIssues || []).filter(issue => issue && issue.status !== 'deleted');
+      if (!issues.length) { box.replaceChildren(); return; }
+      const open = issues.filter(issue => issue.status !== 'completed');
+      const latest = issues[issues.length - 1];
+      box.innerHTML = '<strong>Saved requests: ' + issues.length + '</strong><br>' + escapeHtml(d2PlainSourceStatus(latest)) +
+        '<br><button type="button" onclick="copyCompleteEditBrief()">Copy all saved requests</button>';
+      const status = document.getElementById('d2-edit-status');
+      if (status) status.textContent = open.length
+        ? open.length + ' request' + (open.length === 1 ? '' : 's') + ' saved. Copy one brief when you are ready.'
+        : 'Your last text change was safely applied. Copy the brief if you want AI to review it too.';
+    }
+
+    function buildCompleteEditBrief() {
+      const issues = (STATE.visualIssues || []).filter(issue => issue && issue.status !== 'deleted');
+      const confirmed = [
+        ...(STATE.auditReport?.findings || []), ...(STATE.auditReport?.visual || [])
+      ].slice(0, 12);
+      const lines = [
+        '# DEBOOGER EDIT BRIEF',
+        'Project: ' + (STATE.projectName || 'Untitled project'),
+        'Start here: make only the saved changes below. Keep everything else working.',
+        '', 'SAVED EDIT REQUESTS'
+      ];
+      if (!issues.length) lines.push('No saved edit requests yet.');
+      issues.forEach((issue, index) => {
+        const selection = issue.selection || {};
+        const hint = selection.sourceHints?.[0];
+        lines.push('', (index + 1) + '. What to change: ' + (issue.instruction || 'Review this selected item.'),
+          '   Selected item: ' + (selection.text || selection.kind || 'page item'),
+          '   Page: ' + (selection.page || issue.entryFile || STATE.entryFile),
+          '   Location on page: ' + (selection.selector || 'saved visual target'),
+          '   Code location: ' + (hint && hint.confidence !== 'low' ? hint.file + ':' + hint.line + ' — confirm before editing.' : 'Not confirmed. Use the selected item and page details; do not guess.'),
+          '   Safety: change only this item and keep existing behavior.');
+      });
+      lines.push('', 'CONFIRMED PROJECT CHECKS');
+      if (!confirmed.length) lines.push('No confirmed project problems are included. Do not invent any.');
+      confirmed.forEach((finding, index) => lines.push(
+        (index + 1) + '. ' + (finding.title || 'Project check') + ' — ' + (finding.fix || 'Review this before changing code.')
+      ));
+      lines.push('', 'AFTER EDITING', 'Reload the page. Check that the edited item looks right and that no new errors appear.');
+      return lines.join('\n');
+    }
+
+    async function copyCompleteEditBrief() {
+      const issues = (STATE.visualIssues || []).filter(issue => issue && issue.status !== 'deleted');
+      if (!issues.length) { showToast('Save at least one change request first.'); return false; }
+      return copyTextForAi(buildCompleteEditBrief(), 'Complete edit brief copied. Paste it into AI.');
+    }
+
+    async function saveAndCopyCompleteEditBrief() {
+      const issue = saveVisualCorrectionMarker();
+      if (!issue) return;
+      renderD2EditQueue();
+      await copyCompleteEditBrief();
     }
 
     function visualIssueToPrompt(issue) {
@@ -25415,10 +25670,10 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
     function computeAuditScore(verification, tests, groups) {
       const pool = Array.isArray(tests) ? tests : [];
       const completed = pool.filter(test => ['pass','warning','error','fail'].includes(String(test.status || '').toLowerCase()));
-      if (completed.length < 2) return null;
-      const dimensions = computeFiveDimensionScores(STATE, verification, pool, groups);
-      if (dimensions.coverage.verifiedDimensions < 2) return null;
-      return dimensions.overall;
+      if (!completed.length) return null;
+      const value = { pass:1, warning:.7, error:0, fail:0 };
+      const total = completed.reduce((sum, test) => sum + (value[String(test.status || '').toLowerCase()] ?? 0), 0);
+      return Math.round((total / completed.length) * 100);
     }
 
     function verifiedFindingLocation(finding, files = STATE.files) {
@@ -25473,12 +25728,21 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const box = document.getElementById('file-scores-list');
       if (!box) return;
       const rows = Object.entries(STATE.fileScores || {}).sort((a,b) => a[1] - b[1] || a[0].localeCompare(b[0]));
+      const verification = STATE.auditReport?.verification || {};
+      const completed = Number(verification.passed || 0) + Number(verification.errors || 0);
+      const label = completed === 0 ? 'Not checked yet' : Number(verification.notVerified || 0) ? 'Partial check' : 'Checked';
       box.replaceChildren();
+      const note = document.createElement('p');
+      note.style.cssText = 'margin:8px 0 6px;color:#64748b;font-size:12px;line-height:1.45;';
+      note.textContent = completed === 0
+        ? 'No finished file checks yet. A number here would be misleading, so files are marked “Not checked yet.”'
+        : (label === 'Partial check' ? 'Some checks are still waiting, so these are partial file signals—not final grades.' : 'These scores use the finished checks for each file.');
+      box.appendChild(note);
       rows.slice(0,100).forEach(([file,score]) => {
         const row = document.createElement('div');
         row.style.cssText = 'display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-top:1px solid #eef2f6;';
         const name = document.createElement('span'); name.textContent = file; name.style.cssText='overflow-wrap:anywhere;';
-        const value = document.createElement('span'); value.textContent = String(score); value.style.flex='0 0 auto';
+        const value = document.createElement('span'); value.textContent = completed === 0 ? 'Not checked yet' : label + ' · ' + String(score); value.style.cssText='flex:0 0 auto;color:#526178;font-size:12px;';
         row.append(name,value); box.appendChild(row);
       });
     }
@@ -25514,7 +25778,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         if (sub) sub.textContent = 'Open a project to run checks.';
       } else if (score == null) {
         if (verdict) verdict.textContent = 'Partial audit';
-        if (sub) sub.textContent = `${v.passed || 0} passed · ${v.errors || 0} failed · ${v.notVerified || 0} not verified — no completed checks to score`; 
+        if (sub) sub.textContent = `No finished checks yet · ${v.notVerified || 0} still need checking`; 
       } else if (!report.findings.length && !(report.cleanup || []).length && !(report.visual || []).length) {
         if (verdict) verdict.textContent = v.notVerified ? 'No confirmed errors in completed checks' : 'Looks clean';
         if (sub) sub.textContent = `${v.passed || 0} passed · ${v.errors || 0} failed · ${v.notVerified || 0} not verified`; 
@@ -25529,7 +25793,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         const looks = visualCount;
         if (sub) sub.textContent = `${brokenCount} broken • ${messy} leftover • ${looks} look`;
       }
-      if (hasProject && sub) sub.textContent = `${v.passed || 0} passed · ${v.errors || 0} failed · ${v.notVerified || 0} not verified · ${v.notApplicable || 0} N/A`;
+      if (hasProject && sub) sub.textContent = `${v.passed || 0} passed · ${v.errors || 0} failed · ${v.notVerified || 0} still need checking · ${v.notApplicable || 0} do not apply`;
       if (hasProject && verdict && (v.errors || 0) > 0) verdict.textContent = `${v.errors} confirmed failed check${v.errors === 1 ? '' : 's'}`;
     }
 
@@ -25556,6 +25820,14 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       let unusedCss = 0;
       let unusedFn = 0;
 
+      const isGeneratedBundle = (path, text) => {
+        const source = String(text || '');
+        const name = String(path || '').split('/').pop() || '';
+        const hashedAsset = /(?:^|[-_.])(?:index|main|app|vendor|chunk)[-_][A-Za-z0-9_-]{6,}\.(?:m?js|cjs|css)$/i.test(name);
+        const minifiedLargeFile = source.length > 45000 && source.split(/\r?\n/).length < 8;
+        return hashedAsset || minifiedLargeFile;
+      };
+
       keys.forEach(path => {
         const name = String(path.split('/').pop() || '');
         if (/\.(bak|old|orig|tmp|copy)$/i.test(name) || /(?:^|[-_.])(?:old|backup|bak|copy|orig|wip|draft|deprecated)(?:[-_.]|$)/i.test(name)) {
@@ -25574,11 +25846,12 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
 
       entries.forEach(([path, file]) => {
         const text = String(file.content || '');
+        const generatedBundle = isGeneratedBundle(path, text);
         const cleanupText = stripBundledInlineVendorCodeForCleanup(path, text);
         const styleText = /\.html?$/i.test(path)
           ? [...text.matchAll(/<style\b[^>]*>([\s\S]*?)<\/style>/gi)].map(m => m[1]).join('\n')
           : (/\.css$/i.test(path) ? text : '');
-        if (styleText && styleText.length <= 200000) {
+        if (styleText && styleText.length <= 200000 && !generatedBundle) {
           const stripped = styleText.replace(/\/\*[\s\S]*?\*\//g, '');
           const empty = stripped.match(/(^|[{}\s;])([.#:]?[a-zA-Z][\w-]*)\s*\{\s*\}/);
           if (empty) add('css-empty', 'Empty CSS rule left behind', path, empty[2] + ' { }', 'Delete this empty rule if you do not need it.');
@@ -25617,7 +25890,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
           const leftoverId = [...cleanupText.matchAll(/id=["']([^"']+)["']/gi)].find(m => /(?:^|[-_.])(old|legacy|unused|tmp|temp|deprecated|backup)(?:[-_.]|$)/i.test(m[1] || ''));
           if (leftoverId) add('hidden-code', 'HTML id looks like leftover', path, leftoverId[0], 'Rename or delete this leftover block.');
         }
-        if (/\.(?:js|mjs|cjs|jsx|ts|tsx|mts|cts)$/i.test(path)) {
+        if (/\.(?:js|mjs|cjs|jsx|ts|tsx|mts|cts)$/i.test(path) && !generatedBundle) {
           const names = [...text.matchAll(/function\s+([A-Za-z_$][\w$]*)/g)].map(m => m[1]);
           const counts = {};
           names.forEach(n => { counts[n] = (counts[n] || 0) + 1; });
@@ -26159,12 +26432,12 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const groupedVisual = normalizeFindingGroups(visual, files);
       const score = computeAuditScore(verification, tests, [...groupedFindings, ...groupedCleanup, ...groupedVisual]);
       computeFileScores([...groupedFindings, ...groupedCleanup, ...groupedVisual]);
-      STATE.auditReport = { score, findings: groupedFindings, cleanup: groupedCleanup, visual: groupedVisual, categories, tests, verification, scoreFormula:'Equal average of verified results in five dimensions; pending, unsupported, N/A and unverified checks are excluded; unavailable with fewer than two verified dimensions', dimensions:computeFiveDimensionScores(STATE, verification, tests, [...groupedFindings, ...groupedCleanup, ...groupedVisual]), fileScores:STATE.fileScores };
+      STATE.auditReport = { score, findings: groupedFindings, cleanup: groupedCleanup, visual: groupedVisual, categories, tests, verification, scoreFormula:'Average of every completed check. Passed checks count fully, warnings count partly, and failed checks count zero. Checks that are not verified or do not apply are excluded.', dimensions:computeFiveDimensionScores(STATE, verification, tests, [...groupedFindings, ...groupedCleanup, ...groupedVisual]), fileScores:STATE.fileScores };
       applyAuditReportUi();
       renderFileScores();
       renderFindingsList();
       const consoleDetails = document.getElementById('audit-console-details');
-      if (consoleDetails) consoleDetails.open = false;
+      if (consoleDetails) consoleDetails.open = true;
     }
 
     let b006AuditFilter = 'all';
@@ -26190,10 +26463,10 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const locationText = locations.map(loc => `${loc.file}${loc.line ? ':' + loc.line : ''}`).join(' · ');
       const sev = String(f.severity || 'medium').toUpperCase();
       card.innerHTML = `<summary class="b006-finding-head"><span class="b006-finding-title">${escapeHtml(f.title || 'Finding')}</span><span class="b006-finding-severity">${escapeHtml(sev)}</span>${Number(f.count)>1 ? '<span class="b006-finding-repeat">×'+Number(f.count)+'</span>' : ''}</summary>
-        <div class="b006-finding-body"><p><strong>Where:</strong> ${escapeHtml(locationText)}</p><p><strong>Next step:</strong> ${escapeHtml(f.fix || 'Review this finding and verify before applying a correction.')}</p>
+        <div class="b006-finding-body"><p><strong>What this means:</strong> ${escapeHtml(f.desc || f.title || 'A check found something worth reviewing.')}</p><p><strong>Where:</strong> ${escapeHtml(locationText)}</p><p><strong>What to do:</strong> ${escapeHtml(f.fix || 'Review this finding before changing code.')}</p>
         ${f.evidence ? '<details class="b006-evidence"><summary>Evidence</summary><pre>'+escapeHtml(String(f.evidence))+'</pre></details>' : ''}
         ${f.rootCause ? '<p><strong>Cause:</strong> '+escapeHtml(String(f.rootCause))+'</p>' : ''}</div>`;
-      card.open = false;
+      card.open = true;
       const evidence = card.querySelector('.b006-evidence');
       if (evidence) evidence.open = false;
       return card;
@@ -28491,7 +28764,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-016') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-019') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28583,8 +28856,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-016';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-016' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-019';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-019' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -29327,7 +29600,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-016 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-019 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29346,7 +29619,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-016')) throw new Error('Could not prepare DEBOOGER DB2K-016 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-019')) throw new Error('Could not prepare DEBOOGER DB2K-019 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29521,7 +29794,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-016', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-019', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
