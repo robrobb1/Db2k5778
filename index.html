@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-019</title>
-  <!-- DEBOOGER2000 DB2K-019: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-021</title>
+  <!-- DEBOOGER2000 DB2K-021: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -846,26 +846,22 @@ body.workspace-view-active .topbar-logo{display:flex!important}
 #btn-top-trash:hover{background:#fff0f0!important;color:#a9202d!important}
 #btn-top-trash svg{width:21px!important;height:21px!important}
 #global-settings-btn svg{width:21px!important;height:21px!important}
-#workspace-more-menu.tools-modal{position:fixed;left:auto;right:20px;top:66px;bottom:auto;transform:none;z-index:5100;width:min(448px,calc(100vw - 24px));max-height:min(76dvh,650px);padding:14px!important;border:1px solid #dbe4ec!important;border-radius:12px!important;box-shadow:0 16px 50px rgba(20,35,55,.17)!important;overflow:auto;background:#fff}
-.tools-modal-head{display:flex;align-items:center;justify-content:space-between;padding:0 3px 11px!important;margin:0 0 10px!important;border-bottom:1px solid #e7edf3;font-size:15px!important}
-.tools-modal-head strong{font-weight:600}
+#workspace-more-menu.tools-modal{position:fixed;left:auto;right:20px;top:66px;bottom:auto;transform:none;z-index:5100;width:min(382px,calc(100vw - 24px));max-height:min(76dvh,650px);padding:14px!important;border:1px solid #dbe4ec!important;border-radius:14px!important;box-shadow:0 20px 55px rgba(20,35,55,.18)!important;overflow:auto;background:#fff}
+.tools-modal-head{display:flex;align-items:center;justify-content:space-between;padding:1px 3px 12px!important;margin:0 0 12px!important;border-bottom:1px solid #e7edf3;font-size:15px!important}.tools-modal-head strong{display:block;font-weight:650;color:#172b43}.tools-modal-head span{display:block;margin-top:3px;color:#718197;font-size:12px;font-weight:400}
 #workspace-more-menu .more-close{min-height:27px;width:27px;padding:0;background:transparent;border:0;color:#66788d;font-size:21px;display:grid;place-items:center}
-.more-quick-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-bottom:14px}
+.more-quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:12px}
 #workspace-more-menu button{border-radius:6px!important;font-size:12px!important;color:#2e4158;font-weight:500!important}
-.more-quick-actions button{padding:9px 3px!important;min-height:38px!important;border:1px solid #dce5ec!important;background:#f8fafc!important;justify-content:center!important;white-space:nowrap}
-.more-quick-actions button:hover{background:#eaf3f1!important}
-.more-preview-options{padding:0 0 14px;margin-bottom:11px;border-bottom:1px solid #e7edf3}
-.more-section-label{font-size:12px;font-weight:600;color:#66788d;margin:0 2px 7px}
-.more-device-row,.more-action-row{display:flex;gap:6px;margin-top:7px}
-.more-device-row button,.more-action-row button{flex:1;min-height:33px!important;padding:5px 6px!important;text-align:center;justify-content:center!important;border:1px solid #dce5ec!important;background:#fff!important}
+.more-quick-actions button{display:block!important;min-height:57px!important;padding:9px 11px!important;border:1px solid #dce5ec!important;background:#fbfcfe!important;text-align:left!important;white-space:normal}.more-quick-actions button strong{display:block;font-size:13px;font-weight:600;color:#22364c}.more-quick-actions button span{display:block;margin-top:2px;font-size:11px;color:#718197;font-weight:400}.more-quick-actions button:hover{background:#eff8f5!important;border-color:#bcded4!important}
+.more-preview-options{margin-bottom:9px}.more-section-body{padding:11px 12px 12px}.more-section-label{font-size:11px;font-weight:600;color:#66788d;margin:0 1px 7px}.more-section-label:not(:first-child){margin-top:12px}
+.more-device-row,.more-action-row{display:flex;gap:6px;margin-top:7px}.more-device-row button,.more-action-row button{flex:1;min-height:35px!important;padding:6px 7px!important;text-align:center;justify-content:center!important;border:1px solid #dce5ec!important;background:#fff!important}.more-zoom-row button:first-child{flex:1.7}.more-preview-actions{display:grid;grid-template-columns:1fr 1fr}.more-preview-actions button{min-width:0}
 .more-device-row .workspace-device-btn.active{background:#eaf5f1!important;border-color:#a2c9be!important;color:#006e60!important}
-.more-tools-section{border:1px solid #e2e8ef;border-radius:8px;background:#fff;overflow:hidden}
-.more-tools-section>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;cursor:pointer;font-size:13px;font-weight:600;color:#293c51;background:#f8fafc}
+.more-tools-section{border:1px solid #e2e8ef;border-radius:9px;background:#fff;overflow:hidden;margin-top:8px}.more-tools-section:first-of-type{margin-top:0}
+.more-tools-section>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 12px;cursor:pointer;font-size:13px;font-weight:600;color:#293c51;background:#fbfcfe}
 .more-tools-section>summary::-webkit-details-marker{display:none}
 .more-tools-section>summary span{font-size:11px;font-weight:400;color:#7b8b9b}
 .more-tools-section[open]>summary{border-bottom:1px solid #e2e8ef}
-.more-tools-list{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px}
-.more-tools-list button{min-height:34px!important;padding:7px 9px!important;justify-content:flex-start!important;background:#fff!important;border:0!important;text-align:left!important}
+.more-tools-list{display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:9px}.more-tools-list .db2k-file-tools{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:7px;padding-bottom:4px;border-bottom:1px solid #edf1f5}.more-tools-list .db2k-file-tools label{display:block!important;width:auto!important;min-height:0!important;padding:0!important;background:transparent!important;font-size:11px!important;color:#66788d!important}.more-tools-list .db2k-file-tools select{width:100%;margin-top:4px}
+.more-tools-list button{min-height:36px!important;padding:8px 9px!important;justify-content:flex-start!important;background:#fff!important;border:1px solid #eef2f6!important;text-align:left!important}
 .more-tools-list button:hover{background:#f2f6f8!important}
 .more-mobile-only{display:none!important}
 .audit-quick-actions{display:flex;gap:7px;padding:10px 14px;border-bottom:1px solid #e7edf3;flex-wrap:wrap}
@@ -891,10 +887,11 @@ body.workspace-view-active .topbar-logo{display:flex!important}
  *:hover::-webkit-scrollbar-thumb{background:#dde3e9}
 }
 @media(max-width:900px){
+ #workspace-more-menu.tools-modal{left:10px!important;right:10px!important;bottom:calc(54px + env(safe-area-inset-bottom))!important;top:auto!important;width:auto!important;max-height:min(70dvh,620px)!important;padding:12px!important;border-radius:14px!important}.more-quick-actions{gap:6px}.more-quick-actions button{min-height:54px!important}.more-tools-list{grid-template-columns:1fr}.more-tools-list .db2k-file-tools{grid-template-columns:1fr}.more-tools-section>summary{padding:13px 12px}.more-tools-section>summary span{font-size:11px}
  #workspace-more-menu.tools-modal{right:8px;left:8px;top:auto;bottom:calc(54px + env(safe-area-inset-bottom));width:auto;max-height:min(77dvh,640px);transform:none!important;border-radius:10px!important;padding:11px!important}
- .more-quick-actions{gap:5px}
- .more-quick-actions button{font-size:11px!important;padding:6px 2px!important;min-height:34px!important}
- .more-tools-list{grid-template-columns:1fr 1fr;gap:3px}
+ .more-quick-actions{gap:6px}
+ .more-quick-actions button{font-size:12px!important;padding:9px 10px!important;min-height:54px!important}
+ .more-tools-list{grid-template-columns:1fr;gap:5px}
  .more-mobile-only{display:flex!important}
  .ai-dock-launchers{right:12px;bottom:calc(56px + env(safe-area-inset-bottom))}
  #d2-ai-chat{right:7px!important;bottom:calc(104px + env(safe-area-inset-bottom))!important;}
@@ -909,9 +906,9 @@ body.workspace-view-active .topbar-logo{display:flex!important}
 .global-settings-btn{border:0!important;background:transparent!important;box-shadow:none!important;min-width:38px!important}
 .global-settings-btn:hover{background:#f1f5f9!important}
 .b012-mobile-gear{border:0!important;background:transparent!important;min-width:32px!important;width:32px!important;height:32px!important;padding:5px!important;display:grid;place-items:center;color:#334155}
-.b012-settings-box{max-width:540px;max-height:min(92dvh,820px);border-radius:12px}
+.b012-settings-box{max-width:540px;max-height:min(88dvh,820px);border-radius:12px;box-shadow:0 22px 55px rgba(15,23,42,.18)}
 .b012-settings-body{padding:16px;display:grid;gap:12px;overscroll-behavior:contain}
-.b012-settings-section{display:grid;gap:8px;padding:13px;border:1px solid #dce3ec;border-radius:9px;background:#fff}
+.b012-settings-section{display:grid;gap:8px;padding:14px;border:1px solid #dce3ec;border-radius:9px;background:#fff}
 .b012-section-title{display:flex;align-items:center;gap:10px;justify-content:space-between;color:#1f2937;font-size:14px}
 .b012-indicator{width:9px;height:9px;border-radius:50%;background:#cbd5e1;flex:0 0 auto}
 .b012-indicator.connected{background:#059669}
@@ -1148,7 +1145,7 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 @media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-019: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-021: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1173,7 +1170,7 @@ body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
 <style>
-/* DB2K-019: compact mobile overlays, unobstructed notices, neutral edit state. */
+/* DB2K-021: compact mobile overlays, unobstructed notices, neutral edit state. */
 #btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
 #mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
 #toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
@@ -1262,7 +1259,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-019">DB2K-019</span>
+          <span class="build-mark" aria-label="Build DB2K-021">DB2K-021</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1274,34 +1271,40 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
       </nav>
       <div class="workspace-tools-backdrop" id="workspace-tools-backdrop" aria-hidden="true" onclick="closeWorkspacePopovers()"></div>
       <div class="workspace-popover tools-modal" id="workspace-more-menu" role="dialog" aria-label="More actions">
-        <div class="tools-modal-head"><strong>More</strong></div>
-        <div class="more-quick-actions" aria-label="Frequently used">
-          <button type="button" onclick="openMoreDestination('view-styles')">Design</button>
-          <button type="button" onclick="openMoreDestination('view-history')">History</button>
-          <button type="button" onclick="b005OpenPagesDeploy();closeWorkspacePopovers()">Deploy</button>
-          <button type="button" onclick="openAiDock('chat');closeWorkspacePopovers()">AI Chat</button>
+        <div class="tools-modal-head"><div><strong>Workspace tools</strong><span>Preview, files, repair and publishing</span></div></div>
+        <div class="more-quick-actions" aria-label="Most used actions">
+          <button type="button" onclick="openMoreDestination('view-styles')"><strong>Design</strong><span>Page style</span></button>
+          <button type="button" onclick="openMoreDestination('view-history')"><strong>History</strong><span>Saved versions</span></button>
+          <button type="button" onclick="openAiDock('chat');closeWorkspacePopovers()"><strong>Ask AI</strong><span>Get help</span></button>
+          <button type="button" onclick="b005OpenPagesDeploy();closeWorkspacePopovers()"><strong>Publish</strong><span>GitHub Pages</span></button>
         </div>
-        <div class="more-preview-options">
-          <div class="more-section-label">Preview</div>
+        <details class="more-tools-section more-preview-options" open>
+          <summary>Preview controls <span>Size, zoom and browser view</span></summary>
+          <div class="more-section-body">
+          <div class="more-section-label">Preview size</div>
           <div class="more-device-row" role="group" aria-label="Preview size">
             <button type="button" class="workspace-device-btn active" data-preset="desktop" onclick="setDeviceViewport('desktop',this)">Desktop</button>
-            <button type="button" class="workspace-device-btn" data-preset="wide1200" onclick="setDeviceViewport('wide1200',this)">1200</button>
+            <button type="button" class="workspace-device-btn" data-preset="wide1200" onclick="setDeviceViewport('wide1200',this)">Wide</button>
             <button type="button" class="workspace-device-btn" data-preset="mobile" onclick="setDeviceViewport('mobile',this)">Phone</button>
           </div>
-          <div class="more-action-row">
+          <div class="more-section-label">View</div>
+          <div class="more-action-row more-zoom-row">
             <button type="button" id="d2-touch-mode-btn" class="workspace-device-btn" onclick="togglePreviewTouchMode()" title="Toggle between in-page scroll and canvas pan">Scroll Mode</button>
             <button type="button" id="d2-zoom-out-btn" class="workspace-device-btn" onclick="adjustPreviewZoom(-0.15)" title="Zoom Out" style="min-width:28px;padding:0 6px;">−</button>
             <button type="button" id="d2-zoom-reset-btn" class="workspace-device-btn" onclick="resetPreviewZoom()" title="Reset Fit" style="font-size:11px;padding:0 8px;">Fit</button>
             <button type="button" id="d2-zoom-in-btn" class="workspace-device-btn" onclick="adjustPreviewZoom(0.15)" title="Zoom In" style="min-width:28px;padding:0 6px;">+</button>
             <button type="button" id="d2-flip-btn" onclick="flipPhonePreview()" hidden>Flip</button>
+          </div>
+          <div class="more-action-row more-preview-actions">
             <button type="button" onclick="refreshSandboxViewer()">Reload</button>
             <button type="button" onclick="openPreviewInBrowser()">Browser</button>
             <button type="button" onclick="db2kSharePreview()">Share preview</button>
             <button type="button" id="btn-panoramic" aria-pressed="false" onclick="togglePanoramicPreview()">Full</button>
           </div>
-        </div>
+          </div>
+        </details>
         <details class="more-tools-section" id="more-tools-details">
-          <summary>Tools <span>Project, build, compare and AI</span></summary>
+          <summary>Project files <span>Open, edit and export</span></summary>
           <div class="more-tools-list">
             <div class="db2k-file-tools" aria-label="Project file manager">
               <div id="d2-tools-app-wrap" hidden>
@@ -1312,26 +1315,32 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
               <select id="d2-tools-page" aria-label="Choose page to preview"></select>
               <button type="button" onclick="openFilesSheet();closeWorkspacePopovers()">Browse files</button>
             </div>
-            
-            <div class="db2k-demo-tools" role="group" aria-label="Demos">
-              <div class="more-section-label">Demos</div>
-              <button type="button" id="dropzone-sample-react-btn" onclick="closeWorkspacePopovers();window.loadSampleReactProject()">Demo React CRM</button>
-              <button type="button" id="dropzone-sample-html-btn" onclick="closeWorkspacePopovers();window.loadSampleHtmlProject()">Demo HTML5 Site</button>
-            </div>
             <button type="button" onclick="triggerOpenMenu();closeWorkspacePopovers()">Add files</button>
             <button type="button" onclick="openSelectedFileEditor();closeWorkspacePopovers()">Edit source</button>
             <button type="button" onclick="promptRenameSelectedFile();closeWorkspacePopovers()">Rename file</button>
             <button type="button" onclick="promptRenameActiveProject();closeWorkspacePopovers()">Rename project</button>
             <button type="button" onclick="openConvertModal();closeWorkspacePopovers()">Export HTML</button>
             <button type="button" onclick="exportProjectZip();closeWorkspacePopovers()">Export ZIP</button>
+          </div>
+        </details>
+        <details class="more-tools-section">
+          <summary>Fix and check <span>Build, repair and test</span></summary>
+          <div class="more-tools-list">
             <button type="button" onclick="db2kOpenRepairSuggestions();closeWorkspacePopovers()">Find safe repairs</button>
             <button type="button" onclick="openAiDock('repair');closeWorkspacePopovers()">AI Repair</button>
             <button type="button" class="more-mobile-only" onclick="openSettingsOverlay();closeWorkspacePopovers()">Settings</button>
             <button type="button" onclick="tryWebContainerBuild();closeWorkspacePopovers()">Build React / Vite <small id="vite-builder-status">Check</small></button>
-            <button type="button" onclick="b005MarkBaseline();closeWorkspacePopovers()">Mark baseline</button>
-            <button type="button" onclick="document.getElementById('b005-compare-input').click();closeWorkspacePopovers()">Compare versions</button>
             <button type="button" onclick="b005RunSelfCheck();closeWorkspacePopovers()">Quick check</button>
             <button type="button" onclick="openSavedFixesFromTools(event);closeWorkspacePopovers()">Saved corrections</button>
+          </div>
+        </details>
+        <details class="more-tools-section">
+          <summary>Compare and learn <span>Versions and sample projects</span></summary>
+          <div class="more-tools-list">
+            <button type="button" onclick="b005MarkBaseline();closeWorkspacePopovers()">Mark baseline</button>
+            <button type="button" onclick="document.getElementById('b005-compare-input').click();closeWorkspacePopovers()">Compare versions</button>
+            <button type="button" id="dropzone-sample-react-btn" onclick="closeWorkspacePopovers();window.loadSampleReactProject()">Demo React CRM</button>
+            <button type="button" id="dropzone-sample-html-btn" onclick="closeWorkspacePopovers();window.loadSampleHtmlProject()">Demo HTML site</button>
           </div>
         </details>
       </div>
@@ -19564,7 +19573,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-019_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-021_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -19819,7 +19828,9 @@ codePos,
     };
 
     function projectIsValid() {
-      return ['valid','restored'].includes(STATE.projectStatus) && Object.keys(STATE.files || {}).length > 0 && Boolean(STATE.entryFile && STATE.files[STATE.entryFile]);
+      // A failed preview is still a loaded project. Keep its files, audit, and edit
+      // tools available so the person can understand and repair the problem.
+      return !['empty','deleted'].includes(STATE.projectStatus) && Object.keys(STATE.files || {}).length > 0 && Boolean(STATE.entryFile && STATE.files[STATE.entryFile]);
     }
 
     function setProjectStatus(status, detail = '') {
@@ -20213,8 +20224,10 @@ codePos,
       toggleVisualInspectMode();
     }
     function openAuditFromNav() {
-      if (!projectIsValid()) { showToast('No project is currently loaded. Upload a file to run checks.'); return; }
+      if (!projectIsValid()) { showToast('There is no project open yet. Upload a ZIP, folder, or file first.'); return; }
       if (STATE.activeView !== 'view-workspace') switchView('view-workspace');
+      // A preview can fail after the first check. Show its newest error right away.
+      reRunAudit();
       toggleCombinedAudit();
     }
     function openAiDock(kind) {
@@ -21046,9 +21059,9 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
         } else {
           setProjectStatus('failed', String(result?.message || 'React preview did not mount.'));
           progress?.('React preview failed', 100);
-          const issue = String(result?.message || 'React preview did not mount. Check the Audit panel.');
+          const issue = String(result?.message || 'React preview did not show a page. Open Audit to see the first error and what to do next.');
           addConsoleLog('err', '[REACT] ' + issue);
-          showToast('React preview failed. See Audit for the cause.');
+          showToast('The React preview could not open. Open Audit to see the first error and what to do next.');
         }
         renderUploadDebugBox();
       }
@@ -21309,8 +21322,8 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
           if (STATE.previewAttempt !== currentAttempt || !previewStatus || previewStatus.hidden) return;
           if (STATE.runtimeReady) { previewStatus.hidden = true; return; }
           previewStatus.textContent = STATE.projectType === 'react-vite' && !findCompiledWebEntry()
-            ? 'React source has not mounted. Check Audit for the failing import, runtime or build requirement.'
-            : 'Preview startup not confirmed. Check Audit for a specific error.';
+            ? 'The React page did not appear yet. Open Audit to see the first error, missing file, or build requirement.'
+            : 'The preview did not start yet. Open Audit to see the first confirmed problem.';
           addConsoleLog('warn',previewStatus.textContent,'preview-startup-timeout');
           previewStatus.classList.add('d2-preview-failed');
         }, STATE.projectType === 'react-vite' && !findCompiledWebEntry() ? 45000 : 12000);
@@ -22063,17 +22076,20 @@ let a=String(nums[3]).endsWith('%')?parseFloat(nums[3])/100:parseFloat(nums[3]);
       // browser globals used by compiled client routers to the isolated routing
       // facade injected below. This keeps hash routing working without granting
       // uploaded code access to the Debooger page's origin.
-      if (!/window\.location|\bhistory\s*\./.test(original) || !globalThis.acorn || typeof globalThis.acorn.parse !== 'function') return original;
+      if (!/(?:window|document|globalThis)\.location|\bhistory\s*\.|(?:window|globalThis)\.history/.test(original) || !globalThis.acorn || typeof globalThis.acorn.parse !== 'function') return original;
       let ast;
       try { ast = globalThis.acorn.parse(original, { ecmaVersion:'latest', sourceType:'module', allowHashBang:true }); }
       catch (_) { return original; }
       const replacements = [];
       walkAcornAst(ast, node => {
-        if (node.type === 'MemberExpression' && !node.computed && node.object?.type === 'Identifier' && node.object.name === 'window' && node.property?.type === 'Identifier' && node.property.name === 'location') {
+        if (node.type === 'MemberExpression' && !node.computed && node.object?.type === 'Identifier' && ['window','document','globalThis'].includes(node.object.name) && node.property?.type === 'Identifier' && node.property.name === 'location') {
           replacements.push({ start:node.start, end:node.end, value:'globalThis.__D2_PREVIEW_LOCATION' });
         }
         if (node.type === 'MemberExpression' && node.object?.type === 'Identifier' && node.object.name === 'history') {
           replacements.push({ start:node.object.start, end:node.object.end, value:'globalThis.__D2_PREVIEW_HISTORY' });
+        }
+        if (node.type === 'MemberExpression' && !node.computed && node.object?.type === 'Identifier' && ['window','globalThis'].includes(node.object.name) && node.property?.type === 'Identifier' && node.property.name === 'history') {
+          replacements.push({ start:node.start, end:node.end, value:'globalThis.__D2_PREVIEW_HISTORY' });
         }
       });
       let rewritten = original;
@@ -22365,7 +22381,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-019 offline-first React source preview.
+    // DB2K-021 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22651,7 +22667,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-019|' + target + '|');
+      feed('DB2K-021|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22675,7 +22691,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-019', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-021', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22696,7 +22712,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-019', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-021', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22841,7 +22857,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-019 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-021 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -22904,7 +22920,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
       if (/Failed to construct ['"]URL['"]|Invalid URL/i.test(text)) return {
         label:'Preview address could not be read',
         plain:'This app uses its browser address to start. The preview gave it a temporary address that the app could not use.',
-        next:'DEBOOGER will retry this app with a safe preview address. If it still stops, open the Audit panel and use the first error shown there.'
+        next:'DEBOOGER will retry this app with a safe preview address. If it still stops, open Audit. The first item there explains what went wrong and what to try next.'
       };
       if (/missing project files|missing local file|cannot find module|failed to resolve module|cannot find package/i.test(text)) return {
         label:'A project file or package is missing', plain:'The preview found an import that points to something not included in the upload.', next:'Upload the full project folder or ZIP, including its build output and every asset folder.'
@@ -22916,9 +22932,9 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         label:'This code needs a server or a real build', plain:'Part of this project uses Node or server-only code. A browser preview cannot run that part by itself.', next:'Upload the finished browser build, or run the project with its own server.'
       };
       if (/syntax|unexpected token|unexpected identifier|tsx|jsx|typescript/i.test(text)) return {
-        label:'The preview found code it could not read', plain:'A JavaScript, TypeScript, or JSX file could not be prepared safely.', next:'Open Audit to see the exact file and location, then correct the source or upload the finished build.'
+        label:'The preview found code it could not read', plain:'A JavaScript, TypeScript, or JSX file could not be prepared safely.', next:'Open Audit. It will show the file and place that needs attention. Then fix that source file or upload the finished build.'
       };
-      return { label:'The preview stopped before the app appeared', plain:'The app started but did not show a working page in the isolated preview.', next:'Open Audit to see the first confirmed error. The source files are kept unchanged.' };
+      return { label:'The preview stopped before the app appeared', plain:'The app started but did not show a working page in the isolated preview.', next:'Open Audit. The first item shows the confirmed problem. Your source files have not been changed.' };
     }
 
     function constructPreviewProblemShell(title, message, isError) {
@@ -23120,7 +23136,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-019 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-021 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -24097,6 +24113,9 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
         source = rewriteImportMetaUrls(source, norm, files, aliases);
         source = rewriteEnvAndMeta(source, env);
         source = rewriteModuleSpecifiers(source, norm, files, pkg, aliases, collectedCss);
+        // Source previews run in an opaque iframe. Rewrite the common direct
+        // browser routing globals before the module becomes a data: URL.
+        source = rewriteIsolatedStaticRouting(source);
         [...source.matchAll(/['"]((?:d2miss|d2|d2css|d2json|d2asset|d2raw|d2svg):[^'"]+)['"]/g)].forEach(m => {
           if (m[1].startsWith('d2miss:')) {
             throw new Error('React dependency resolution failed in ' + norm + ': missing local file ' + decodeURIComponent(m[1].slice(7)) + '. Check the import path and ZIP contents.');
@@ -24188,6 +24207,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(STATE.projectName || 'React preview')}</title>
 <style>html,body{margin:0;height:100%;background:#f8fafc;color:#0f172a;font-family:"Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif}#root{min-height:100%}</style>
+${constructIsolatedBrowserUrlShim(found.htmlKey || found.entry)}
 ${headExtras}
 ${extraCss}
 ${reactRuntimeMarkup}
@@ -24262,7 +24282,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
           settle({ok:!!detail.ok,message:detail.message});
         };
         window.addEventListener('d2-preview-settled',listener);
-        mountTimer=setTimeout(() => settle({ok:false,message:'React source did not mount within 50 seconds. Check the Audit for missing files or dependencies.'}),50000);
+        mountTimer=setTimeout(() => settle({ok:false,message:'React source did not show a page within 50 seconds. Open Audit to see the first error, missing file, or missing package.'}),50000);
       });
       // A previous upload's compiler is never allowed to replace this session.
       frame.srcdoc = attachPreviewInterceptor(loadingHtml || constructReactPreviewShell('Resolving React source.'),interceptor);
@@ -28764,7 +28784,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-019') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-021') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28856,8 +28876,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-019';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-019' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-021';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-021' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -29600,7 +29620,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-019 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-021 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29619,7 +29639,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-019')) throw new Error('Could not prepare DEBOOGER DB2K-019 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-021')) throw new Error('Could not prepare DEBOOGER DB2K-021 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29794,7 +29814,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-019', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-021', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
