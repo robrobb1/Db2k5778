@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-021</title>
-  <!-- DEBOOGER2000 DB2K-021: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-023</title>
+  <!-- DEBOOGER2000 DB2K-023: standalone visual project viewer, inspector, auditor, and exporter. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1127,25 +1127,28 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 </style>
 
 <style id="debooger-compact-audit">
-/* Compact, independently collapsible audit findings on desktop and mobile. */
-#findings-list{gap:0!important;padding:6px 12px 16px!important;}
-#findings-list .b006-findings-section{padding:10px 4px 6px!important;border:0!important;font-size:12px!important;}
-#findings-list .finding-card{position:relative!important;display:block!important;margin:0 0 7px!important;padding:0!important;border:1px solid #dce4ec!important;border-radius:7px!important;background:#fff!important;overflow:hidden!important;box-shadow:none!important;}
+/* Soft full-card severity backgrounds, compact rows, no accent stripes. */
+#findings-list{gap:0!important;padding:6px 12px 14px!important;}
+#findings-list .b006-findings-section{padding:8px 3px 5px!important;border:0!important;font-size:12px!important;}
+#findings-list .finding-card{display:block!important;position:relative!important;margin:0 0 5px!important;padding:0!important;border:1px solid #dbe4ed!important;border-radius:7px!important;background:#f2f6fb!important;overflow:hidden!important;box-shadow:none!important;}
 #findings-list .finding-card:before{content:none!important;display:none!important;}
-#findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:8px!important;padding:9px 11px!important;min-height:38px!important;list-style:none!important;cursor:default!important;}
+#findings-list .finding-card.audit-high{background:#fff0f0!important;border-color:#f4cbcb!important;}
+#findings-list .finding-card.audit-medium,#findings-list .finding-card.finding-cleanup{background:#fff6e5!important;border-color:#efddb6!important;}
+#findings-list .finding-card.audit-low{background:#eaf8f0!important;border-color:#c9e7d8!important;}
+#findings-list .finding-card.audit-review,#findings-list .finding-card.finding-visual{background:#edf5ff!important;border-color:#cbddf5!important;}
+#findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:7px!important;padding:7px 10px!important;min-height:32px!important;list-style:none!important;cursor:pointer!important;background:transparent!important;}
 #findings-list .finding-card .b006-finding-head::-webkit-details-marker{display:none!important;}
-#findings-list .finding-card .b006-finding-head::after{content:'Checked';font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#64748b;line-height:1;margin-left:3px;flex:0 0 auto;}
-#findings-list .finding-card .b006-finding-title{font-size:12px!important;font-weight:600!important;line-height:1.35!important;min-width:0;flex:1;}
+#findings-list .finding-card .b006-finding-head::after{content:none!important;}
+#findings-list .finding-card .b006-finding-title{font-size:12px!important;font-weight:600!important;line-height:1.3!important;min-width:0;flex:1;}
 #findings-list .finding-card .b006-finding-severity,#findings-list .finding-card .b006-finding-repeat{font-size:10px!important;flex:0 0 auto;}
-#findings-list .finding-card .b006-finding-body{padding:1px 11px 10px!important;border-top:1px solid #edf1f5!important;font-size:12px!important;line-height:1.45!important;}
-#findings-list .finding-card .b006-finding-body p{margin:7px 0 0!important;}
-#findings-list .finding-card.audit-high{border-left:3px solid #d64e4e!important;}
-#findings-list .finding-card.audit-medium{border-left:3px solid #d69b39!important;}
-#findings-list .finding-card.audit-review{border-left:3px solid #a5b1be!important;}
-@media(max-width:900px){#findings-list{padding:6px 11px 14px!important;}#findings-list .finding-card .b006-finding-head{padding:9px 10px!important;min-height:38px!important;}}
+#findings-list .finding-card .b006-finding-body{padding:1px 10px 8px!important;border:0!important;background:transparent!important;font-size:12px!important;line-height:1.4!important;}
+#findings-list .finding-card .b006-finding-body p{margin:5px 0 0!important;}
+#d2-drawer-click-outside{position:absolute;inset:0;z-index:79;background:transparent;cursor:default;}
+#d2-drawer-click-outside[hidden]{display:none!important;}
+@media(max-width:900px){#findings-list{padding:5px 9px 12px!important;}#findings-list .finding-card .b006-finding-head{padding:7px 9px!important;min-height:32px!important;}}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-021: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-023: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1170,7 +1173,7 @@ body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
 <style>
-/* DB2K-021: compact mobile overlays, unobstructed notices, neutral edit state. */
+/* DB2K-023: compact mobile overlays, unobstructed notices, neutral edit state. */
 #btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
 #mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
 #toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
@@ -1259,7 +1262,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-021">DB2K-021</span>
+          <span class="build-mark" aria-label="Build DB2K-023">DB2K-023</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1469,6 +1472,8 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         </div>
       </div>
 
+      <!-- Closes open side panels even when the preview is an isolated iframe. -->
+      <div id="d2-drawer-click-outside" hidden aria-hidden="true" onclick="closeWorkspaceOverlays()"></div>
       <!-- Right: Debooger diagnostics workspace -->
       <div class="workspace-pane-right" aria-label="Debooger">
         <div class="pane-header">
@@ -19573,7 +19578,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-021_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-023_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -20338,7 +20343,7 @@ codePos,
       const t = event.target;
       if (!t || !t.closest) return;
       if (t.closest('#visual-inspector-panel') || t.closest('#btn-inspect-toolbar')) return;
-      if (t.closest('.workspace-menu-wrap') || t.closest('#workspace-more-menu') || t.closest('.workspace-popover-trigger')) return;
+      if (t.closest('#btn-workspace-more') || t.closest('#mobile-more-nav-btn') || t.closest('.workspace-menu-wrap') || t.closest('#workspace-more-menu') || t.closest('.workspace-popover-trigger')) return;
 
       const modal = t.closest('.fullscreen-modal.active');
       if (modal) {
@@ -20423,6 +20428,10 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
         });
       }
       pane.classList.toggle('drawer-open', open);
+      // A visible transparent backdrop catches clicks before they enter an iframe.
+      // Clicking the preview outside either side drawer closes the drawer.
+      const clickOutside = document.getElementById('d2-drawer-click-outside');
+      if (clickOutside) clickOutside.hidden = !document.querySelector('.workspace-pane-left.drawer-open, .workspace-pane-right.drawer-open');
     }
 
     function closeWorkspaceOverlays() {
@@ -21021,13 +21030,15 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       if (!restoring && targetView === 'view-workspace') switchView('view-workspace');
       progress?.('Preparing isolated live preview', 88);
       await d2PrepareAutomaticBuild();
-      const d2PreviewStarted = buildSandboxLiveViewer();
       if (restoring) {
         document.querySelectorAll('.workspace-device-btn').forEach(b => b.classList.toggle('active', b.dataset.preset === STATE.devicePreset));
         applyPreviewLayout();
       } else {
         setDeviceViewport(STATE.defaultPreview || 'desktop');
       }
+      // Measure the visible preview before mounting the app the first time.
+      await new Promise(resolve => requestAnimationFrame(() => { applyPreviewLayout(); resolve(); }));
+      const d2PreviewStarted = buildSandboxLiveViewer();
       closeWorkspaceOverlays();
       updateTopFileLabel();
       const headerActions = document.getElementById('header-actions');
@@ -21050,8 +21061,27 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
         toggleWorkspaceDrawer('diagnostics', false);
       }, progress ? 120 : 0);
       if (previewWait) {
-        const result = await d2PreviewStarted.catch(error => ({ok:false,message:String(error?.message||error)}));
+        let result = await d2PreviewStarted.catch(error => ({ok:false,message:String(error?.message||error)}));
         if (result && result.cancelled) return;
+        // A first-load timeout or address initialization can clear once the compiler
+        // is ready. Recover automatically once, using the same normal preview path.
+        // Retry once for a failed React first start, including dependency/network
+        // failures that often clear after the browser finishes caching modules.
+        // Do not silently hide a second failure or retry a superseded project.
+        const recoverable = !result?.ok && !result?.cancelled && STATE.projectType === 'react-vite' && STATE.previewAuditEligible;
+        if (recoverable && STATE.projectType === 'react-vite' && STATE.previewAuditEligible) {
+          addConsoleLog('info','[PREVIEW] First start was incomplete. Retrying once automatically.');
+          progress?.('Finishing React startup', 94);
+          // Let the browser finish outstanding fetches before the single recovery.
+          await new Promise(resolve => setTimeout(resolve, 650));
+          await new Promise(resolve => requestAnimationFrame(() => { applyPreviewLayout(); resolve(); }));
+          if (STATE.projectType !== 'react-vite' || !projectIsValid()) return;
+          const retry = buildSandboxLiveViewer();
+          result = retry && typeof retry.then === 'function'
+            ? await retry.catch(error => ({ok:false,message:String(error?.message||error)}))
+            : {ok:STATE.runtimeReady,message:STATE.runtimeReady?'Page ready':'Preview still unavailable'};
+          if (result?.cancelled) return;
+        }
         if (result && result.ok) {
           setProjectStatus(restoring ? 'restored' : 'valid');
           progress?.('React preview rendered', 100);
@@ -21061,7 +21091,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
           progress?.('React preview failed', 100);
           const issue = String(result?.message || 'React preview did not show a page. Open Audit to see the first error and what to do next.');
           addConsoleLog('err', '[REACT] ' + issue);
-          showToast('The React preview could not open. Open Audit to see the first error and what to do next.');
+          showToast('React preview failed. The viewer and Audit show the verified startup error.');
         }
         renderUploadDebugBox();
       }
@@ -21322,7 +21352,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
           if (STATE.previewAttempt !== currentAttempt || !previewStatus || previewStatus.hidden) return;
           if (STATE.runtimeReady) { previewStatus.hidden = true; return; }
           previewStatus.textContent = STATE.projectType === 'react-vite' && !findCompiledWebEntry()
-            ? 'The React page did not appear yet. Open Audit to see the first error, missing file, or build requirement.'
+            ? 'The React page is still opening. If it cannot start, the exact problem will appear here and in Audit.'
             : 'The preview did not start yet. Open Audit to see the first confirmed problem.';
           addConsoleLog('warn',previewStatus.textContent,'preview-startup-timeout');
           previewStatus.classList.add('d2-preview-failed');
@@ -22176,25 +22206,52 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         }
         PreviewURL.prototype=NativeURL.prototype;
         try{Object.setPrototypeOf(PreviewURL,NativeURL);window.URL=PreviewURL;}catch(_){}
-        var virtualHash='#/';
-        function resolveVirtualHash(value){
-          try{
-            var parsed=new NativeURL(String(value==null?'':value),previewHref+virtualHash);
-            if(parsed.hash)return parsed.hash;
-            return '#'+parsed.pathname+(parsed.search||'');
-          }catch(_){return typeof value==='string'&&value.charAt(0)==='#'?value:virtualHash;}
+        var virtualPath='/';
+        var virtualSearch='';
+        var virtualHash='';
+        function currentHref(){return 'https://preview.debooger.invalid'+virtualPath+virtualSearch+virtualHash;}
+        function dispatchRouteChange(oldHref,previousHash){
+          if(previousHash!==virtualHash){
+            try{window.dispatchEvent(new HashChangeEvent('hashchange',{oldURL:oldHref,newURL:currentHref()}));}
+            catch(_){window.dispatchEvent(new Event('hashchange'));}
+          }
+          try{window.dispatchEvent(new PopStateEvent('popstate',{state:virtualHistory.state}));}
+          catch(_){window.dispatchEvent(new Event('popstate'));}
         }
-        function dispatchRouteChange(oldHref){
-          try{window.dispatchEvent(new HashChangeEvent('hashchange',{oldURL:oldHref,newURL:virtualLocation.href}));}catch(_){window.dispatchEvent(new Event('hashchange'));}
-          try{window.dispatchEvent(new PopStateEvent('popstate',{state:virtualHistory.state}));}catch(_){window.dispatchEvent(new Event('popstate'));}
+        function setVirtualRoute(value,notify){
+          var next=String(value==null?'':value);
+          if(!next)return;
+          var before=currentHref(),previousHash=virtualHash;
+          if(next.charAt(0)==='#'){
+            virtualHash=next;
+          }else{
+            try{
+              var resolved=new NativeURL(next,currentHref());
+              if(resolved.origin!=='https://preview.debooger.invalid')return;
+              virtualPath=resolved.pathname||'/';
+              virtualSearch=resolved.search;
+              virtualHash=resolved.hash;
+            }catch(_){return;}
+          }
+          if(notify!==false && before!==currentHref())dispatchRouteChange(before,previousHash);
         }
-        function setVirtualRoute(value){
-          var next=resolveVirtualHash(value); if(next===virtualHash)return;
-          var oldHref=virtualLocation.href; virtualHash=next; dispatchRouteChange(oldHref);
-        }
-        var virtualLocation={assign:setVirtualRoute,replace:setVirtualRoute,reload:function(){}};
-        Object.defineProperties(virtualLocation,{href:{get:function(){return previewHref+virtualHash;}},origin:{get:function(){return 'https://preview.debooger.invalid';}},protocol:{get:function(){return 'https:';}},host:{get:function(){return 'preview.debooger.invalid';}},hostname:{get:function(){return 'preview.debooger.invalid';}},pathname:{get:function(){return '/'+${JSON.stringify(cleanPath)};}},search:{get:function(){return '';}},hash:{get:function(){return virtualHash;},set:setVirtualRoute}});
-        var virtualHistory={state:null,pushState:function(state,title,url){this.state=state;if(url!=null)setVirtualRoute(url);},replaceState:function(state,title,url){this.state=state;if(url!=null)setVirtualRoute(url);},go:function(){},back:function(){},forward:function(){}};
+        var virtualLocation={assign:function(url){setVirtualRoute(url,true);},replace:function(url){setVirtualRoute(url,true);},reload:function(){}};
+        Object.defineProperties(virtualLocation,{
+          href:{get:currentHref,set:function(url){setVirtualRoute(url,true);}},
+          origin:{get:function(){return 'https://preview.debooger.invalid';}},
+          protocol:{get:function(){return 'https:';}},
+          host:{get:function(){return 'preview.debooger.invalid';}},
+          hostname:{get:function(){return 'preview.debooger.invalid';}},
+          pathname:{get:function(){return virtualPath;}},
+          search:{get:function(){return virtualSearch;}},
+          hash:{get:function(){return virtualHash;},set:function(hash){setVirtualRoute(hash,true);}}
+        });
+        var virtualHistory={
+          state:null,
+          pushState:function(state,title,url){this.state=state;if(url!=null)setVirtualRoute(url,true);},
+          replaceState:function(state,title,url){this.state=state;if(url!=null)setVirtualRoute(url,true);},
+          go:function(){},back:function(){},forward:function(){}
+        };
         window.__D2_PREVIEW_LOCATION=virtualLocation;
         window.__D2_PREVIEW_HISTORY=virtualHistory;
         // Keep non-rewritten browser code from asking the opaque native History
@@ -22381,7 +22438,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-021 offline-first React source preview.
+    // DB2K-023 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22667,7 +22724,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-021|' + target + '|');
+      feed('DB2K-023|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22691,7 +22748,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-021', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-023', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22712,7 +22769,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-021', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-023', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22857,7 +22914,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-021 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-023 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -23136,7 +23193,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-021 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-023 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -24163,7 +24220,6 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
           'import { RouterProvider } from "@tanstack/react-router";',
           'import { getRouter } from "d2:' + routerNorm + '";',
           'const el = document.getElementById("root") || document.body.appendChild(Object.assign(document.createElement("div"), {id:"root"}));',
-          'try { history.replaceState = function(){}; history.pushState = function(){}; } catch (e) {}',
           'createRoot(el).render(React.createElement(RouterProvider, { router: getRouter() }));'
         ].join('\n'), routerNorm, files, pkg, aliases, collectedCss);
       } else if (!mountsItself) {
@@ -24282,10 +24338,10 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
           settle({ok:!!detail.ok,message:detail.message});
         };
         window.addEventListener('d2-preview-settled',listener);
-        mountTimer=setTimeout(() => settle({ok:false,message:'React source did not show a page within 50 seconds. Open Audit to see the first error, missing file, or missing package.'}),50000);
+        mountTimer=setTimeout(() => settle({ok:false,message:'React source did not show a page within 50 seconds. Open Audit to see the first error, missing file, or missing package.'}),85000);
       });
       // A previous upload's compiler is never allowed to replace this session.
-      frame.srcdoc = attachPreviewInterceptor(loadingHtml || constructReactPreviewShell('Resolving React source.'),interceptor);
+      frame.srcdoc = loadingHtml || constructReactPreviewShell('Resolving React source.');
       try {
         const statusEl = document.getElementById('d2-preview-status');
         const setStage = (num, text) => {
@@ -24299,7 +24355,7 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
         setStage(5, 'Validating compiled output & initializing sandbox');
         const html = await Promise.race([
           buildLiveReactPreviewHtml(STATE.files),
-          new Promise((_,reject)=> {prepTimer=setTimeout(()=>reject(new Error('React compilation timed out. Provide compiled dist/build output if this project requires npm.')),20000);})
+          new Promise((_,reject)=> {prepTimer=setTimeout(()=>reject(new Error('React compilation timed out. Provide compiled dist/build output if this project requires npm.')),60000);})
         ]);
         if(gen!==LIVE_REACT_PREVIEW_GEN) {
           window.dispatchEvent(new CustomEvent('d2-preview-settled',{detail:{gen,ok:false,message:'Superseded'}}));
@@ -24621,7 +24677,10 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       }
       if (e.data.type === 'RUNTIME_READY') {
         const wasReady = STATE.runtimeReady;
-        STATE.runtimeReady = Boolean(e.data.eligible);
+        STATE.runtimeReady = Boolean(e.data.eligible) && !(STATE.runtimeErrors || []).some(issue =>
+          issue.kind === 'render' || issue.phase === 'react-module-bootstrap');
+        const readyStatus = document.getElementById('d2-preview-status');
+        if (STATE.runtimeReady && readyStatus) { readyStatus.hidden = true; readyStatus.classList.remove('d2-preview-failed'); }
         if (STATE.runtimeReady) updateRuntimeConsoleBadge();
         if (STATE.runtimeReady && !wasReady) showToast('Preview ready: '+(STATE.entryFile||STATE.projectName)+'.');
         if (STATE.runtimeReady) setTimeout(() => frame.contentWindow?.postMessage({ type: 'DEBOOGER_RUN_DOM_AUDIT' }, '*'), 350);
@@ -28784,7 +28843,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-021') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-023') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28812,9 +28871,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
       STATE.files = files;
       STATE.projectName = projectName || 'Sample Project';
       STATE.projectStatus = 'valid';
-      await finishIntakeProcess({ targetView: 'view-workspace' });
+      await finishIntakeProcess({ targetView: 'view-workspace', waitForMount: true });
       switchView('view-workspace');
-      buildSandboxLiveViewer();
       reRunAudit();
     };
 
@@ -28876,8 +28934,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-021';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-021' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-023';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-023' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -29620,7 +29678,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-021 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-023 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29639,7 +29697,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-021')) throw new Error('Could not prepare DEBOOGER DB2K-021 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-023')) throw new Error('Could not prepare DEBOOGER DB2K-023 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29814,7 +29872,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-021', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-023', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
