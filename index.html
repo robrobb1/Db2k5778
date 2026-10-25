@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-023</title>
-  <!-- DEBOOGER2000 DB2K-023: standalone visual project viewer, inspector, auditor, and exporter. -->
+  <title>DEBOOGER2000 | Universal Project Viewer & Inspector — DB2K-027</title>
+  <!-- DEBOOGER2000 DB2K-027: recover first-upload React previews across supported build types; preserve DB2K-024 Audit UI. -->
   <!-- Bundled ZIP engine: JSZip 3.10.1 (MIT/GPLv3 dual licensed; upstream license notice retained below). -->
   
   
@@ -1127,28 +1127,106 @@ body.workspace-view-active #btn-top-trash,body.has-project #btn-top-trash{displa
 </style>
 
 <style id="debooger-compact-audit">
-/* Soft full-card severity backgrounds, compact rows, no accent stripes. */
-#findings-list{gap:0!important;padding:6px 12px 14px!important;}
-#findings-list .b006-findings-section{padding:8px 3px 5px!important;border:0!important;font-size:12px!important;}
-#findings-list .finding-card{display:block!important;position:relative!important;margin:0 0 5px!important;padding:0!important;border:1px solid #dbe4ed!important;border-radius:7px!important;background:#f2f6fb!important;overflow:hidden!important;box-shadow:none!important;}
-#findings-list .finding-card:before{content:none!important;display:none!important;}
-#findings-list .finding-card.audit-high{background:#fff0f0!important;border-color:#f4cbcb!important;}
-#findings-list .finding-card.audit-medium,#findings-list .finding-card.finding-cleanup{background:#fff6e5!important;border-color:#efddb6!important;}
-#findings-list .finding-card.audit-low{background:#eaf8f0!important;border-color:#c9e7d8!important;}
-#findings-list .finding-card.audit-review,#findings-list .finding-card.finding-visual{background:#edf5ff!important;border-color:#cbddf5!important;}
-#findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:7px!important;padding:7px 10px!important;min-height:32px!important;list-style:none!important;cursor:pointer!important;background:transparent!important;}
-#findings-list .finding-card .b006-finding-head::-webkit-details-marker{display:none!important;}
-#findings-list .finding-card .b006-finding-head::after{content:none!important;}
-#findings-list .finding-card .b006-finding-title{font-size:12px!important;font-weight:600!important;line-height:1.3!important;min-width:0;flex:1;}
-#findings-list .finding-card .b006-finding-severity,#findings-list .finding-card .b006-finding-repeat{font-size:10px!important;flex:0 0 auto;}
-#findings-list .finding-card .b006-finding-body{padding:1px 10px 8px!important;border:0!important;background:transparent!important;font-size:12px!important;line-height:1.4!important;}
-#findings-list .finding-card .b006-finding-body p{margin:5px 0 0!important;}
-#d2-drawer-click-outside{position:absolute;inset:0;z-index:79;background:transparent;cursor:default;}
-#d2-drawer-click-outside[hidden]{display:none!important;}
-@media(max-width:900px){#findings-list{padding:5px 9px 12px!important;}#findings-list .finding-card .b006-finding-head{padding:7px 9px!important;min-height:32px!important;}}
+/* DB2K-027: one focused Audit layout, with all existing audit actions intact. */
+#view-workspace .workspace-pane-right{width:min(550px,96vw)!important;max-width:min(550px,96vw)!important;background:#fff!important;border-left:1px solid #dce5eb!important;box-shadow:0 18px 60px rgba(20,38,55,.15)!important}
+#view-workspace .workspace-pane-right .pane-header{min-height:64px!important;padding:14px 22px!important;border-bottom:1px solid #edf1f5!important;background:#fff!important}
+.audit-panel-heading{display:flex;align-items:center;gap:12px;color:#0b7565}
+.audit-panel-heading>svg{width:38px;height:38px;flex:0 0 38px;padding:8px;background:#eaf7f2;border:1px solid #d4eee4;border-radius:10px;box-sizing:border-box}
+.audit-panel-heading>span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.audit-panel-heading strong{font-size:15px;font-weight:650;line-height:1.25;color:#172b40}
+.audit-panel-heading small{font-size:12px;font-weight:400;color:#738396;line-height:1.25}
+#view-workspace .workspace-pane-right .debooger-pane{background:#fff!important;overflow-y:auto!important;overflow-x:hidden!important;scrollbar-width:thin;scrollbar-color:#ccd7e0 transparent}
+#view-workspace .workspace-pane-right .audit-score-card{display:flex!important;gap:18px!important;align-items:center!important;padding:22px 22px 18px!important;border-bottom:1px solid #edf1f5!important;background:#fff!important}
+#view-workspace .workspace-pane-right #health-gauge{display:grid!important;place-items:center!important;flex:0 0 82px!important;width:82px!important;height:78px!important;min-width:82px!important;padding:0!important;border:1px solid #dceae8!important;border-radius:11px!important;box-sizing:border-box!important;background:#f1f9f7!important;color:#116b60!important;font-size:29px!important;font-weight:600!important;font-variant-numeric:tabular-nums;box-shadow:none!important;cursor:pointer}
+#view-workspace .workspace-pane-right #health-gauge.score-good{color:#0c8064!important;background:#edf8f2!important;border-color:#cce7d7!important}
+#view-workspace .workspace-pane-right #health-gauge.score-warn{color:#a97720!important;background:#fff8e9!important;border-color:#eedfb5!important}
+#view-workspace .workspace-pane-right #health-gauge.score-bad{color:#b34047!important;background:#fff2f3!important;border-color:#f4dade!important}
+#view-workspace .workspace-pane-right #health-gauge:hover{filter:brightness(.975)}
+#view-workspace .workspace-pane-right .audit-score-copy{flex:1;min-width:0}
+#view-workspace .workspace-pane-right .audit-score-copy h4{margin:0 0 6px!important;color:#1c3046!important;font-size:15px!important;line-height:1.35;font-weight:600!important}
+#view-workspace .workspace-pane-right .audit-score-copy p{margin:0!important;color:#64758a!important;font-size:12px!important;line-height:1.5}
+.audit-progress-track{height:5px;background:#edf1f5;border-radius:8px;overflow:hidden;margin-top:13px}
+.audit-progress-fill{height:100%;width:0%;background:#0d9479;border-radius:8px;transition:width .25s ease}
+.audit-progress-fill[data-tone="warn"]{background:#d6a14a}
+.audit-progress-fill[data-tone="bad"]{background:#d26b72}
+.audit-progress-fill[data-tone="none"]{background:#edf1f5}
+#view-workspace .workspace-pane-right .audit-issues-title{padding:20px 22px 9px!important}
+#view-workspace .workspace-pane-right .audit-issues-title h3{margin:0!important;color:#223448!important;font-size:14px!important;font-weight:650!important;letter-spacing:0!important}
+#view-workspace .workspace-pane-right .audit-issues-title h3 span{font-size:12px;color:#8a9aaa;font-weight:500}
+#view-workspace .workspace-pane-right .b006-audit-filters{display:flex;align-items:center;flex-wrap:wrap!important;gap:6px!important;margin:0;padding:3px 20px 15px!important;border-bottom:0!important;overflow:visible!important}
+#view-workspace .workspace-pane-right .b006-audit-filters button{min-height:32px!important;padding:6px 11px!important;border:1px solid transparent!important;border-radius:6px!important;background:transparent!important;color:#61748b!important;font-size:12px!important;font-weight:500!important;line-height:1.25;cursor:pointer;white-space:nowrap}
+#view-workspace .workspace-pane-right .b006-audit-filters button:hover{background:#f3f7f9!important;color:#2c4359!important}
+#view-workspace .workspace-pane-right .b006-audit-filters button.active{background:#eaf5f1!important;border-color:#d3e8e0!important;color:#0b735f!important;font-weight:600!important;box-shadow:none!important}
+#view-workspace .workspace-pane-right #findings-list{display:flex!important;flex-direction:column!important;gap:8px!important;padding:0 22px 18px!important;background:#fff!important}
+#view-workspace .workspace-pane-right #findings-list [data-audit-kind][hidden]{display:none!important}
+#view-workspace .workspace-pane-right #findings-list .b006-findings-section{padding:12px 1px 2px!important;margin:0!important;font-size:11px!important;font-weight:650!important;letter-spacing:.04em;color:#8091a2!important;text-transform:uppercase;border:0!important;background:transparent!important}
+#view-workspace .workspace-pane-right #findings-list .finding-card{position:relative!important;display:block!important;margin:0!important;padding:0!important;border:1px solid #e0e8ef!important;border-radius:8px!important;overflow:hidden!important;box-shadow:none!important;background:#fff!important}
+#view-workspace .workspace-pane-right #findings-list .finding-card:hover{border-color:#c6d6e2!important}
+#view-workspace .workspace-pane-right #findings-list .finding-card::before{content:none!important;display:none!important}
+#view-workspace .workspace-pane-right #findings-list .finding-card .b006-finding-head{display:flex!important;align-items:center!important;gap:10px!important;min-height:46px!important;padding:11px 13px!important;list-style:none!important;cursor:pointer!important;background:#fff!important}
+#findings-list .b006-finding-head::-webkit-details-marker{display:none!important}
+#view-workspace .workspace-pane-right #findings-list .finding-card[open] .b006-finding-head{background:#f9fbfc!important;border-bottom:1px solid #e7edf3!important}
+#view-workspace .workspace-pane-right #findings-list .b006-finding-title{font-size:13px!important;font-weight:550!important;color:#2a3c50!important;line-height:1.35;flex:1;min-width:0;overflow-wrap:anywhere}
+#view-workspace .workspace-pane-right #findings-list .b006-finding-severity{display:inline-flex;align-items:center;gap:5px;color:#8b6a25!important;background:#fff7e6;border:1px solid #f1e5c8;border-radius:4px;padding:3px 6px;font-size:10px!important;line-height:1.2;font-weight:600!important;white-space:nowrap}
+#view-workspace .workspace-pane-right #findings-list .audit-high .b006-finding-severity{color:#aa404a!important;background:#fff0f1;border-color:#f2dcdd}
+#view-workspace .workspace-pane-right #findings-list .finding-visual .b006-finding-severity{color:#4372a0!important;background:#eef5fc;border-color:#dce7f3}
+#view-workspace .workspace-pane-right #findings-list .finding-cleanup .b006-finding-severity{color:#9a722c!important;background:#fff8e9;border-color:#f1e5cc}
+#view-workspace .workspace-pane-right #findings-list .b006-finding-repeat{color:#7a8999!important;font-size:11px!important}
+#view-workspace .workspace-pane-right #findings-list .b006-finding-body{padding:7px 13px 13px!important;border:0!important;background:#fff!important;color:#506378!important;font-size:12px!important;line-height:1.52}
+#view-workspace .workspace-pane-right #findings-list .b006-finding-body p{margin:7px 0 0!important;font-size:12px!important;line-height:1.52}
+#view-workspace .workspace-pane-right #findings-list .b006-finding-body strong{color:#34475b;font-weight:600}
+#view-workspace .workspace-pane-right #findings-list .b006-evidence{margin-top:10px}
+#view-workspace .workspace-pane-right #findings-list .b006-evidence>summary{font-size:12px;color:#0c7865;cursor:pointer}
+#view-workspace .workspace-pane-right #findings-list .b006-evidence pre{padding:10px;margin:6px 0 0;font-size:12px!important;background:#f5f8fa;color:#485a6b;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+#view-workspace .workspace-pane-right #findings-list .b006-audit-empty{padding:22px 12px!important;border:1px dashed #d9e4eb;border-radius:8px;color:#738598;text-align:center;background:#fbfcfd;font-size:12px}
+#view-workspace .workspace-pane-right #audit-console-details,
+#view-workspace .workspace-pane-right .audit-fold{margin:0 22px 9px!important;border:1px solid #e2e9ef!important;border-radius:8px!important;background:#fff!important;overflow:hidden!important;max-height:none!important}
+#view-workspace .workspace-pane-right #audit-console-details>summary,
+#view-workspace .workspace-pane-right .audit-fold>summary{display:block;position:relative;list-style:none!important;cursor:pointer!important;padding:12px 36px 12px 13px!important;color:#34495f!important;font-size:12px!important;font-weight:550!important;line-height:1.4;border:0;background:#fff}
+#view-workspace .workspace-pane-right #audit-console-details>summary::-webkit-details-marker,
+#view-workspace .workspace-pane-right .audit-fold>summary::-webkit-details-marker{display:none!important}
+#view-workspace .workspace-pane-right #audit-console-details>summary::after,
+#view-workspace .workspace-pane-right .audit-fold>summary::after{content:'+';position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:18px;color:#8697a9;font-weight:400;line-height:1}
+#view-workspace .workspace-pane-right #audit-console-details[open]>summary::after,
+#view-workspace .workspace-pane-right .audit-fold[open]>summary::after{content:'−'}
+#view-workspace .workspace-pane-right #audit-console-details[open]>summary,
+#view-workspace .workspace-pane-right .audit-fold[open]>summary{border-bottom:1px solid #ebf0f4;background:#fbfcfd}
+#view-workspace .workspace-pane-right .audit-method-body{padding:12px 14px!important;font-size:12px;line-height:1.55;color:#627589}
+#view-workspace .workspace-pane-right #b005-console{height:auto!important;min-height:80px;max-height:230px!important;padding:9px 12px!important;overflow:auto!important;font-size:12px!important}
+#view-workspace .workspace-pane-right .b005-console-actions{padding:8px 12px!important;border-bottom:1px solid #ebf0f4!important;border-top:0!important}
+#view-workspace .workspace-pane-right .b005-console-actions button{font-size:12px!important;min-height:28px}
+#view-workspace .workspace-pane-right .upload-debug-box{margin:0!important;border:0!important;padding:12px 14px!important}
+#view-workspace .workspace-pane-right .audit-quick-actions{display:grid!important;grid-template-columns:1fr 1fr;gap:8px!important;margin:14px 22px 22px!important;padding:14px 0 0!important;border:0!important;border-top:1px solid #edf1f5!important}
+#view-workspace .workspace-pane-right .audit-quick-actions button{display:flex;align-items:center;justify-content:center;min-height:36px!important;padding:9px 8px!important;font-size:12px!important;font-weight:550!important;line-height:1.25;border:1px solid #dbe5ec!important;border-radius:7px!important;background:#fff!important;color:#30465b!important;white-space:normal}
+#view-workspace .workspace-pane-right .audit-quick-actions button:first-child{background:#0b7766!important;color:#fff!important;border-color:#0b7766!important}
+#view-workspace .workspace-pane-right .audit-quick-actions button:hover{filter:brightness(.975)}
+#view-workspace .workspace-pane-right .audit-quick-actions button:last-child{grid-column:1/-1}
+#view-workspace .workspace-pane-right #b005-baseline-status:empty{display:none!important}
+#view-workspace .workspace-pane-right #b005-baseline-status{padding:7px 22px!important}
+#d2-drawer-click-outside{position:absolute;inset:0;z-index:79;background:transparent;cursor:default}
+#d2-drawer-click-outside[hidden]{display:none!important}
+#btn-top-reload{color:#3c566f!important;width:38px;min-width:38px!important;height:38px!important;padding:8px!important;background:transparent!important;border:0!important;border-radius:7px!important}
+#btn-top-reload svg{width:21px;height:21px;display:block}
+#btn-top-reload:hover{background:#edf5f4!important;color:#0b7766!important}
+#header-actions #btn-top-reload{display:none}
+body.has-project #header-actions #btn-top-reload{display:inline-flex!important;align-items:center!important;justify-content:center!important}
+.db2k-mobile-reload{display:flex;align-items:center;justify-content:center;margin-left:auto!important;color:#446079!important;background:transparent!important;border:0!important;min-width:38px!important;padding:0!important}
+.db2k-mobile-delete{margin-left:0!important}
+@media(max-width:900px){
+ #view-workspace .workspace-pane-right{width:100%!important;max-width:100%!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+ #view-workspace .workspace-pane-right .pane-header{padding:12px 15px!important;min-height:56px!important}
+ #view-workspace .workspace-pane-right .audit-score-card{padding:16px 15px!important;gap:12px!important}
+ #view-workspace .workspace-pane-right #health-gauge{width:68px!important;min-width:68px!important;flex-basis:68px!important;height:70px!important;font-size:24px!important}
+ #view-workspace .workspace-pane-right .audit-issues-title{padding:15px 15px 8px!important}
+ #view-workspace .workspace-pane-right .b006-audit-filters{padding:0 12px 12px!important;gap:3px!important}
+ #view-workspace .workspace-pane-right .b006-audit-filters button{padding:5px 9px!important;font-size:12px!important}
+ #view-workspace .workspace-pane-right #findings-list{padding:0 15px 14px!important;gap:7px!important}
+ #view-workspace .workspace-pane-right #audit-console-details,#view-workspace .workspace-pane-right .audit-fold{margin:0 15px 8px!important}
+ #view-workspace .workspace-pane-right .audit-quick-actions{margin:12px 15px 20px!important}
+}
 </style>
 <style id="db2k-010-viewport-contract">
-/* DB2K-023: fullscreen and phone-landscape use the measured visual viewport. */
+/* DB2K-027: fullscreen and phone-landscape use the measured visual viewport. */
 body.mobile-landscape-preview .main-viewport,
 body.mobile-landscape-preview #view-workspace,
 body.mobile-landscape-preview .workspace-pane-center,
@@ -1173,7 +1251,7 @@ body.mobile-landscape-preview .iframe-sandbox,
 body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!important;overscroll-behavior:contain;touch-action:pan-x pan-y pinch-zoom;}
 </style>
 <style>
-/* DB2K-023: compact mobile overlays, unobstructed notices, neutral edit state. */
+/* DB2K-027: compact mobile overlays, unobstructed notices, neutral edit state. */
 #btn-inspect-toolbar.inspect-active,.top-nav #btn-inspect-toolbar.inspect-active{background:#e8eef5!important;color:#243447!important;box-shadow:none!important;border-color:#cbd5e1!important}
 #mobile-nav-edit.active{background:#e8eef5!important;color:#243447!important;border-color:#cbd5e1!important}
 #toast-msg{z-index:2147483000!important;border-radius:7px!important;font-size:12px!important;font-weight:500!important;padding:8px 12px!important;max-width:min(340px,calc(100vw - 32px));width:max-content;box-sizing:border-box;text-align:center;pointer-events:none;}
@@ -1262,7 +1340,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="topbar-logo">
           <div class="logo-mark">D2</div>
           <div class="logo-text">DEBOOGER<span style="color:var(--primary)">2000</span></div>
-          <span class="build-mark" aria-label="Build DB2K-023">DB2K-023</span>
+          <span class="build-mark" aria-label="Build DB2K-027">DB2K-027</span>
         </div>
       </div>
       <nav class="top-nav" aria-label="Main">
@@ -1299,7 +1377,6 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
             <button type="button" id="d2-flip-btn" onclick="flipPhonePreview()" hidden>Flip</button>
           </div>
           <div class="more-action-row more-preview-actions">
-            <button type="button" onclick="refreshSandboxViewer()">Reload</button>
             <button type="button" onclick="openPreviewInBrowser()">Browser</button>
             <button type="button" onclick="db2kSharePreview()">Share preview</button>
             <button type="button" id="btn-panoramic" aria-pressed="false" onclick="togglePanoramicPreview()">Full</button>
@@ -1356,6 +1433,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="workspace-correction-list" id="workspace-correction-list"></div>
       </div>
       <div class="header-actions" id="header-actions">
+        <button type="button" class="workspace-icon-btn project-only-action" id="btn-top-reload" onclick="refreshSandboxViewer()" title="Reload preview" aria-label="Reload preview"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M19.1 12a7.2 7.2 0 1 1-2.1-5.1L20 9"/></svg></button>
         <button type="button" class="workspace-icon-btn project-only-action workspace-delete-btn" id="btn-top-trash" onclick="clearLoadedProject()" title="Delete loaded project" aria-label="Delete loaded project"><svg class="top-trash-icon" viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5h17M9 6.5V4.2c0-.6.5-1.1 1.1-1.1h3.8c.6 0 1.1.5 1.1 1.1v2.3M6.2 6.5l.85 12.8c.05.9.8 1.6 1.7 1.6h6.5c.9 0 1.65-.7 1.7-1.6l.85-12.8M10 10.5v6.4M14 10.5v6.4"/></svg></button>
         <button type="button" class="workspace-icon-btn global-settings-btn" id="global-settings-btn" onclick="openSettingsOverlay()" title="Settings" aria-label="Open settings"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.5 2.6h3l.6 2.2c.57.17 1.1.39 1.6.68l1.98-1.1 2.12 2.12-1.1 1.98c.29.5.51 1.03.68 1.6l2.22.62v3l-2.22.62c-.17.57-.39 1.1-.68 1.6l1.1 1.98-2.12 2.12-1.98-1.1c-.5.29-1.03.51-1.6.68l-.6 2.2h-3l-.6-2.2c-.57-.17-1.1-.39-1.6-.68l-1.98 1.1-2.12-2.12 1.1-1.98c-.29-.5-.51-1.03-.68-1.6L2.4 13.5v-3l2.22-.62c.17-.57.39-1.1.68-1.6L4.2 6.3l2.12-2.12 1.98 1.1c.5-.29 1.03-.51 1.6-.68l.6-2Z"/><circle cx="12" cy="12" r="3.15"/></svg></button>
         <input type="file" id="file-input-folder" aria-label="Choose project folder" webkitdirectory directory multiple style="display:none;" />
@@ -1428,6 +1506,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
       <div class="workspace-pane-center">
         <div class="mobile-preview-controls" data-project-action aria-label="Preview actions">
           <span class="mobile-viewer-title" id="mobile-viewer-title">Preview</span>
+          <button type="button" class="db2k-mobile-reload" onclick="refreshSandboxViewer()" aria-label="Reload preview" title="Reload preview"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5"/><path d="M19.1 12a7.2 7.2 0 1 1-2.1-5.1L20 9"/></svg></button>
           <button type="button" class="db2k-mobile-delete" onclick="clearLoadedProject()" aria-label="Delete loaded project" title="Delete loaded project"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 6.5h17M9 6.5V4.2h6v2.3M6.2 6.5l.85 12.8c.05.9.8 1.6 1.7 1.6h6.5c.9 0 1.65-.7 1.7-1.6l.85-12.8M10 10.5v6.4M14 10.5v6.4"/></svg></button>
           <button type="button" onclick="openPreviewInBrowser()" aria-label="Open preview in browser">Browser</button>
           
@@ -1477,7 +1556,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
       <!-- Right: Debooger diagnostics workspace -->
       <div class="workspace-pane-right" aria-label="Debooger">
         <div class="pane-header">
-          <span>Check results</span>
+          <span class="audit-panel-heading"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8l4 4v14H4V3h4Zm8 0v5h4"/><path d="m8 14 2.7 2.7L16.5 11"/></svg><span><strong>Project audit</strong><small>Checks and recommendations</small></span></span>
           <div style="display:flex;align-items:center;gap:7px;">
             
             
@@ -1489,7 +1568,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
         <div class="debooger-pane" id="debooger-problems-pane" role="tabpanel" aria-labelledby="debooger-tab-problems">
           <div class="audit-score-card audit-premium-score">
             <button type="button" class="gauge-wrapper db2k-score-refresh" id="health-gauge" onclick="reRunAudit()" title="Run project score checks" aria-label="Run project score checks">—</button>
-            <div class="audit-score-copy"><h4 id="health-verdict">No project loaded</h4><p id="health-subtext">Open a project to run checks.</p></div>
+            <div class="audit-score-copy"><h4 id="health-verdict">No project loaded</h4><p id="health-subtext">Open a project to run checks.</p><div class="audit-progress-track" aria-hidden="true"><div id="audit-progress-fill" class="audit-progress-fill"></div></div></div>
           </div>
           <div class="diag-simple-head audit-issues-title"><h3>Issues <span id="findings-count">0</span></h3></div>
           <div class="b006-audit-filters" role="group" aria-label="Filter audit findings">
@@ -1499,7 +1578,7 @@ body.panoramic-preview .iframe-sandbox{width:100%!important;height:100%!importan
             <button type="button" data-audit-filter="cleanup" onclick="b006SetAuditFilter('cleanup')">Cleanup</button>
           </div>
           <div class="findings-container" id="findings-list"><p class="b006-audit-empty">No issues found yet.</p></div>
-          <details class="b005-diagnostics" id="audit-console-details" open><summary>Console &amp; runtime evidence <span id="audit-console-count"></span></summary><div class="b005-console-actions"><button type="button" onclick="b005CopyConsole()">Copy evidence</button><button type="button" onclick="b005ClearConsole()">Clear</button></div><div id="b005-console" aria-live="polite">No console evidence collected yet.</div></details>
+          <details class="b005-diagnostics" id="audit-console-details"><summary>Console &amp; runtime evidence <span id="audit-console-count"></span></summary><div class="b005-console-actions"><button type="button" onclick="b005CopyConsole()">Copy evidence</button><button type="button" onclick="b005ClearConsole()">Clear</button></div><div id="b005-console" aria-live="polite">No console evidence collected yet.</div></details>
           <details class="score-method audit-fold"><summary>Understand scores and files</summary><div class="audit-method-body">The score uses every check that finished. Passed checks add to the score; failed checks lower it. Checks that could not run, do not apply, or still need a live preview are shown separately and do not change the score. File scores are helpful signals, not guarantees.<div id="file-scores-list"></div></div></details>
           <details class="audit-fold" id="upload-notes-details"><summary>Why the preview opened this way</summary><div id="upload-debug-box" class="upload-debug-box" hidden></div></details>
           <details class="audit-fold"><summary>Advanced details about the selected item</summary><div id="visual-inspector-details"></div><div id="visual-source-hint"></div></details>
@@ -19578,7 +19657,7 @@ codePos,
       const path = (location.origin || 'file://') + (location.pathname || '/');
       let h = 2166136261;
       for (let i=0;i<path.length;i++){h^=path.charCodeAt(i);h=Math.imul(h,16777619);}
-      return 'debooger_DB2K-023_' + (h>>>0).toString(36);
+      return 'debooger_DB2K-027_' + (h>>>0).toString(36);
     })();
     const d2StoreKey = suffix => D2_STORAGE_SCOPE + '_' + suffix;
     const WORKSPACE_DELETED_KEY = d2StoreKey('deleted');
@@ -21048,7 +21127,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       if (previewWait) setProjectStatus('loading');
       else setProjectStatus(restoring ? 'restored' : 'valid');
       if (!restoring) saveAuditToHistory();
-      progress?.(previewWait ? 'Waiting for React to mount' : 'Project ready', previewWait ? 92 : 100);
+      progress?.(previewWait ? 'Project files loaded — opening preview' : 'Project ready', 100);
       if (!previewWait) showToast(`${restoring ? 'Restored' : 'Loaded'}: ${STATE.projectName} (${Object.keys(STATE.files).length} files)`);
       renderUploadDebugBox();
       if (!restoring) STATE.mobileWorkspaceScreen = 'preview';
@@ -21061,26 +21140,31 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
         toggleWorkspaceDrawer('diagnostics', false);
       }, progress ? 120 : 0);
       if (previewWait) {
+        // B053 startup order: finish intake and show the viewer first. The
+        // modern React runtime can finish mounting independently of uploads.
+        const uploadPreviewGeneration = LIVE_REACT_PREVIEW_GEN;
+        let ownedPreviewGeneration = uploadPreviewGeneration;
+        void (async () => {
         let result = await d2PreviewStarted.catch(error => ({ok:false,message:String(error?.message||error)}));
-        if (result && result.cancelled) return;
+        if (uploadPreviewGeneration !== LIVE_REACT_PREVIEW_GEN || result?.cancelled) return;
         // A first-load timeout or address initialization can clear once the compiler
         // is ready. Recover automatically once, using the same normal preview path.
         // Retry once for a failed React first start, including dependency/network
         // failures that often clear after the browser finishes caching modules.
         // Do not silently hide a second failure or retry a superseded project.
-        const recoverable = !result?.ok && !result?.cancelled && STATE.projectType === 'react-vite' && STATE.previewAuditEligible;
-        if (recoverable && STATE.projectType === 'react-vite' && STATE.previewAuditEligible) {
+        const recoverable = !result?.ok && !result?.cancelled && isReactProjectFiles(STATE.files) && !findCompiledWebEntry() && STATE.previewAuditEligible;
+        if (recoverable) {
           addConsoleLog('info','[PREVIEW] First start was incomplete. Retrying once automatically.');
           progress?.('Finishing React startup', 94);
           // Let the browser finish outstanding fetches before the single recovery.
           await new Promise(resolve => setTimeout(resolve, 650));
           await new Promise(resolve => requestAnimationFrame(() => { applyPreviewLayout(); resolve(); }));
-          if (STATE.projectType !== 'react-vite' || !projectIsValid()) return;
+          if (uploadPreviewGeneration !== LIVE_REACT_PREVIEW_GEN || !projectIsValid() || !isReactProjectFiles(STATE.files) || findCompiledWebEntry()) return;
           const retry = buildSandboxLiveViewer();
           result = retry && typeof retry.then === 'function'
             ? await retry.catch(error => ({ok:false,message:String(error?.message||error)}))
             : {ok:STATE.runtimeReady,message:STATE.runtimeReady?'Page ready':'Preview still unavailable'};
-          if (result?.cancelled) return;
+          if (result?.cancelled || LIVE_REACT_PREVIEW_GEN !== ownedPreviewGeneration) return;
         }
         if (result && result.ok) {
           setProjectStatus(restoring ? 'restored' : 'valid');
@@ -21094,6 +21178,14 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
           showToast('React preview failed. The viewer and Audit show the verified startup error.');
         }
         renderUploadDebugBox();
+        })().catch(error => {
+          // Report only genuine errors from the still-current upload.
+          if (LIVE_REACT_PREVIEW_GEN !== ownedPreviewGeneration) return;
+          const message = String(error?.message || error);
+          addConsoleLog('err', '[PREVIEW] ' + message);
+          setProjectStatus('failed', message);
+          renderUploadDebugBox();
+        });
       }
     }
 
@@ -21161,6 +21253,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       else if (has('parcel')) STATE.projectType = 'parcel';
       else if (has('webpack') || /(^|\/)webpack\.config\./m.test(names)) STATE.projectType = 'webpack';
       else if (has('rollup') || /(^|\/)rollup\.config\./m.test(names)) STATE.projectType = 'rollup';
+      else if (has('vite') && hasReact) STATE.projectType = 'react-vite';
       else if (has('esbuild')) STATE.projectType = 'esbuild';
       else if (has('@rspack/core') || /(^|\/)rspack\.config\./m.test(names)) STATE.projectType = 'rspack';
       else if (has('@rsbuild/core') || /(^|\/)rsbuild\.config\./m.test(names)) STATE.projectType = 'rsbuild';
@@ -21351,21 +21444,22 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
         setTimeout(() => {
           if (STATE.previewAttempt !== currentAttempt || !previewStatus || previewStatus.hidden) return;
           if (STATE.runtimeReady) { previewStatus.hidden = true; return; }
-          previewStatus.textContent = STATE.projectType === 'react-vite' && !findCompiledWebEntry()
+          previewStatus.textContent = isReactProjectFiles(STATE.files) && !findCompiledWebEntry()
             ? 'The React page is still opening. If it cannot start, the exact problem will appear here and in Audit.'
             : 'The preview did not start yet. Open Audit to see the first confirmed problem.';
           addConsoleLog('warn',previewStatus.textContent,'preview-startup-timeout');
           previewStatus.classList.add('d2-preview-failed');
-        }, STATE.projectType === 'react-vite' && !findCompiledWebEntry() ? 45000 : 12000);
+        }, isReactProjectFiles(STATE.files) && !findCompiledWebEntry() ? 45000 : 12000);
         previewStatus.classList.remove('d2-preview-failed');
       }
 
       let finalHtml = '';
-      let compiledReactEntry = STATE.projectType === 'react-vite' ? findCompiledWebEntry() : null;
+      let compiledReactEntry = isReactProjectFiles(STATE.files) ? findCompiledWebEntry() : null;
       STATE.previewAuditEligible = STATE.projectType !== 'backend-service';
       STATE.runtimeReady = false;
       STATE.runtimeErrors = [];
       STATE.runtimeResourceErrors = [];
+      STATE.runtimeEmptyWarning = '';
       STATE.runtimeSandboxLimits = STATE.projectType === 'electron'
         ? ['Electron renderer preview only: the Electron main process, preload bridge, native modules, and IPC are not executed in this browser sandbox.']
         : [];
@@ -21429,7 +21523,7 @@ showToast(`Default preview set to ${preset === 'wide1200' ? '1200' : preset[0].t
       } else if (wantsReact && !needsServer) {
         if (compiledReactEntry) finalHtml = constructReactViteBundle();
         else {
-          finalHtml = constructReactPreviewShell('Resolving React source, imports and the matching runtime. External packages require internet access or a compiled build.');
+          finalHtml = constructReactLoadingShell();
           pendingLiveReact = true;
         }
       } else if (needsClientBuild) {
@@ -22438,7 +22532,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
     let D2_PREVIEW_NONCE = '';
     let SUCRASE_PROMISE = null;
 
-    // DB2K-023 offline-first React source preview.
+    // DB2K-027 offline-first React source preview.
     // React/ReactDOM 18.2 are embedded from MIT-licensed upstream builds.
     // TypeScript is embedded in gzip form (Apache-2.0) and evaluated only when TS/TSX/JSX preview needs it.
     const D2_EMBEDDED_REACT_VERSION = '18.2.0';
@@ -22724,7 +22818,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         const text = String(value == null ? '' : value);
         for (let i = 0; i < text.length; i++) { hash ^= text.charCodeAt(i); hash = Math.imul(hash, 16777619); }
       };
-      feed('DB2K-023|' + target + '|');
+      feed('DB2K-027|' + target + '|');
       Object.keys(files || {}).sort().forEach(path => {
         const file = files[path] || {};
         feed(path); feed('|'); feed(file.binary ? 'b' : 't'); feed('|'); feed(file.content); feed('\n');
@@ -22748,7 +22842,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
           if (!path.startsWith(root)) return;
           output[path.slice(root.length)] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
         });
-        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-023', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
+        return { files:output, manifest:{ generator:'DEBOOGER2000 DB2K-027', mode:'existing-compiled-output', entry:existingEntry, verified:false } };
       }
 
       const support = getWebContainerSupport();
@@ -22769,7 +22863,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         output[clean] = file.binary ? decodeBase64ToUint8Array(file.content) : getVirtualFileText(file);
       });
       const manifest = {
-        generator:'DEBOOGER2000 DB2K-023', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
+        generator:'DEBOOGER2000 DB2K-027', mode:'webcontainer-project-build', builtAt:new Date().toISOString(),
         entry:built.outputEntry, outputDirectory:built.outputDir, packageManager:d2ProjectPackageManager(files).name,
         cacheKey:key, verified:false, outputFiles:Object.keys(output).sort()
       };
@@ -22914,7 +23008,7 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
         else if (!pkg) add(pkgInfo.path, 'The package manifest exists but is not valid JSON.');
         if (!findReactSourceEntry(files)) add('src/main.tsx, src/main.jsx, src/index.tsx, src/index.jsx, or App.tsx/App.jsx', 'A React entry component is required to start the source preview.');
         if (!compiled) {
-          add('A genuine project build', 'DB2K-023 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
+          add('A genuine project build', 'DB2K-027 automatically runs the declared build when WebContainer prerequisites are available. Otherwise its source preview is clearly limited; run the original build command externally and upload the real output.');
           const wc = getWebContainerSupport();
           if (!wc.supported) add('Full Vite Builder mode', wc.reason || 'Open D2 in a WebContainer-compatible browser session to build the missing dist automatically.');
         }
@@ -23009,6 +23103,13 @@ h1.file{font-size:15px;margin:0 0 12px} pre{white-space:pre-wrap;word-break:brea
 
     function constructReactPreviewShell(message, isError) {
       return constructPreviewProblemShell(isError ? 'React source preview stopped' : 'Best-effort React source preview — not a production build', message, isError);
+    }
+
+    // Startup is not an error. Never run a loading message through error classification.
+    function constructReactLoadingShell() {
+      return `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Opening preview</title>
+<style>html,body{margin:0;min-height:100%;background:#f8fafc;color:#334155;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.loading{display:flex;align-items:center;gap:12px;padding:24px;font-size:14px}.spinner{width:16px;height:16px;border:2px solid #cbd5e1;border-top-color:#059669;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style></head>
+<body><div class="loading" role="status"><span class="spinner" aria-hidden="true"></span>Opening preview…</div></body></html>`;
     }
 
     function readProjectPackageJson(files) {
@@ -23193,7 +23294,7 @@ const parts = normalizeVirtualPath(path).split('/').filter(Boolean);
       const manager = d2ProjectPackageManager(files, pkgInfo);
       const workspaceRoot = !!rootPkg?.workspaces || (manager.name === 'pnpm' && Boolean(files['pnpm-workspace.yaml']));
       const useWorkspaces = !!(workspaceDir && workspaceRoot && pkgInfo.pkg?.name);
-      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-023 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
+      if (manager.name === 'bun') throw new Error('Bun project detected. DB2K-027 does not claim a verified Bun build path; build with Bun externally, then upload its configured static output.');
       let installCommand = 'npm';
       let installArgs = manager.name === 'npm'
         ? (manager.locked ? ['ci', '--ignore-scripts', '--no-audit', '--no-fund'] : ['install', '--ignore-scripts', '--no-audit', '--no-fund'])
@@ -24344,15 +24445,11 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       frame.srcdoc = loadingHtml || constructReactPreviewShell('Resolving React source.');
       try {
         const statusEl = document.getElementById('d2-preview-status');
-        const setStage = (num, text) => {
-          addConsoleLog('info', '[BUILD] [' + num + '/6] ' + text);
-          if (statusEl) { statusEl.hidden = false; statusEl.textContent = '[' + num + '/6] ' + text; }
+        const setStage = (text) => {
+          addConsoleLog('info', '[PREVIEW] ' + text);
+          if (statusEl) { statusEl.hidden = false; statusEl.classList.remove('d2-preview-failed'); statusEl.textContent = text; }
         };
-        setStage(1, 'Project root & React entry point detected');
-        setStage(2, 'Resolving dependency graph, verified runtimes & path aliases');
-        setStage(3, 'Transpiling TypeScript/JSX modules with offline compiler');
-        setStage(4, 'Bundling virtual ES module map and stylesheets');
-        setStage(5, 'Validating compiled output & initializing sandbox');
+        setStage('Preparing React files…');
         const html = await Promise.race([
           buildLiveReactPreviewHtml(STATE.files),
           new Promise((_,reject)=> {prepTimer=setTimeout(()=>reject(new Error('React compilation timed out. Provide compiled dist/build output if this project requires npm.')),60000);})
@@ -24361,12 +24458,13 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
           window.dispatchEvent(new CustomEvent('d2-preview-settled',{detail:{gen,ok:false,message:'Superseded'}}));
           return {cancelled:true};
         }
+        setStage('Starting React preview…');
         frame.srcdoc=attachPreviewInterceptor(html,interceptor);
         const mounted=await waitForMount;
         if(mounted.ok){
           const verified = d2VerifyRuntimeMount(frame);
           STATE.renderingStatus = verified.status;
-          addConsoleLog('info','[BUILD] [6/6] Runtime mount verified: ' + verified.message);
+          addConsoleLog('info','[PREVIEW] Runtime mount verified: ' + verified.message);
           if(statusEl){ statusEl.hidden = true; }
         }
         if(gen!==LIVE_REACT_PREVIEW_GEN)return {cancelled:true};
@@ -24670,15 +24768,15 @@ setTimeout(function(){if(document.documentElement.getAttribute("data-d2-mounted"
       if(e.data.type==='RUNTIME_RENDER_EMPTY'){
         STATE.runtimeReady=false;
         const message=String(e.data.message||'No visible page content.');
-        if(!(STATE.runtimeErrors||[]).some(x=>x.message===message))STATE.runtimeErrors.push({kind:'render',message,file:STATE.entryFile,count:1});
-        addConsoleLog('err','[PREVIEW] '+message);
+        STATE.runtimeEmptyWarning = message;
+        addConsoleLog('info','[PREVIEW] '+message);
         const status=document.getElementById('d2-preview-status');if(status){status.hidden=false;status.classList.add('d2-preview-failed');status.textContent=message;}
         scheduleVerifiedAuditRefresh();return;
       }
       if (e.data.type === 'RUNTIME_READY') {
         const wasReady = STATE.runtimeReady;
-        STATE.runtimeReady = Boolean(e.data.eligible) && !(STATE.runtimeErrors || []).some(issue =>
-          issue.kind === 'render' || issue.phase === 'react-module-bootstrap');
+        STATE.runtimeReady = Boolean(e.data.eligible) && !(STATE.runtimeErrors || []).some(issue => issue.phase === 'react-module-bootstrap');
+        if (STATE.runtimeReady) STATE.runtimeEmptyWarning = '';
         const readyStatus = document.getElementById('d2-preview-status');
         if (STATE.runtimeReady && readyStatus) { readyStatus.hidden = true; readyStatus.classList.remove('d2-preview-failed'); }
         if (STATE.runtimeReady) updateRuntimeConsoleBadge();
@@ -25846,6 +25944,11 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       const gauge = document.getElementById('health-gauge');
       const verdict = document.getElementById('health-verdict');
       const sub = document.getElementById('health-subtext');
+      const scoreFill = document.getElementById('audit-progress-fill');
+      if (scoreFill) {
+        scoreFill.style.width = hasProject && score != null ? Math.max(0, Math.min(100, score)) + '%' : '0%';
+        scoreFill.dataset.tone = hasProject && score != null ? (score < 60 ? 'bad' : score < 85 ? 'warn' : 'good') : 'none';
+      }
       if (gauge) {
         gauge.textContent = hasProject && score != null ? Math.max(0, Math.min(100, Math.round(score))) : '—';
         gauge.setAttribute('aria-label', hasProject && score != null ? 'Project score ' + Math.round(score) + ' out of 100' : 'Project score unavailable until a check completes');
@@ -25873,6 +25976,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         if (sub) sub.textContent = `${brokenCount} broken • ${messy} leftover • ${looks} look`;
       }
       if (hasProject && sub) sub.textContent = `${v.passed || 0} passed · ${v.errors || 0} failed · ${v.notVerified || 0} still need checking · ${v.notApplicable || 0} do not apply`;
+      if (hasProject && STATE.runtimeEmptyWarning && verdict) verdict.textContent = 'Preview has no visible content';
       if (hasProject && verdict && (v.errors || 0) > 0) verdict.textContent = `${v.errors} confirmed failed check${v.errors === 1 ? '' : 's'}`;
     }
 
@@ -26443,6 +26547,10 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         addFinding(testId,'runtime',{ id:`runtime-${findings.length}`, category:'Runtime', severity:'high', title:err.kind === 'promise' ? 'Unhandled Promise rejection observed':'Runtime exception observed', file:err.file || STATE.entryFile || 'preview', desc:'The browser directly observed this error while the isolated project preview was running.', evidence:`${err.message}${err.line ? ` at line ${err.line}${err.col ? ':'+err.col:''}`:''}${Number(err.count||1) > 1 ? ` ×${Number(err.count)}` : ''}`, fix:'Correct the runtime cause, reload the preview, and verify that the exception no longer occurs.' });
       });
 
+      if (STATE.runtimeEmptyWarning) {
+        findings.push({id:'runtime-empty-render',category:'Preview',severity:'medium',title:'This app is showing a blank page',file:STATE.entryFile||'preview',desc:'React loaded, but the app has no visible content. This does not prove a JavaScript error.',evidence:STATE.runtimeEmptyWarning,fix:'Check the rendered App component. If it returns an empty element, add the page content you want to display.'});
+      }
+
       // Score is the pass rate of tests that actually finished. Skipped and unfinished tests do not count.
       // Do not call a test "passed" when that test did not apply to this project.
       const htmlEntries = textEntries.filter(([path]) => /\.html?$/i.test(path));
@@ -26516,7 +26624,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
       renderFileScores();
       renderFindingsList();
       const consoleDetails = document.getElementById('audit-console-details');
-      if (consoleDetails) consoleDetails.open = true;
+      if (consoleDetails && document.querySelector('#b005-console .b005-log-line[data-severity="err"],#b005-console .b005-log-line[data-severity="error"]')) consoleDetails.open = true;
     }
 
     let b006AuditFilter = 'all';
@@ -26545,7 +26653,7 @@ ${issues.length ? issues.map(visualIssueToPrompt).join('\n\n---\n\n') : 'No visu
         <div class="b006-finding-body"><p><strong>What this means:</strong> ${escapeHtml(f.desc || f.title || 'A check found something worth reviewing.')}</p><p><strong>Where:</strong> ${escapeHtml(locationText)}</p><p><strong>What to do:</strong> ${escapeHtml(f.fix || 'Review this finding before changing code.')}</p>
         ${f.evidence ? '<details class="b006-evidence"><summary>Evidence</summary><pre>'+escapeHtml(String(f.evidence))+'</pre></details>' : ''}
         ${f.rootCause ? '<p><strong>Cause:</strong> '+escapeHtml(String(f.rootCause))+'</p>' : ''}</div>`;
-      card.open = true;
+      card.open = false;
       const evidence = card.querySelector('.b006-evidence');
       if (evidence) evidence.open = false;
       return card;
@@ -28843,7 +28951,7 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
         ['AI chat',!!document.getElementById('d2-ai-chat')],
         ['GitHub Publish',!!document.getElementById('b005-pages-modal')],
         ['React entry detection',typeof detectProjectType==='function'],
-        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-023') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
+        ['Version storage isolation',D2_STORAGE_SCOPE.includes('DB2K-027') && WORKSPACE_DB_NAME.startsWith(D2_STORAGE_SCOPE)],
         ['Paste selection wiring',document.querySelectorAll('#modal-paste-code [data-paste-format]').length===5]
       ];
       try {
@@ -28934,8 +29042,8 @@ function b005ClearConsole(){STATE.consoleLogs=[];b005RenderConsole();}
 
 /* D2 engine load marker */
 window.D2_ENGINE_READY = true;
-window.D2_ENGINE_VERSION = 'DB2K-023';
-try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-023' } })); } catch (_) {}
+window.D2_ENGINE_VERSION = 'DB2K-027';
+try { window.dispatchEvent(new CustomEvent('d2-engine-ready', { detail: { version: 'DB2K-027' } })); } catch (_) {}
 
 </script>
 <dialog id="d2-ai-chat" aria-label="AI Chat and provider setup">
@@ -29678,7 +29786,7 @@ load();
       const cleanupRow=b012El('db2k-clean-row');if(cleanupRow)cleanupRow.hidden=mode!=='viewer';
       const renameArea=b012El('b030-publish-rename');
       if(renameArea)renameArea.hidden=mode!=='archive'||!B030_UPLOAD_NAMES.length;
-      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-023 application as root index.html. Public URL follows the selected repository.';
+      if (mode === 'viewer') return 'Publishes the complete DEBOOGER DB2K-027 application as root index.html. Public URL follows the selected repository.';
       if (mode === 'archive') {
         const selection = [...(b012El('b026-publish-files')?.files || [])];
         const changes=[...B030_UPLOAD_RENAMES].filter(([id,target])=>B030_UPLOAD_NAMES.some(n=>n.id===id && n.name!==target));
@@ -29697,7 +29805,7 @@ load();
         // The entire self-contained Debooger application IS the index file.
         // Publish the pristine startup template, never the mutable runtime DOM.
         const html = D2_PUBLISH_SOURCE_HTML;
-        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-023')) throw new Error('Could not prepare DEBOOGER DB2K-023 for upload.');
+        if (!html || !html.includes('DEBOOGER2000') || !html.includes('DB2K-027')) throw new Error('Could not prepare DEBOOGER DB2K-027 for upload.');
         if (/(?:github_pat_|ghp_)[A-Za-z0-9_]{24,}/.test(html)) throw new Error('Possible embedded GitHub token found; publishing was blocked.');
         return { entries:[{path:'index.html',content:b005ToBase64(html)}], omitted:0, rewritten:false };
       }
@@ -29872,7 +29980,7 @@ load();
       await Promise.all(Array.from({ length:files.some(file=>file.getContent)?1:Math.min(5, files.length) }, worker));
       const tree = await b012GithubApi(root + '/git/trees', { method:'POST', body:{ base_tree:commit.tree.sha, tree:[...blobs,...deletions] } });
       if (!tree?.sha) throw new Error('GitHub did not confirm the new file tree.');
-      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-023', tree:tree.sha, parents:[ref.object.sha] } });
+      const created = await b012GithubApi(root + '/git/commits', { method:'POST', body:{ message:'Publish website from DEBOOGER2000 DB2K-027', tree:tree.sha, parents:[ref.object.sha] } });
       if (!created?.sha) throw new Error('GitHub did not confirm the commit.');
       await b012GithubApi(root + '/git/refs/heads/main', {method:'PATCH', body:{sha:created.sha,force:false} });
       const verified = await b012GithubApi(root + '/git/ref/heads/main');
